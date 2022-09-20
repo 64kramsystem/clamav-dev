@@ -1,0 +1,15 @@
+[workspace]
+
+[package]
+name = "message"
+authors = ["none"]
+version = "0.0.1"
+
+[lib]
+name = "message"
+path = "src/c2rust-lib.rs"
+crate-type = ["staticlib"]
+
+[dependencies]
+c2rust-bitfields = "0.3"
+libc = "0.2"
