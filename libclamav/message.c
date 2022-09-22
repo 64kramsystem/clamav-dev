@@ -55,6 +55,8 @@
 #include "clamav.h"
 #include "json_api.h"
 
+#include "clamav_rust.h"
+
 #ifndef isblank
 #define isblank(c) (((c) == ' ') || ((c) == '\t'))
 #endif
@@ -144,6 +146,8 @@ messageCreate(void)
 
     if (m)
         m->mimeType = NOMIME;
+
+    ohyeah();
 
     return m;
 }

@@ -27,4 +27,5 @@ pub mod cdiff;
 pub mod ffi_util;
 pub mod fuzzy_hash;
 pub mod logging;
+pub mod saverio;
 pub mod util;
