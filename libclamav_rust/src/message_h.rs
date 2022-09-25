@@ -1,6 +1,8 @@
 use c2rust_bitfields;
 use libc;
 
+use crate::sys::{cl_error_t, image_fuzzy_hash_t};
+
 extern "C" {
     pub type _IO_wide_data;
     pub type _IO_codecvt;
@@ -126,7 +128,6 @@ pub type uint8_t = __uint8_t;
 pub type uint16_t = __uint16_t;
 pub type uint32_t = __uint32_t;
 pub type uint64_t = __uint64_t;
-pub type cl_error_t = libc::c_uint;
 pub const CL_EFORMAT: cl_error_t = 26;
 pub const CL_SUCCESS: cl_error_t = 0;
 #[derive(Copy, Clone)]
@@ -228,10 +229,8 @@ pub type clcb_stats_get_hostid =
     Option<unsafe extern "C" fn(*mut libc::c_void) -> *mut libc::c_char>;
 pub type clcb_stats_get_size = Option<unsafe extern "C" fn(*mut libc::c_void) -> size_t>;
 pub type clcb_stats_get_num = Option<unsafe extern "C" fn(*mut libc::c_void) -> size_t>;
-pub type clcb_stats_flush =
-    Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
-pub type clcb_stats_submit =
-    Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
+pub type clcb_stats_flush = Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
+pub type clcb_stats_submit = Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
 pub type clcb_stats_decrement_count = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
@@ -907,32 +906,57 @@ pub struct recursion_level_tag {
     pub image_fuzzy_hash: image_fuzzy_hash_t,
     pub calculated_image_fuzzy_hash: bool,
 }
-pub type image_fuzzy_hash_t = image_fuzzy_hash;
-#[derive(Copy, Clone)]
-#[repr(C)]
-pub struct image_fuzzy_hash {
-    pub hash: [uint8_t; 8],
-}
+
 pub type cli_ctx = cli_ctx_tag;
-pub type mime_type = libc::c_uint;
-pub const MEXTENSION: mime_type = 8;
-pub const VIDEO: mime_type = 7;
-pub const TEXT: mime_type = 6;
-pub const MULTIPART: mime_type = 5;
-pub const MESSAGE: mime_type = 4;
-pub const IMAGE: mime_type = 3;
-pub const AUDIO: mime_type = 2;
-pub const APPLICATION: mime_type = 1;
-pub const NOMIME: mime_type = 0;
-pub type encoding_type = libc::c_uint;
-pub const BINHEX: encoding_type = 8;
-pub const YENCODE: encoding_type = 6;
-pub const UUENCODE: encoding_type = 5;
-pub const BINARY: encoding_type = 4;
-pub const EIGHTBIT: encoding_type = 3;
-pub const BASE64: encoding_type = 2;
-pub const QUOTEDPRINTABLE: encoding_type = 1;
-pub const NOENCODING: encoding_type = 0;
+
+pub type mime_type_C = libc::c_uint;
+pub(crate) const MEXTENSION: mime_type_C = 8;
+pub(crate) const VIDEO: mime_type_C = 7;
+pub(crate) const TEXT: mime_type_C = 6;
+pub(crate) const MULTIPART: mime_type_C = 5;
+pub(crate) const MESSAGE: mime_type_C = 4;
+pub(crate) const IMAGE: mime_type_C = 3;
+pub(crate) const AUDIO: mime_type_C = 2;
+pub(crate) const APPLICATION: mime_type_C = 1;
+pub(crate) const NOMIME: mime_type_C = 0;
+
+#[derive(Clone, Copy)]
+#[repr(u32)]
+pub enum mime_type_R {
+    MEXTENSION = 8,
+    VIDEO = 7,
+    TEXT = 6,
+    MULTIPART = 5,
+    MESSAGE = 4,
+    IMAGE = 3,
+    AUDIO = 2,
+    APPLICATION = 1,
+    NOMIME = 0,
+}
+
+pub type encoding_type_C = libc::c_uint;
+pub(crate) const BINHEX: encoding_type_C = 8;
+pub(crate) const YENCODE: encoding_type_C = 6;
+pub(crate) const UUENCODE: encoding_type_C = 5;
+pub(crate) const BINARY: encoding_type_C = 4;
+pub(crate) const EIGHTBIT: encoding_type_C = 3;
+pub(crate) const BASE64: encoding_type_C = 2;
+pub(crate) const QUOTEDPRINTABLE: encoding_type_C = 1;
+pub(crate) const NOENCODING: encoding_type_C = 0;
+
+#[derive(Clone, Copy)]
+#[repr(u32)]
+pub enum encoding_type_R {
+    BINHEX = 8,
+    YENCODE = 6,
+    UUENCODE = 5,
+    BINARY = 4,
+    EIGHTBIT = 3,
+    BASE64 = 2,
+    QUOTEDPRINTABLE = 1,
+    NOENCODING = 0,
+}
+
 #[derive(Copy, Clone)]
 #[repr(C)]
 pub struct tableEntry {
@@ -983,8 +1007,8 @@ pub struct message_C;
 #[derive(Copy, Clone, BitfieldStruct)]
 #[repr(C)]
 pub struct message {
-    pub encodingTypes: *mut encoding_type,
-    pub mimeType: mime_type,
+    pub encodingTypes: *mut encoding_type_R,
+    pub mimeType: mime_type_R,
     pub numberOfEncTypes: libc::c_int,
     pub mimeSubtype: *mut libc::c_char,
     pub mimeArguments: *mut *mut libc::c_char,
@@ -1013,7 +1037,7 @@ pub struct message {
 #[repr(C)]
 pub struct mime_map {
     pub string: *const libc::c_char,
-    pub type_0: mime_type,
+    pub type_0: mime_type_R,
 }
 pub type LINK1 = *mut ELEMENT1;
 pub type ELEMENT1 = pstr_list;
@@ -1031,5 +1055,5 @@ pub const LANGUAGE: C2RustUnnamed_5 = 0;
 #[repr(C)]
 pub struct encoding_map {
     pub string: *const libc::c_char,
-    pub type_0: encoding_type,
+    pub type_0: encoding_type_R,
 }
