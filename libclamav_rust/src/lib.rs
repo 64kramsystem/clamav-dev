@@ -20,6 +20,19 @@
  *  MA 02110-1301, USA.
  */
 
+#![allow(non_camel_case_types)]
+#![allow(non_snake_case)]
+#![allow(non_upper_case_globals)]
+#![allow(unused_assignments)]
+#![allow(clippy::all)]
+#![feature(extern_types)]
+#![feature(linkage)]
+#![allow(dead_code)]
+
+#[macro_use]
+extern crate c2rust_bitfields;
+extern crate libc;
+
 /// cbindgen:ignore
 pub mod sys;
 
@@ -27,4 +40,7 @@ pub mod cdiff;
 pub mod ffi_util;
 pub mod fuzzy_hash;
 pub mod logging;
+mod message_h;
+mod message_r;
+pub mod message_w;
 pub mod util;
