@@ -60,7 +60,6 @@ message *messageCreate(void);
 void messageDestroy(message *m);
 void messageReset(message *m);
 int messageSetMimeType(message *m, const char *type);
-mime_type messageGetMimeType(const message *m);
 void messageSetMimeSubtype(message *m, const char *subtype);
 const char *messageGetMimeSubtype(const message *m);
 void messageSetDispositionType(message *m, const char *disptype);

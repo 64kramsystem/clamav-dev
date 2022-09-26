@@ -1,5 +1,7 @@
 // use libc;
-//
+
+use crate::message_h::*;
+
 // extern "C" {
 //     fn free(_: *mut libc::c_void);
 //     fn memcpy(_: *mut libc::c_void, _: *const libc::c_void, _: libc::c_ulong) -> *mut libc::c_void;
@@ -700,17 +702,11 @@
 //     }
 //     return 0 as libc::c_int;
 // }
-// #[no_mangle]
-// pub unsafe extern "C" fn messageGetMimeType(m: *const message) -> mime_type {
-//     if m.is_null() {
-//         cli_errmsg(
-//             b"Internal email parser error: message is pointer is NULL when trying to get MIME type\n\0"
-//                 as *const u8 as *const libc::c_char,
-//         );
-//         return NOMIME;
-//     }
-//     return (*m).mimeType;
-// }
+
+pub fn messageGetMimeType(m: &message) -> mime_type_R {
+    m.mimeType
+}
+
 // #[no_mangle]
 // pub unsafe extern "C" fn messageSetMimeSubtype(m: *mut message, mut subtype: *const libc::c_char) {
 //     if m.is_null() {

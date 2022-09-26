@@ -313,17 +313,17 @@ int messageSetMimeType(message *mess, const char *type)
     return 0;
 }
 
-mime_type
-messageGetMimeType(const message *m)
-{
-    if (m == NULL) {
-        cli_errmsg("Internal email parser error: message is pointer is NULL when trying to get MIME type\n");
-        return NOMIME;
-    }
-
-    return m->mimeType;
-}
-
+// mime_type
+// messageGetMimeType(const message *m)
+// {
+//     if (m == NULL) {
+//         cli_errmsg("Internal email parser error: message is pointer is NULL when trying to get MIME type\n");
+//         return NOMIME;
+//     }
+//
+//     return m->mimeType;
+// }
+//
 void messageSetMimeSubtype(message *m, const char *subtype)
 {
     if (m == NULL) {
