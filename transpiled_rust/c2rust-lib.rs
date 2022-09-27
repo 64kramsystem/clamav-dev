@@ -13,7 +13,5 @@
 #[macro_use]
 extern crate c2rust_bitfields;
 extern crate libc;
-#[path = "../libclamav/mbox.rs"]
 pub mod mbox;
-#[path = "../libclamav/message.rs"]
 pub mod message;
