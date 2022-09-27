@@ -1342,91 +1342,91 @@ pub unsafe extern "C" fn tolower(mut __c: libc::c_int) -> libc::c_int {
 }
 static mut encoding_map: [encoding_map; 13] = [
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"7bit\0" as *const u8 as *const libc::c_char,
             type_0: NOENCODING,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"text/plain\0" as *const u8 as *const libc::c_char,
             type_0: NOENCODING,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"quoted-printable\0" as *const u8 as *const libc::c_char,
             type_0: QUOTEDPRINTABLE,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"base64\0" as *const u8 as *const libc::c_char,
             type_0: BASE64,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"8bit\0" as *const u8 as *const libc::c_char,
             type_0: EIGHTBIT,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"binary\0" as *const u8 as *const libc::c_char,
             type_0: BINARY,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"x-uuencode\0" as *const u8 as *const libc::c_char,
             type_0: UUENCODE,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"x-yencode\0" as *const u8 as *const libc::c_char,
             type_0: YENCODE,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"x-binhex\0" as *const u8 as *const libc::c_char,
             type_0: BINHEX,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"us-ascii\0" as *const u8 as *const libc::c_char,
             type_0: NOENCODING,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"x-uue\0" as *const u8 as *const libc::c_char,
             type_0: UUENCODE,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: b"uuencode\0" as *const u8 as *const libc::c_char,
             type_0: UUENCODE,
         };
         init
     },
     {
-        let mut init = encoding_map {
+        let init = encoding_map {
             string: 0 as *const libc::c_char,
             type_0: NOENCODING,
         };
@@ -1435,56 +1435,56 @@ static mut encoding_map: [encoding_map; 13] = [
 ];
 static mut mime_map: [mime_map; 8] = [
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"text\0" as *const u8 as *const libc::c_char,
             type_0: TEXT,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"multipart\0" as *const u8 as *const libc::c_char,
             type_0: MULTIPART,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"application\0" as *const u8 as *const libc::c_char,
             type_0: APPLICATION,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"audio\0" as *const u8 as *const libc::c_char,
             type_0: AUDIO,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"image\0" as *const u8 as *const libc::c_char,
             type_0: IMAGE,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"message\0" as *const u8 as *const libc::c_char,
             type_0: MESSAGE,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: b"video\0" as *const u8 as *const libc::c_char,
             type_0: VIDEO,
         };
         init
     },
     {
-        let mut init = mime_map {
+        let init = mime_map {
             string: 0 as *const libc::c_char,
             type_0: TEXT,
         };
@@ -1761,7 +1761,7 @@ pub unsafe extern "C" fn messageCreate() -> *mut message {
     return m;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageDestroy(mut m: *mut message) {
+pub unsafe extern "C" fn messageDestroy(m: *mut message) {
     if m.is_null() {
         return;
     }
@@ -1823,7 +1823,7 @@ pub unsafe extern "C" fn messageSetMimeType(
 ) -> libc::c_int {
     static mut mime_mutex: pthread_mutex_t = pthread_mutex_t {
         __data: {
-            let mut init = __pthread_mutex_s {
+            let init = __pthread_mutex_s {
                 __lock: 0 as libc::c_int,
                 __count: 0 as libc::c_int as libc::c_uint,
                 __owner: 0 as libc::c_int,
@@ -1832,7 +1832,7 @@ pub unsafe extern "C" fn messageSetMimeType(
                 __spins: 0 as libc::c_int as libc::c_short,
                 __elision: 0 as libc::c_int as libc::c_short,
                 __list: {
-                    let mut init = __pthread_internal_list {
+                    let init = __pthread_internal_list {
                         __prev: 0 as *const __pthread_internal_list
                             as *mut __pthread_internal_list,
                         __next: 0 as *const __pthread_internal_list
@@ -1951,7 +1951,7 @@ pub unsafe extern "C" fn messageSetMimeType(
     return 0 as libc::c_int;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageGetMimeType(mut m: *const message) -> mime_type {
+pub unsafe extern "C" fn messageGetMimeType(m: *const message) -> mime_type {
     if m.is_null() {
         cli_errmsg(
             b"Internal email parser error: message is pointer is NULL when trying to get MIME type\n\0"
@@ -1963,7 +1963,7 @@ pub unsafe extern "C" fn messageGetMimeType(mut m: *const message) -> mime_type 
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageSetMimeSubtype(
-    mut m: *mut message,
+    m: *mut message,
     mut subtype: *const libc::c_char,
 ) {
     if m.is_null() {
@@ -1985,7 +1985,7 @@ pub unsafe extern "C" fn messageSetMimeSubtype(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageGetMimeSubtype(
-    mut m: *const message,
+    m: *const message,
 ) -> *const libc::c_char {
     return if !((*m).mimeSubtype).is_null() {
         (*m).mimeSubtype as *const libc::c_char
@@ -1995,7 +1995,7 @@ pub unsafe extern "C" fn messageGetMimeSubtype(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageSetDispositionType(
-    mut m: *mut message,
+    m: *mut message,
     mut disptype: *const libc::c_char,
 ) {
     if m.is_null() {
@@ -2032,7 +2032,7 @@ pub unsafe extern "C" fn messageSetDispositionType(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageGetDispositionType(
-    mut m: *const message,
+    m: *const message,
 ) -> *const libc::c_char {
     return if !((*m).mimeDispositionType).is_null() {
         (*m).mimeDispositionType as *const libc::c_char
@@ -2042,7 +2042,7 @@ pub unsafe extern "C" fn messageGetDispositionType(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageAddArgument(
-    mut m: *mut message,
+    m: *mut message,
     mut arg: *const libc::c_char,
 ) {
     let mut offset: size_t = 0;
@@ -2169,8 +2169,8 @@ pub unsafe extern "C" fn messageAddArgument(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageAddArguments(
-    mut m: *mut message,
-    mut s: *const libc::c_char,
+    m: *mut message,
+    s: *const libc::c_char,
 ) {
     let mut string: *const libc::c_char = s;
     cli_dbgmsg(b"Add arguments '%s'\n\0" as *const u8 as *const libc::c_char, string);
@@ -2330,8 +2330,8 @@ pub unsafe extern "C" fn messageAddArguments(
     }
 }
 unsafe extern "C" fn messageGetArgument(
-    mut m: *const message,
-    mut arg: size_t,
+    m: *const message,
+    arg: size_t,
 ) -> *const libc::c_char {
     if m.is_null() {
         cli_errmsg(
@@ -2351,8 +2351,8 @@ unsafe extern "C" fn messageGetArgument(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageFindArgument(
-    mut m: *const message,
-    mut variable: *const libc::c_char,
+    m: *const message,
+    variable: *const libc::c_char,
 ) -> *mut libc::c_char {
     let mut i: size_t = 0;
     let mut len: size_t = 0;
@@ -2393,7 +2393,7 @@ pub unsafe extern "C" fn messageFindArgument(
                         .is_null()
                 {
                     ptr = ptr.offset(1);
-                    let mut ret: *mut libc::c_char = cli_strdup(ptr);
+                    let ret: *mut libc::c_char = cli_strdup(ptr);
                     let mut p: *mut libc::c_char = 0 as *mut libc::c_char;
                     if ret.is_null() {
                         return 0 as *mut libc::c_char;
@@ -2417,8 +2417,8 @@ pub unsafe extern "C" fn messageFindArgument(
     return 0 as *mut libc::c_char;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageGetFilename(mut m: *const message) -> *mut libc::c_char {
-    let mut filename: *mut libc::c_char = messageFindArgument(
+pub unsafe extern "C" fn messageGetFilename(m: *const message) -> *mut libc::c_char {
+    let filename: *mut libc::c_char = messageFindArgument(
         m,
         b"filename\0" as *const u8 as *const libc::c_char,
     );
@@ -2428,8 +2428,8 @@ pub unsafe extern "C" fn messageGetFilename(mut m: *const message) -> *mut libc:
     return messageFindArgument(m, b"name\0" as *const u8 as *const libc::c_char);
 }
 unsafe extern "C" fn messageHasArgument(
-    mut m: *const message,
-    mut variable: *const libc::c_char,
+    m: *const message,
+    variable: *const libc::c_char,
 ) -> libc::c_int {
     let mut i: size_t = 0;
     let mut len: size_t = 0;
@@ -2471,14 +2471,14 @@ unsafe extern "C" fn messageHasArgument(
     return 0 as libc::c_int;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageHasFilename(mut m: *const message) -> libc::c_int {
+pub unsafe extern "C" fn messageHasFilename(m: *const message) -> libc::c_int {
     return (messageHasArgument(m, b"filename\0" as *const u8 as *const libc::c_char) != 0
         || messageHasArgument(m, b"file\0" as *const u8 as *const libc::c_char) != 0)
         as libc::c_int;
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageSetEncoding(
-    mut m: *mut message,
+    m: *mut message,
     mut enctype: *const libc::c_char,
 ) {
     let mut e: *const encoding_map = 0 as *const encoding_map;
@@ -2564,13 +2564,13 @@ pub unsafe extern "C" fn messageSetEncoding(
                         if 0 != 0 {
                             let mut __c: libc::c_int = *((*e).string)
                                 .offset(0 as libc::c_int as isize) as libc::c_int;
-                            __res = (if __c < -(128 as libc::c_int)
+                            __res = if __c < -(128 as libc::c_int)
                                 || __c > 255 as libc::c_int
                             {
                                 __c
                             } else {
                                 *(*__ctype_tolower_loc()).offset(__c as isize)
-                            });
+                            };
                         } else {
                             __res = tolower(
                                 *((*e).string).offset(0 as libc::c_int as isize)
@@ -2673,7 +2673,7 @@ pub unsafe extern "C" fn messageSetEncoding(
     };
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageGetEncoding(mut m: *const message) -> encoding_type {
+pub unsafe extern "C" fn messageGetEncoding(m: *const message) -> encoding_type {
     if m.is_null() {
         cli_errmsg(
             b"Internal email parser error: invalid arguments when checking message encoding type\n\0"
@@ -2688,8 +2688,8 @@ pub unsafe extern "C" fn messageGetEncoding(mut m: *const message) -> encoding_t
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageAddLine(
-    mut m: *mut message,
-    mut line: *mut line_t,
+    m: *mut message,
+    line: *mut line_t,
 ) -> libc::c_int {
     if m.is_null() {
         cli_errmsg(
@@ -2732,7 +2732,7 @@ pub unsafe extern "C" fn messageAddLine(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageAddStr(
-    mut m: *mut message,
+    m: *mut message,
     mut data: *const libc::c_char,
 ) -> libc::c_int {
     let mut repeat: *mut line_t = 0 as *mut line_t;
@@ -2846,9 +2846,9 @@ pub unsafe extern "C" fn messageAddStr(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageMoveText(
-    mut m: *mut message,
-    mut t: *mut text,
-    mut old_message: *mut message,
+    m: *mut message,
+    t: *mut text,
+    old_message: *mut message,
 ) -> libc::c_int {
     let mut rc: libc::c_int = 0;
     if ((*m).body_first).is_null() {
@@ -2920,7 +2920,7 @@ pub unsafe extern "C" fn messageMoveText(
     }
     return rc;
 }
-unsafe extern "C" fn messageIsEncoding(mut m: *mut message) {
+unsafe extern "C" fn messageIsEncoding(m: *mut message) {
     static mut encoding: [libc::c_char; 26] = unsafe {
         *::std::mem::transmute::<
             &[u8; 26],
@@ -2933,7 +2933,7 @@ unsafe extern "C" fn messageIsEncoding(mut m: *mut message) {
             &[libc::c_char; 46],
         >(b"(This file must be converted with BinHex 4.0)\0")
     };
-    let mut line: *const libc::c_char = lineGetData((*(*m).body_last).t_line);
+    let line: *const libc::c_char = lineGetData((*(*m).body_last).t_line);
     if ((*m).encoding).is_null()
         && strncasecmp(
             line,
@@ -2977,40 +2977,40 @@ unsafe extern "C" fn messageIsEncoding(mut m: *mut message) {
     }
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageGetBody(mut m: *mut message) -> *mut text {
+pub unsafe extern "C" fn messageGetBody(m: *mut message) -> *mut text {
     if m.is_null() {
         return 0 as *mut text;
     }
     return (*m).body_first;
 }
 unsafe extern "C" fn messageExport(
-    mut m: *mut message,
-    mut dir: *const libc::c_char,
-    mut create: Option::<unsafe extern "C" fn() -> *mut libc::c_void>,
-    mut destroy: Option::<unsafe extern "C" fn(*mut libc::c_void) -> ()>,
-    mut setFilename: Option::<
+    m: *mut message,
+    dir: *const libc::c_char,
+    create: Option::<unsafe extern "C" fn() -> *mut libc::c_void>,
+    destroy: Option::<unsafe extern "C" fn(*mut libc::c_void) -> ()>,
+    setFilename: Option::<
         unsafe extern "C" fn(
             *mut libc::c_void,
             *const libc::c_char,
             *const libc::c_char,
         ) -> (),
     >,
-    mut addData: Option::<
+    addData: Option::<
         unsafe extern "C" fn(
             *mut libc::c_void,
             *const libc::c_uchar,
             size_t,
         ) -> libc::c_int,
     >,
-    mut exportText: Option::<
+    exportText: Option::<
         unsafe extern "C" fn(
             *mut text,
             *mut libc::c_void,
             libc::c_int,
         ) -> *mut libc::c_void,
     >,
-    mut setCTX: Option::<unsafe extern "C" fn(*mut libc::c_void, *mut cli_ctx) -> ()>,
-    mut destroy_text: libc::c_int,
+    setCTX: Option::<unsafe extern "C" fn(*mut libc::c_void, *mut cli_ctx) -> ()>,
+    destroy_text: libc::c_int,
 ) -> *mut libc::c_void {
     let mut ret: *mut libc::c_void = 0 as *mut libc::c_void;
     let mut t_line: *mut text = 0 as *mut text;
@@ -3213,7 +3213,7 @@ unsafe extern "C" fn messageExport(
                 let mut smallbuf: [libc::c_uchar; 1024] = [0; 1024];
                 let mut uptr: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
                 let mut data: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
-                let mut line: *const libc::c_char = lineGetData((*t_line).t_line);
+                let line: *const libc::c_char = lineGetData((*t_line).t_line);
                 let mut bigbuf: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
                 let mut datasize: size_t = 0;
                 if enctype as libc::c_uint == YENCODE as libc::c_int as libc::c_uint {
@@ -3330,14 +3330,14 @@ unsafe extern "C" fn messageExport(
 #[no_mangle]
 pub unsafe extern "C" fn base64Flush(
     mut m: *mut message,
-    mut buf: *mut libc::c_uchar,
+    buf: *mut libc::c_uchar,
 ) -> *mut libc::c_uchar {
     cli_dbgmsg(
         b"%d trailing bytes to export\n\0" as *const u8 as *const libc::c_char,
         (*m).base64chars,
     );
     if (*m).base64chars != 0 {
-        let mut ret: *mut libc::c_uchar = decode(
+        let ret: *mut libc::c_uchar = decode(
             m,
             0 as *const libc::c_char,
             buf,
@@ -3351,10 +3351,10 @@ pub unsafe extern "C" fn base64Flush(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageSavePartial(
-    mut m: *mut message,
-    mut dir: *const libc::c_char,
-    mut md5id: *const libc::c_char,
-    mut part: libc::c_uint,
+    m: *mut message,
+    dir: *const libc::c_char,
+    md5id: *const libc::c_char,
+    part: libc::c_uint,
 ) -> libc::c_int {
     let mut fullname: [libc::c_char; 1024] = [0; 1024];
     let mut fb: *mut fileblob = 0 as *mut fileblob;
@@ -3474,9 +3474,9 @@ pub unsafe extern "C" fn messageSavePartial(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageToFileblob(
-    mut m: *mut message,
-    mut dir: *const libc::c_char,
-    mut destroy: libc::c_int,
+    m: *mut message,
+    dir: *const libc::c_char,
+    destroy: libc::c_int,
 ) -> *mut fileblob {
     let mut fb: *mut fileblob = 0 as *mut fileblob;
     cli_dbgmsg(b"messageToFileblob\n\0" as *const u8 as *const libc::c_char);
@@ -3587,8 +3587,8 @@ pub unsafe extern "C" fn messageToFileblob(
 }
 #[no_mangle]
 pub unsafe extern "C" fn messageToBlob(
-    mut m: *mut message,
-    mut destroy: libc::c_int,
+    m: *mut message,
+    destroy: libc::c_int,
 ) -> *mut blob {
     let mut b: *mut blob = 0 as *mut blob;
     cli_dbgmsg(b"messageToBlob\n\0" as *const u8 as *const libc::c_char);
@@ -3824,7 +3824,7 @@ pub unsafe extern "C" fn messageToText(mut m: *mut message) -> *mut text {
                 while !t_line.is_null() {
                     let mut data: [libc::c_uchar; 1024] = [0; 1024];
                     let mut uptr: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
-                    let mut line: *const libc::c_char = lineGetData((*t_line).t_line);
+                    let line: *const libc::c_char = lineGetData((*t_line).t_line);
                     if enctype as libc::c_uint == BASE64 as libc::c_int as libc::c_uint {
                         if line.is_null() {
                             current_block_79 = 6243635450180130569;
@@ -3973,25 +3973,25 @@ pub unsafe extern "C" fn messageToText(mut m: *mut message) -> *mut text {
     return first;
 }
 #[no_mangle]
-pub unsafe extern "C" fn yEncBegin(mut m: *mut message) -> *mut text {
+pub unsafe extern "C" fn yEncBegin(m: *mut message) -> *mut text {
     return (*m).yenc;
 }
 #[no_mangle]
-pub unsafe extern "C" fn binhexBegin(mut m: *mut message) -> *mut text {
+pub unsafe extern "C" fn binhexBegin(m: *mut message) -> *mut text {
     return (*m).binhex;
 }
 #[no_mangle]
-pub unsafe extern "C" fn bounceBegin(mut m: *mut message) -> *mut text {
+pub unsafe extern "C" fn bounceBegin(m: *mut message) -> *mut text {
     return (*m).bounce;
 }
 #[no_mangle]
-pub unsafe extern "C" fn encodingLine(mut m: *mut message) -> *mut text {
+pub unsafe extern "C" fn encodingLine(m: *mut message) -> *mut text {
     return (*m).encoding;
 }
 #[no_mangle]
 pub unsafe extern "C" fn decodeLine(
     mut m: *mut message,
-    mut et: encoding_type,
+    et: encoding_type,
     mut line: *const libc::c_char,
     mut buf: *mut libc::c_uchar,
     mut buflen: size_t,
@@ -4008,7 +4008,7 @@ pub unsafe extern "C" fn decodeLine(
         );
         return 0 as *mut libc::c_uchar;
     }
-    let mut current_block_45: u64;
+    let current_block_45: u64;
     match et as libc::c_uint {
         1 => {
             if line.is_null() {
@@ -4220,7 +4220,7 @@ unsafe extern "C" fn decode(
     mut m: *mut message,
     mut in_0: *const libc::c_char,
     mut out: *mut libc::c_uchar,
-    mut decoder: Option::<unsafe extern "C" fn(libc::c_char) -> libc::c_uchar>,
+    decoder: Option::<unsafe extern "C" fn(libc::c_char) -> libc::c_uchar>,
     mut isFast: bool,
 ) -> *mut libc::c_uchar {
     let mut b1: libc::c_uchar = 0;
@@ -4352,7 +4352,7 @@ unsafe extern "C" fn decode(
                 nbytes = 2 as libc::c_int;
             }
         }
-        let mut current_block_47: u64;
+        let current_block_47: u64;
         match nbytes {
             3 => {
                 b4 = '\0' as i32 as libc::c_uchar;
@@ -4414,7 +4414,7 @@ unsafe extern "C" fn decode(
             _ => {}
         }
     } else {
-        let mut current_block_90: u64;
+        let current_block_90: u64;
         while *in_0 != 0 {
             let mut nbytes_0: libc::c_int = 0;
             if (*m).base64chars != 0 {
@@ -4517,7 +4517,7 @@ unsafe extern "C" fn decode(
     }
     return out;
 }
-unsafe extern "C" fn hex(mut c: libc::c_char) -> libc::c_uchar {
+unsafe extern "C" fn hex(c: libc::c_char) -> libc::c_uchar {
     if *(*__ctype_b_loc()).offset(c as libc::c_int as isize) as libc::c_int
         & _ISdigit as libc::c_int as libc::c_ushort as libc::c_int != 0
     {
@@ -4535,7 +4535,7 @@ unsafe extern "C" fn hex(mut c: libc::c_char) -> libc::c_uchar {
     );
     return '=' as i32 as libc::c_uchar;
 }
-unsafe extern "C" fn base64(mut c: libc::c_char) -> libc::c_uchar {
+unsafe extern "C" fn base64(c: libc::c_char) -> libc::c_uchar {
     let ret: libc::c_uchar = base64Table[(c as libc::c_int & 0xff as libc::c_int)
         as libc::c_uint as usize];
     if ret as libc::c_int == 255 as libc::c_int {
@@ -4543,10 +4543,10 @@ unsafe extern "C" fn base64(mut c: libc::c_char) -> libc::c_uchar {
     }
     return ret;
 }
-unsafe extern "C" fn uudecode(mut c: libc::c_char) -> libc::c_uchar {
+unsafe extern "C" fn uudecode(c: libc::c_char) -> libc::c_uchar {
     return (c as libc::c_int - ' ' as i32) as libc::c_uchar;
 }
-unsafe extern "C" fn usefulArg(mut arg: *const libc::c_char) -> libc::c_int {
+unsafe extern "C" fn usefulArg(arg: *const libc::c_char) -> libc::c_int {
     if strncasecmp(
         arg,
         b"name\0" as *const u8 as *const libc::c_char,
@@ -4597,19 +4597,19 @@ unsafe extern "C" fn usefulArg(mut arg: *const libc::c_char) -> libc::c_int {
     return 1 as libc::c_int;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageSetCTX(mut m: *mut message, mut ctx: *mut cli_ctx) {
+pub unsafe extern "C" fn messageSetCTX(m: *mut message, ctx: *mut cli_ctx) {
     let ref mut fresh105 = (*m).ctx;
     *fresh105 = ctx;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageContainsVirus(mut m: *const message) -> libc::c_int {
+pub unsafe extern "C" fn messageContainsVirus(m: *const message) -> libc::c_int {
     return if (*m).isInfected() as libc::c_int != 0 {
         1 as libc::c_int
     } else {
         0 as libc::c_int
     };
 }
-unsafe extern "C" fn messageDedup(mut m: *mut message) {
+unsafe extern "C" fn messageDedup(m: *mut message) {
     let mut t1: *const text = 0 as *const text;
     let mut saved: size_t = 0 as libc::c_int as size_t;
     cli_dbgmsg(b"messageDedup\n\0" as *const u8 as *const libc::c_char);
@@ -4641,7 +4641,7 @@ unsafe extern "C" fn messageDedup(mut m: *mut message) {
                                     t2 = (*t1).t_next;
                                     while !t2.is_null() {
                                         let mut d2: *const libc::c_char = 0 as *const libc::c_char;
-                                        let mut l2: *mut line_t = (*t2).t_line;
+                                        let l2: *mut line_t = (*t2).t_line;
                                         if !l2.is_null() {
                                             d2 = lineGetData(l2);
                                             if !(d1 == d2) {
@@ -4857,8 +4857,8 @@ unsafe extern "C" fn rfc2231(mut in_0: *const libc::c_char) -> *mut libc::c_char
     return ret;
 }
 unsafe extern "C" fn simil(
-    mut str1: *const libc::c_char,
-    mut str2: *const libc::c_char,
+    str1: *const libc::c_char,
+    str2: *const libc::c_char,
 ) -> libc::c_int {
     let mut top: LINK1 = 0 as LINK1;
     let mut score: libc::c_uint = 0 as libc::c_int as libc::c_uint;
@@ -4951,10 +4951,10 @@ unsafe extern "C" fn simil(
     }) as libc::c_int;
 }
 unsafe extern "C" fn compare(
-    mut ls1: *mut libc::c_char,
-    mut rs1: *mut *mut libc::c_char,
-    mut ls2: *mut libc::c_char,
-    mut rs2: *mut *mut libc::c_char,
+    ls1: *mut libc::c_char,
+    rs1: *mut *mut libc::c_char,
+    ls2: *mut libc::c_char,
+    rs2: *mut *mut libc::c_char,
 ) -> libc::c_uint {
     let mut common: libc::c_uint = 0;
     let mut maxchars: libc::c_uint = 0 as libc::c_int as libc::c_uint;
@@ -4987,13 +4987,13 @@ unsafe extern "C" fn compare(
                 {
                     if 0 != 0 {
                         let mut __c: libc::c_int = *s1 as libc::c_int;
-                        __res = (if __c < -(128 as libc::c_int)
+                        __res = if __c < -(128 as libc::c_int)
                             || __c > 255 as libc::c_int
                         {
                             __c
                         } else {
                             *(*__ctype_tolower_loc()).offset(__c as isize)
-                        });
+                        };
                     } else {
                         __res = tolower(*s1 as libc::c_int);
                     }
@@ -5010,13 +5010,13 @@ unsafe extern "C" fn compare(
                     {
                         if 0 != 0 {
                             let mut __c: libc::c_int = *s2 as libc::c_int;
-                            __res = (if __c < -(128 as libc::c_int)
+                            __res = if __c < -(128 as libc::c_int)
                                 || __c > 255 as libc::c_int
                             {
                                 __c
                             } else {
                                 *(*__ctype_tolower_loc()).offset(__c as isize)
-                            });
+                            };
                         } else {
                             __res = tolower(*s2 as libc::c_int);
                         }
@@ -5042,13 +5042,13 @@ unsafe extern "C" fn compare(
                         {
                             if 0 != 0 {
                                 let mut __c: libc::c_int = *s1 as libc::c_int;
-                                __res = (if __c < -(128 as libc::c_int)
+                                __res = if __c < -(128 as libc::c_int)
                                     || __c > 255 as libc::c_int
                                 {
                                     __c
                                 } else {
                                     *(*__ctype_tolower_loc()).offset(__c as isize)
-                                });
+                                };
                             } else {
                                 __res = tolower(*s1 as libc::c_int);
                             }
@@ -5065,13 +5065,13 @@ unsafe extern "C" fn compare(
                             {
                                 if 0 != 0 {
                                     let mut __c: libc::c_int = *s2 as libc::c_int;
-                                    __res = (if __c < -(128 as libc::c_int)
+                                    __res = if __c < -(128 as libc::c_int)
                                         || __c > 255 as libc::c_int
                                     {
                                         __c
                                     } else {
                                         *(*__ctype_tolower_loc()).offset(__c as isize)
-                                    });
+                                    };
                                 } else {
                                     __res = tolower(*s2 as libc::c_int);
                                 }
@@ -5086,7 +5086,7 @@ unsafe extern "C" fn compare(
                     }
                 }
                 if common > maxchars {
-                    let mut diff: libc::c_uint = common.wrapping_sub(maxchars);
+                    let diff: libc::c_uint = common.wrapping_sub(maxchars);
                     maxchars = common;
                     maxs1 = cs1;
                     maxs2 = cs2;
@@ -5112,8 +5112,8 @@ unsafe extern "C" fn compare(
     return maxchars;
 }
 unsafe extern "C" fn push(
-    mut top: *mut LINK1,
-    mut string: *const libc::c_char,
+    top: *mut LINK1,
+    string: *const libc::c_char,
 ) -> libc::c_int {
     let mut element: LINK1 = 0 as *mut ELEMENT1;
     element = cli_malloc(::std::mem::size_of::<ELEMENT1>() as libc::c_ulong) as LINK1;
@@ -5132,8 +5132,8 @@ unsafe extern "C" fn push(
     return -(4 as libc::c_int);
 }
 unsafe extern "C" fn pop(
-    mut top: *mut LINK1,
-    mut buffer: *mut libc::c_char,
+    top: *mut LINK1,
+    buffer: *mut libc::c_char,
 ) -> libc::c_int {
     let mut t1: LINK1 = 0 as *mut ELEMENT1;
     t1 = *top;
@@ -5147,7 +5147,7 @@ unsafe extern "C" fn pop(
     return -(3 as libc::c_int);
 }
 #[no_mangle]
-pub unsafe extern "C" fn isuuencodebegin(mut line: *const libc::c_char) -> libc::c_int {
+pub unsafe extern "C" fn isuuencodebegin(line: *const libc::c_char) -> libc::c_int {
     if *line.offset(0 as libc::c_int as isize) as libc::c_int != 'b' as i32 {
         return 0 as libc::c_int;
     }
@@ -5174,7 +5174,7 @@ pub unsafe extern "C" fn isuuencodebegin(mut line: *const libc::c_char) -> libc:
         as libc::c_int;
 }
 #[no_mangle]
-pub unsafe extern "C" fn messageGetJObj(mut m: *mut message) -> *mut json_object {
+pub unsafe extern "C" fn messageGetJObj(m: *mut message) -> *mut json_object {
     if m.is_null() {
         return 0 as *mut json_object;
     }

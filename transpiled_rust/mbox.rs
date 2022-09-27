@@ -1888,45 +1888,45 @@ pub unsafe extern "C" fn fstat(
 }
 #[inline]
 unsafe extern "C" fn fmap_need_off_once(
-    mut m: *mut fmap_t,
-    mut at: size_t,
-    mut len: size_t,
+    m: *mut fmap_t,
+    at: size_t,
+    len: size_t,
 ) -> *const libc::c_void {
     return ((*m).need).expect("non-null function pointer")(m, at, len, 0 as libc::c_int);
 }
 #[inline]
 unsafe extern "C" fn fmap_gets(
-    mut m: *mut fmap_t,
-    mut dst: *mut libc::c_char,
-    mut at: *mut size_t,
-    mut max_len: size_t,
+    m: *mut fmap_t,
+    dst: *mut libc::c_char,
+    at: *mut size_t,
+    max_len: size_t,
 ) -> *const libc::c_void {
     return ((*m).gets).expect("non-null function pointer")(m, dst, at, max_len);
 }
 static mut rfc821headers: [tableinit; 4] = [
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"Content-Type\0" as *const u8 as *const libc::c_char,
             value: 1 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"Content-Transfer-Encoding\0" as *const u8 as *const libc::c_char,
             value: 2 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"Content-Disposition\0" as *const u8 as *const libc::c_char,
             value: 3 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: 0 as *const libc::c_char,
             value: 0 as libc::c_int,
         };
@@ -1935,140 +1935,140 @@ static mut rfc821headers: [tableinit; 4] = [
 ];
 static mut mimeSubtypes: [tableinit; 20] = [
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"plain\0" as *const u8 as *const libc::c_char,
             value: 1 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"enriched\0" as *const u8 as *const libc::c_char,
             value: 2 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"html\0" as *const u8 as *const libc::c_char,
             value: 3 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"richtext\0" as *const u8 as *const libc::c_char,
             value: 4 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"mixed\0" as *const u8 as *const libc::c_char,
             value: 5 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"alternative\0" as *const u8 as *const libc::c_char,
             value: 6 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"digest\0" as *const u8 as *const libc::c_char,
             value: 7 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"signed\0" as *const u8 as *const libc::c_char,
             value: 8 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"parallel\0" as *const u8 as *const libc::c_char,
             value: 9 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"related\0" as *const u8 as *const libc::c_char,
             value: 10 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"report\0" as *const u8 as *const libc::c_char,
             value: 11 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"appledouble\0" as *const u8 as *const libc::c_char,
             value: 12 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"fax-message\0" as *const u8 as *const libc::c_char,
             value: 5 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"encrypted\0" as *const u8 as *const libc::c_char,
             value: 13 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"x-bfile\0" as *const u8 as *const libc::c_char,
             value: 10 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"knowbot\0" as *const u8 as *const libc::c_char,
             value: 14 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"knowbot-metadata\0" as *const u8 as *const libc::c_char,
             value: 14 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"knowbot-code\0" as *const u8 as *const libc::c_char,
             value: 14 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"knowbot-state\0" as *const u8 as *const libc::c_char,
             value: 14 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: 0 as *const libc::c_char,
             value: 0 as libc::c_int,
         };
@@ -2077,70 +2077,70 @@ static mut mimeSubtypes: [tableinit; 20] = [
 ];
 static mut mimeTypeStr: [tableinit; 10] = [
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"NOMIME\0" as *const u8 as *const libc::c_char,
             value: NOMIME as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"APPLICATION\0" as *const u8 as *const libc::c_char,
             value: APPLICATION as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"AUDIO\0" as *const u8 as *const libc::c_char,
             value: AUDIO as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"IMAGE\0" as *const u8 as *const libc::c_char,
             value: IMAGE as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"MESSAGE\0" as *const u8 as *const libc::c_char,
             value: MESSAGE as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"MULTIPART\0" as *const u8 as *const libc::c_char,
             value: MULTIPART as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"TEXT\0" as *const u8 as *const libc::c_char,
             value: TEXT as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"VIDEO\0" as *const u8 as *const libc::c_char,
             value: VIDEO as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"MEXTENSION\0" as *const u8 as *const libc::c_char,
             value: MEXTENSION as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: 0 as *const libc::c_char,
             value: 0 as libc::c_int,
         };
@@ -2149,70 +2149,70 @@ static mut mimeTypeStr: [tableinit; 10] = [
 ];
 static mut encTypeStr: [tableinit; 10] = [
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"NOENCODING\0" as *const u8 as *const libc::c_char,
             value: NOENCODING as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"QUOTEDPRINTABLE\0" as *const u8 as *const libc::c_char,
             value: QUOTEDPRINTABLE as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"BASE64\0" as *const u8 as *const libc::c_char,
             value: BASE64 as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"EIGHTBIT\0" as *const u8 as *const libc::c_char,
             value: EIGHTBIT as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"BINARY\0" as *const u8 as *const libc::c_char,
             value: BINARY as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"UUENCODE\0" as *const u8 as *const libc::c_char,
             value: UUENCODE as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"YENCODE\0" as *const u8 as *const libc::c_char,
             value: YENCODE as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"EEXTENSION\0" as *const u8 as *const libc::c_char,
             value: EEXTENSION as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: b"BINHEX\0" as *const u8 as *const libc::c_char,
             value: BINHEX as libc::c_int,
         };
         init
     },
     {
-        let mut init = tableinit {
+        let init = tableinit {
             key: 0 as *const libc::c_char,
             value: 0 as libc::c_int,
         };
@@ -2221,7 +2221,7 @@ static mut encTypeStr: [tableinit; 10] = [
 ];
 static mut tables_mutex: pthread_mutex_t = pthread_mutex_t {
     __data: {
-        let mut init = __pthread_mutex_s {
+        let init = __pthread_mutex_s {
             __lock: 0 as libc::c_int,
             __count: 0 as libc::c_int as libc::c_uint,
             __owner: 0 as libc::c_int,
@@ -2230,7 +2230,7 @@ static mut tables_mutex: pthread_mutex_t = pthread_mutex_t {
             __spins: 0 as libc::c_int as libc::c_short,
             __elision: 0 as libc::c_int as libc::c_short,
             __list: {
-                let mut init = __pthread_internal_list {
+                let init = __pthread_internal_list {
                     __prev: 0 as *const __pthread_internal_list
                         as *mut __pthread_internal_list,
                     __next: 0 as *const __pthread_internal_list
@@ -2246,8 +2246,8 @@ static mut rfc821: *mut table_t = 0 as *const table_t as *mut table_t;
 static mut subtype: *mut table_t = 0 as *const table_t as *mut table_t;
 #[no_mangle]
 pub unsafe extern "C" fn cli_mbox(
-    mut dir: *const libc::c_char,
-    mut ctx: *mut cli_ctx,
+    dir: *const libc::c_char,
+    ctx: *mut cli_ctx,
 ) -> libc::c_int {
     if dir.is_null() {
         cli_dbgmsg(
@@ -2258,7 +2258,7 @@ pub unsafe extern "C" fn cli_mbox(
     return cli_parse_mbox(dir, ctx);
 }
 unsafe extern "C" fn cli_parse_mbox(
-    mut dir: *const libc::c_char,
+    dir: *const libc::c_char,
     mut ctx: *mut cli_ctx,
 ) -> libc::c_int {
     let mut retcode: libc::c_int = 0;
@@ -2273,7 +2273,7 @@ unsafe extern "C" fn cli_parse_mbox(
         wrkobj: 0 as *mut json_object,
     };
     let mut at: size_t = 0 as libc::c_int as size_t;
-    let mut map: *mut fmap_t = (*ctx).fmap;
+    let map: *mut fmap_t = (*ctx).fmap;
     cli_dbgmsg(b"in mbox()\n\0" as *const u8 as *const libc::c_char);
     if (fmap_gets(
         map,
@@ -2347,7 +2347,7 @@ unsafe extern "C" fn cli_parse_mbox(
                     messageSetCTX(body, ctx);
                     messageDestroy(m);
                     if !(messageGetBody(body)).is_null() {
-                        let mut rc: mbox_status = parseEmailBody(
+                        let rc: mbox_status = parseEmailBody(
                             body,
                             0 as *mut text,
                             &mut mctx,
@@ -2561,7 +2561,7 @@ unsafe extern "C" fn appendReadStruct(
         spaceLeft = (1024 as libc::c_int as libc::c_ulong).wrapping_sub((*rs).bufferLen);
         if strlen(buffer) > spaceLeft {
             let mut next: *mut ReadStruct = 0 as *mut ReadStruct;
-            let mut part: libc::c_int = spaceLeft as libc::c_int;
+            let part: libc::c_int = spaceLeft as libc::c_int;
             strncpy(
                 &mut *((*rs).buffer).as_mut_ptr().offset((*rs).bufferLen as isize),
                 buffer,
@@ -2594,7 +2594,7 @@ unsafe extern "C" fn appendReadStruct(
     return rs;
 }
 unsafe extern "C" fn getMallocedBufferFromList(
-    mut head: *const ReadStruct,
+    head: *const ReadStruct,
 ) -> *mut libc::c_char {
     let mut rs: *const ReadStruct = head;
     let mut bufferLen: libc::c_int = 1 as libc::c_int;
@@ -2633,7 +2633,7 @@ unsafe extern "C" fn getMallocedBufferFromList(
 }
 unsafe extern "C" fn freeList(mut head: *mut ReadStruct) {
     while !head.is_null() {
-        let mut rs: *mut ReadStruct = (*head).next;
+        let rs: *mut ReadStruct = (*head).next;
         if !head.is_null() {
             free(head as *mut libc::c_void);
             head = 0 as *mut ReadStruct;
@@ -2643,7 +2643,7 @@ unsafe extern "C" fn freeList(mut head: *mut ReadStruct) {
 }
 unsafe extern "C" fn doContinueMultipleEmptyOptions(
     line: *const libc::c_char,
-    mut lastWasOnlySemi: *mut bool,
+    lastWasOnlySemi: *mut bool,
 ) -> bool {
     if !line.is_null() {
         let mut i: size_t = 0 as libc::c_int as size_t;
@@ -2673,9 +2673,9 @@ unsafe extern "C" fn doContinueMultipleEmptyOptions(
 }
 unsafe extern "C" fn hitLineFoldCnt(
     line: *const libc::c_char,
-    mut lineFoldCnt: *mut size_t,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    lineFoldCnt: *mut size_t,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> bool {
     if !line.is_null() {
         if *(*__ctype_b_loc())
@@ -2702,9 +2702,9 @@ unsafe extern "C" fn hitLineFoldCnt(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn haveTooManyHeaderBytes(
-    mut totalLen: size_t,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    totalLen: size_t,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> bool {
     if totalLen > (1024 as libc::c_int * 256 as libc::c_int) as libc::c_ulong {
         if (*(*ctx).options).heuristic & 0x4 as libc::c_int as libc::c_uint != 0 {
@@ -2720,9 +2720,9 @@ unsafe extern "C" fn haveTooManyHeaderBytes(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn haveTooManyEmailHeaders(
-    mut totalHeaderCnt: size_t,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    totalHeaderCnt: size_t,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> bool {
     if totalHeaderCnt > 1024 as libc::c_int as libc::c_ulong {
         if (*(*ctx).options).heuristic & 0x4 as libc::c_int as libc::c_uint != 0 {
@@ -2738,9 +2738,9 @@ unsafe extern "C" fn haveTooManyEmailHeaders(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn haveTooManyMIMEPartsPerMessage(
-    mut mimePartCnt: size_t,
-    mut ctx: *mut cli_ctx,
-    mut rc: *mut mbox_status,
+    mimePartCnt: size_t,
+    ctx: *mut cli_ctx,
+    rc: *mut mbox_status,
 ) -> bool {
     if mimePartCnt >= 1024 as libc::c_int as libc::c_ulong {
         if (*(*ctx).options).heuristic & 0x4 as libc::c_int as libc::c_uint != 0 {
@@ -2756,9 +2756,9 @@ unsafe extern "C" fn haveTooManyMIMEPartsPerMessage(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn haveTooManyMIMEArguments(
-    mut argCnt: size_t,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    argCnt: size_t,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> bool {
     if argCnt >= 256 as libc::c_int as libc::c_ulong {
         if (*(*ctx).options).heuristic & 0x4 as libc::c_int as libc::c_uint != 0 {
@@ -2774,13 +2774,13 @@ unsafe extern "C" fn haveTooManyMIMEArguments(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn parseEmailFile(
-    mut map: *mut fmap_t,
-    mut at: *mut size_t,
-    mut rfc821_0: *const table_t,
-    mut firstLine: *const libc::c_char,
-    mut dir: *const libc::c_char,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    map: *mut fmap_t,
+    at: *mut size_t,
+    rfc821_0: *const table_t,
+    firstLine: *const libc::c_char,
+    dir: *const libc::c_char,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> *mut message {
     let mut current_block: u64;
     let mut inHeader: bool = 1 as libc::c_int != 0;
@@ -3239,9 +3239,9 @@ unsafe extern "C" fn parseEmailFile(
     return ret;
 }
 unsafe extern "C" fn parseEmailHeaders(
-    mut m: *mut message,
-    mut rfc821_0: *const table_t,
-    mut heuristicFound: *mut bool,
+    m: *mut message,
+    rfc821_0: *const table_t,
+    heuristicFound: *mut bool,
 ) -> *mut message {
     let mut inHeader: bool = 1 as libc::c_int != 0;
     let mut bodyIsEmpty: bool = 1 as libc::c_int != 0;
@@ -3494,13 +3494,13 @@ unsafe extern "C" fn parseEmailHeaders(
     return ret;
 }
 unsafe extern "C" fn parseEmailHeader(
-    mut m: *mut message,
-    mut line: *const libc::c_char,
-    mut rfc821_0: *const table_t,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    m: *mut message,
+    line: *const libc::c_char,
+    rfc821_0: *const table_t,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> libc::c_int {
-    let mut current_block: u64;
+    let current_block: u64;
     let mut ret: libc::c_int = -(1 as libc::c_int);
     let mut strptr: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut separator: *const libc::c_char = 0 as *const libc::c_char;
@@ -3535,7 +3535,7 @@ unsafe extern "C" fn parseEmailHeader(
             tokenseparator[1 as libc::c_int as usize] = '\0' as i32 as libc::c_char;
             cmd = strtok_r(copy, tokenseparator.as_mut_ptr(), &mut strptr);
             if !cmd.is_null() && strstrip(cmd) > 0 as libc::c_int as libc::c_ulong {
-                let mut arg: *mut libc::c_char = strtok_r(
+                let arg: *mut libc::c_char = strtok_r(
                     0 as *mut libc::c_char,
                     b"\0" as *const u8 as *const libc::c_char,
                     &mut strptr,
@@ -3555,7 +3555,7 @@ unsafe extern "C" fn parseEmailHeader(
 }
 static mut mhtml_keys: [key_entry; 5] = [
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"html\0" as *const u8 as *const libc::c_char,
             name: b"RootHTML\0" as *const u8 as *const libc::c_char,
             type_0: (0x10 as libc::c_int | 0x400 as libc::c_int) as uint32_t,
@@ -3563,7 +3563,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"head\0" as *const u8 as *const libc::c_char,
             name: b"Head\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x8 as libc::c_int) as uint32_t,
@@ -3571,7 +3571,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"meta\0" as *const u8 as *const libc::c_char,
             name: b"Meta\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int)
@@ -3580,7 +3580,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"link\0" as *const u8 as *const libc::c_char,
             name: b"Link\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int)
@@ -3589,7 +3589,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"script\0" as *const u8 as *const libc::c_char,
             name: b"Script\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x200 as libc::c_int)
@@ -3601,7 +3601,7 @@ static mut mhtml_keys: [key_entry; 5] = [
 static mut num_mhtml_keys: size_t = 0;
 static mut mhtml_comment_keys: [key_entry; 18] = [
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:documentproperties\0" as *const u8 as *const libc::c_char,
             name: b"DocumentProperties\0" as *const u8 as *const libc::c_char,
             type_0: (0x10 as libc::c_int | 0x400 as libc::c_int) as uint32_t,
@@ -3609,7 +3609,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:author\0" as *const u8 as *const libc::c_char,
             name: b"Author\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3617,7 +3617,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:lastauthor\0" as *const u8 as *const libc::c_char,
             name: b"LastAuthor\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3625,7 +3625,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:revision\0" as *const u8 as *const libc::c_char,
             name: b"Revision\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3633,7 +3633,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:totaltime\0" as *const u8 as *const libc::c_char,
             name: b"TotalTime\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3641,7 +3641,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:created\0" as *const u8 as *const libc::c_char,
             name: b"Created\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3649,7 +3649,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:lastsaved\0" as *const u8 as *const libc::c_char,
             name: b"LastSaved\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3657,7 +3657,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:pages\0" as *const u8 as *const libc::c_char,
             name: b"Pages\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3665,7 +3665,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:words\0" as *const u8 as *const libc::c_char,
             name: b"Words\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3673,7 +3673,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:characters\0" as *const u8 as *const libc::c_char,
             name: b"Characters\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3681,7 +3681,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:company\0" as *const u8 as *const libc::c_char,
             name: b"Company\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3689,7 +3689,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:lines\0" as *const u8 as *const libc::c_char,
             name: b"Lines\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3697,7 +3697,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:paragraphs\0" as *const u8 as *const libc::c_char,
             name: b"Paragraphs\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3705,7 +3705,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:characterswithspaces\0" as *const u8 as *const libc::c_char,
             name: b"CharactersWithSpaces\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3713,7 +3713,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:version\0" as *const u8 as *const libc::c_char,
             name: b"Version\0" as *const u8 as *const libc::c_char,
             type_0: (0x20 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
@@ -3721,7 +3721,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"o:officedocumentsettings\0" as *const u8 as *const libc::c_char,
             name: b"DocumentSettings\0" as *const u8 as *const libc::c_char,
             type_0: 0x1 as libc::c_int as uint32_t,
@@ -3729,7 +3729,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"w:worddocument\0" as *const u8 as *const libc::c_char,
             name: b"WordDocument\0" as *const u8 as *const libc::c_char,
             type_0: 0x1 as libc::c_int as uint32_t,
@@ -3737,7 +3737,7 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
         init
     },
     {
-        let mut init = key_entry {
+        let init = key_entry {
             key: b"w:latentstyles\0" as *const u8 as *const libc::c_char,
             name: b"LatentStyles\0" as *const u8 as *const libc::c_char,
             type_0: 0x1 as libc::c_int as uint32_t,
@@ -3747,10 +3747,10 @@ static mut mhtml_comment_keys: [key_entry; 18] = [
 ];
 static mut num_mhtml_comment_keys: size_t = 0;
 unsafe extern "C" fn parseMHTMLComment(
-    mut comment: *const libc::c_char,
-    mut ctx: *mut cli_ctx,
-    mut wrkjobj: *mut libc::c_void,
-    mut cbdata: *mut libc::c_void,
+    comment: *const libc::c_char,
+    ctx: *mut cli_ctx,
+    _wrkjobj: *mut libc::c_void,
+    _cbdata: *mut libc::c_void,
 ) -> cl_error_t {
     let mut ret: cl_error_t = CL_SUCCESS;
     let mut xmlsrt: *const libc::c_char = 0 as *const libc::c_char;
@@ -3810,11 +3810,11 @@ unsafe extern "C" fn parseMHTMLComment(
     return ret;
 }
 unsafe extern "C" fn parseRootMHTML(
-    mut mctx: *mut mbox_ctx,
-    mut m: *mut message,
-    mut t: *mut text,
+    mctx: *mut mbox_ctx,
+    m: *mut message,
+    t: *mut text,
 ) -> mbox_status {
-    let mut ctx: *mut cli_ctx = (*mctx).ctx;
+    let ctx: *mut cli_ctx = (*mctx).ctx;
     let mut mxctx: msxml_ctx = msxml_ctx {
         scan_cb: None,
         scan_data: 0 as *mut libc::c_void,
@@ -3951,22 +3951,22 @@ unsafe extern "C" fn parseRootMHTML(
     return rc;
 }
 unsafe extern "C" fn parseEmailBody(
-    mut messageIn: *mut message,
-    mut textIn: *mut text,
-    mut mctx: *mut mbox_ctx,
-    mut recursion_level: libc::c_uint,
+    messageIn: *mut message,
+    textIn: *mut text,
+    mctx: *mut mbox_ctx,
+    recursion_level: libc::c_uint,
 ) -> mbox_status {
     let mut rc: mbox_status = FAIL;
     let mut aText: *mut text = textIn;
     let mut mainMessage: *mut message = messageIn;
     let mut fb: *mut fileblob = 0 as *mut fileblob;
     let mut infected: bool = 0 as libc::c_int != 0;
-    let mut engine: *const cl_engine = (*(*mctx).ctx).engine;
+    let engine: *const cl_engine = (*(*mctx).ctx).engine;
     let doPhishingScan: libc::c_int = ((*engine).dboptions
         & 0x8 as libc::c_int as libc::c_uint != 0
         && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
         as libc::c_int;
-    let mut saveobj: *mut json_object = (*mctx).wrkobj;
+    let saveobj: *mut json_object = (*mctx).wrkobj;
     let mut heuristicFound: bool = 0 as libc::c_int != 0;
     cli_dbgmsg(
         b"in parseEmailBody, %u files saved so far\n\0" as *const u8
@@ -4035,7 +4035,7 @@ unsafe extern "C" fn parseEmailBody(
                 messageGetDispositionType(mainMessage),
             );
             if messageHasFilename(mainMessage) != 0 {
-                let mut filename: *mut libc::c_char = messageGetFilename(mainMessage);
+                let filename: *mut libc::c_char = messageGetFilename(mainMessage);
                 cli_jsonstr(
                     (*mctx).wrkobj,
                     b"Filename\0" as *const u8 as *const libc::c_char,
@@ -4084,7 +4084,7 @@ unsafe extern "C" fn parseEmailBody(
                 mimeType as libc::c_int,
             );
         }
-        let mut current_block_306: u64;
+        let current_block_306: u64;
         match mimeType as libc::c_uint {
             0 => {
                 cli_dbgmsg(
@@ -4292,9 +4292,9 @@ unsafe extern "C" fn parseEmailBody(
                                                     as *mut libc::c_char;
                                                 let mut ptr: *mut libc::c_char = 0 as *mut libc::c_char;
                                                 if line.is_null() {
-                                                    let mut next: *const text = (*t_line).t_next;
+                                                    let next: *const text = (*t_line).t_next;
                                                     if !next.is_null() && !((*next).t_line).is_null() {
-                                                        let mut data: *const libc::c_char = lineGetData(
+                                                        let data: *const libc::c_char = lineGetData(
                                                             (*next).t_line,
                                                         );
                                                         if messageGetEncoding(aMessage) as libc::c_uint
@@ -4830,7 +4830,7 @@ unsafe extern "C" fn parseEmailBody(
                         b"delivery-status\0" as *const u8 as *const libc::c_char,
                     ) == 0 as libc::c_int
                 {
-                    let mut m_0: *mut message = parseEmailHeaders(
+                    let m_0: *mut message = parseEmailHeaders(
                         mainMessage,
                         (*mctx).rfc821Table,
                         &mut heuristicFound,
@@ -5265,8 +5265,8 @@ unsafe extern "C" fn parseEmailBody(
     return rc;
 }
 unsafe extern "C" fn boundaryStart(
-    mut line: *const libc::c_char,
-    mut boundary: *const libc::c_char,
+    line: *const libc::c_char,
+    boundary: *const libc::c_char,
 ) -> libc::c_int {
     let mut ptr: *const libc::c_char = 0 as *const libc::c_char;
     let mut out: *mut libc::c_char = 0 as *mut libc::c_char;
@@ -5380,8 +5380,8 @@ unsafe extern "C" fn boundaryStart(
     return rc;
 }
 unsafe extern "C" fn boundaryEnd(
-    mut line: *const libc::c_char,
-    mut boundary: *const libc::c_char,
+    line: *const libc::c_char,
+    boundary: *const libc::c_char,
 ) -> libc::c_int {
     let mut len: size_t = 0;
     let mut newline: *mut libc::c_char = 0 as *mut libc::c_char;
@@ -5454,8 +5454,8 @@ unsafe extern "C" fn boundaryEnd(
     return 0 as libc::c_int;
 }
 unsafe extern "C" fn initialiseTables(
-    mut rfc821Table: *mut *mut table_t,
-    mut subtypeTable: *mut *mut table_t,
+    rfc821Table: *mut *mut table_t,
+    subtypeTable: *mut *mut table_t,
 ) -> libc::c_int {
     let mut tableinit: *const tableinit = 0 as *const tableinit;
     if (*rfc821Table).is_null() {
@@ -5499,8 +5499,8 @@ unsafe extern "C" fn initialiseTables(
     return 0 as libc::c_int;
 }
 unsafe extern "C" fn getTextPart(
-    mut messages: *const *mut message,
-    mut size: size_t,
+    messages: *const *mut message,
+    size: size_t,
 ) -> libc::c_int {
     let mut i: size_t = 0;
     let mut textpart: libc::c_int = -(1 as libc::c_int);
@@ -5523,7 +5523,7 @@ unsafe extern "C" fn getTextPart(
     }
     return textpart;
 }
-unsafe extern "C" fn strip(mut buf: *mut libc::c_char, mut len: libc::c_int) -> size_t {
+unsafe extern "C" fn strip(buf: *mut libc::c_char, mut len: libc::c_int) -> size_t {
     let mut ptr: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut i: size_t = 0;
     if buf.is_null() || len <= 0 as libc::c_int {
@@ -5554,7 +5554,7 @@ unsafe extern "C" fn strip(mut buf: *mut libc::c_char, mut len: libc::c_int) -> 
     return (len + 1 as libc::c_int) as size_t;
 }
 #[no_mangle]
-pub unsafe extern "C" fn strstrip(mut s: *mut libc::c_char) -> size_t {
+pub unsafe extern "C" fn strstrip(s: *mut libc::c_char) -> size_t {
     if s.is_null() {
         return 0 as libc::c_int as size_t;
     }
@@ -5564,12 +5564,12 @@ pub unsafe extern "C" fn strstrip(mut s: *mut libc::c_char) -> size_t {
     );
 }
 unsafe extern "C" fn parseMimeHeader(
-    mut m: *mut message,
-    mut cmd: *const libc::c_char,
-    mut rfc821Table: *const table_t,
-    mut arg: *const libc::c_char,
-    mut ctx: *mut cli_ctx,
-    mut heuristicFound: *mut bool,
+    m: *mut message,
+    cmd: *const libc::c_char,
+    rfc821Table: *const table_t,
+    arg: *const libc::c_char,
+    ctx: *mut cli_ctx,
+    heuristicFound: *mut bool,
 ) -> libc::c_int {
     let mut copy: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut p: *mut libc::c_char = 0 as *mut libc::c_char;
@@ -5665,7 +5665,7 @@ unsafe extern "C" fn parseMimeHeader(
                             buf,
                         );
                         if !s.is_null() && *s as libc::c_int != 0 {
-                            let mut buf2: *mut libc::c_char = cli_strdup(buf);
+                            let buf2: *mut libc::c_char = cli_strdup(buf);
                             if buf2.is_null() {
                                 if !copy.is_null() {
                                     free(copy as *mut libc::c_void);
@@ -5674,7 +5674,7 @@ unsafe extern "C" fn parseMimeHeader(
                                 return -(1 as libc::c_int);
                             }
                             loop {
-                                let mut set: libc::c_int = messageSetMimeType(
+                                let set: libc::c_int = messageSetMimeType(
                                     m,
                                     strtok_r(
                                         s,
@@ -5816,9 +5816,9 @@ unsafe extern "C" fn parseMimeHeader(
     return 0 as libc::c_int;
 }
 unsafe extern "C" fn saveTextPart(
-    mut mctx: *mut mbox_ctx,
-    mut m: *mut message,
-    mut destroy_text: libc::c_int,
+    mctx: *mut mbox_ctx,
+    m: *mut message,
+    destroy_text: libc::c_int,
 ) -> libc::c_int {
     let mut fb: *mut fileblob = 0 as *mut fileblob;
     messageAddArgument(m, b"filename=textportion\0" as *const u8 as *const libc::c_char);
@@ -6115,8 +6115,8 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
     return out;
 }
 unsafe extern "C" fn rfc1341(
-    mut mctx: *mut mbox_ctx,
-    mut m: *mut message,
+    mctx: *mut mbox_ctx,
+    m: *mut message,
 ) -> libc::c_int {
     let mut arg: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut id: *mut libc::c_char = 0 as *mut libc::c_char;
@@ -6276,7 +6276,7 @@ unsafe extern "C" fn rfc1341(
         },
     );
     if !total.is_null() {
-        let mut t: libc::c_int = atoi(total);
+        let t: libc::c_int = atoi(total);
         let mut dd: *mut DIR = 0 as *mut DIR;
         free(total as *mut libc::c_void);
         if n == t
@@ -6498,16 +6498,16 @@ unsafe extern "C" fn rfc1341(
     free(md5_hex as *mut libc::c_void);
     return 0 as libc::c_int;
 }
-unsafe extern "C" fn hrefs_done(mut b: *mut blob, mut hrefs: *mut tag_arguments_t) {
+unsafe extern "C" fn hrefs_done(b: *mut blob, hrefs: *mut tag_arguments_t) {
     if !b.is_null() {
         blobDestroy(b);
     }
     html_tag_arg_free(hrefs);
 }
 unsafe extern "C" fn extract_text_urls(
-    mut mem: *const libc::c_uchar,
-    mut len: size_t,
-    mut hrefs: *mut tag_arguments_t,
+    mem: *const libc::c_uchar,
+    len: size_t,
+    hrefs: *mut tag_arguments_t,
 ) {
     let mut url: [libc::c_char; 1024] = [0; 1024];
     let mut off: size_t = 0;
@@ -6535,7 +6535,7 @@ unsafe extern "C" fn extract_text_urls(
                     < (::std::mem::size_of::<[libc::c_char; 1024]>() as libc::c_ulong)
                         .wrapping_sub(1 as libc::c_int as libc::c_ulong)
             {
-                let mut c: libc::c_uchar = *mem
+                let c: libc::c_uchar = *mem
                     .offset(off.wrapping_add(url_len) as isize);
                 if c as libc::c_int == ' ' as i32 || c as libc::c_int == '\n' as i32
                     || c as libc::c_int == '\t' as i32
@@ -6561,11 +6561,11 @@ unsafe extern "C" fn extract_text_urls(
     }
 }
 unsafe extern "C" fn getHrefs(
-    mut m: *mut message,
+    m: *mut message,
     mut hrefs: *mut tag_arguments_t,
 ) -> *mut blob {
     let mut mem: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
-    let mut b: *mut blob = messageToBlob(m, 0 as libc::c_int);
+    let b: *mut blob = messageToBlob(m, 0 as libc::c_int);
     let mut len: size_t = 0;
     if b.is_null() {
         return 0 as *mut blob;
@@ -6614,10 +6614,10 @@ unsafe extern "C" fn getHrefs(
     return b;
 }
 unsafe extern "C" fn checkURLs(
-    mut mainMessage: *mut message,
-    mut mctx: *mut mbox_ctx,
-    mut rc: *mut mbox_status,
-    mut is_html: libc::c_int,
+    mainMessage: *mut message,
+    mctx: *mut mbox_ctx,
+    rc: *mut mbox_status,
+    _is_html: libc::c_int,
 ) {
     let mut b: *mut blob = 0 as *mut blob;
     let mut hrefs: tag_arguments_t = tag_arguments_t {
@@ -6657,8 +6657,8 @@ unsafe extern "C" fn checkURLs(
     hrefs_done(b, &mut hrefs);
 }
 unsafe extern "C" fn usefulHeader(
-    mut commandNumber: libc::c_int,
-    mut cmd: *const libc::c_char,
+    commandNumber: libc::c_int,
+    cmd: *const libc::c_char,
 ) -> bool {
     match commandNumber {
         2 | 3 | 1 => return 1 as libc::c_int != 0,
@@ -6683,10 +6683,10 @@ unsafe extern "C" fn usefulHeader(
     return 0 as libc::c_int != 0;
 }
 unsafe extern "C" fn getline_from_mbox(
-    mut buffer: *mut libc::c_char,
-    mut buffer_len: size_t,
-    mut map: *mut fmap_t,
-    mut at: *mut size_t,
+    buffer: *mut libc::c_char,
+    buffer_len: size_t,
+    map: *mut fmap_t,
+    at: *mut size_t,
 ) -> *mut libc::c_char {
     let mut src: *const libc::c_char = 0 as *const libc::c_char;
     let mut cursrc: *const libc::c_char = 0 as *const libc::c_char;
@@ -6768,7 +6768,7 @@ unsafe extern "C" fn getline_from_mbox(
     return buffer;
 }
 unsafe extern "C" fn isBounceStart(
-    mut mctx: *mut mbox_ctx,
+    mctx: *mut mbox_ctx,
     mut line: *const libc::c_char,
 ) -> bool {
     let mut len: size_t = 0;
@@ -6825,8 +6825,8 @@ unsafe extern "C" fn isBounceStart(
         as libc::c_uint == CL_TYPE_MAIL as libc::c_int as libc::c_uint;
 }
 unsafe extern "C" fn exportBinhexMessage(
-    mut mctx: *mut mbox_ctx,
-    mut m: *mut message,
+    mctx: *mut mbox_ctx,
+    m: *mut message,
 ) -> bool {
     let mut infected: bool = 0 as libc::c_int != 0;
     let mut fb: *mut fileblob = 0 as *mut fileblob;
@@ -6854,7 +6854,7 @@ unsafe extern "C" fn exportBinhexMessage(
     return infected;
 }
 unsafe extern "C" fn exportBounceMessage(
-    mut mctx: *mut mbox_ctx,
+    mctx: *mut mbox_ctx,
     mut start: *mut text,
 ) -> libc::c_int {
     let mut rc: libc::c_int = CL_CLEAN as libc::c_int;
@@ -6862,7 +6862,7 @@ unsafe extern "C" fn exportBounceMessage(
     let mut fb: *mut fileblob = 0 as *mut fileblob;
     t = start;
     while !t.is_null() {
-        let mut txt: *const libc::c_char = lineGetData((*t).t_line);
+        let txt: *const libc::c_char = lineGetData((*t).t_line);
         let mut cmd: [libc::c_char; 1001] = [0; 1001];
         if !txt.is_null() {
             if !(cli_strtokbuf(
@@ -6951,7 +6951,7 @@ unsafe extern "C" fn exportBounceMessage(
     }
     return rc;
 }
-unsafe extern "C" fn getMimeTypeStr(mut mimetype: mime_type) -> *const libc::c_char {
+unsafe extern "C" fn getMimeTypeStr(mimetype: mime_type) -> *const libc::c_char {
     let mut entry: *const tableinit = mimeTypeStr.as_ptr();
     while !((*entry).key).is_null() {
         if mimetype as libc::c_uint == (*entry).value as mime_type as libc::c_uint {
@@ -6961,7 +6961,7 @@ unsafe extern "C" fn getMimeTypeStr(mut mimetype: mime_type) -> *const libc::c_c
     }
     return b"UNKNOWN\0" as *const u8 as *const libc::c_char;
 }
-unsafe extern "C" fn getEncTypeStr(mut enctype: encoding_type) -> *const libc::c_char {
+unsafe extern "C" fn getEncTypeStr(enctype: encoding_type) -> *const libc::c_char {
     let mut entry: *const tableinit = encTypeStr.as_ptr();
     while !((*entry).key).is_null() {
         if enctype as libc::c_uint == (*entry).value as encoding_type as libc::c_uint {
@@ -6973,25 +6973,25 @@ unsafe extern "C" fn getEncTypeStr(mut enctype: encoding_type) -> *const libc::c
 }
 unsafe extern "C" fn do_multipart(
     mut mainMessage: *mut message,
-    mut messages: *mut *mut message,
-    mut i: libc::c_int,
-    mut rc: *mut mbox_status,
-    mut mctx: *mut mbox_ctx,
-    mut messageIn: *mut message,
-    mut tptr: *mut *mut text,
-    mut recursion_level: libc::c_uint,
+    messages: *mut *mut message,
+    i: libc::c_int,
+    rc: *mut mbox_status,
+    mctx: *mut mbox_ctx,
+    messageIn: *mut message,
+    tptr: *mut *mut text,
+    recursion_level: libc::c_uint,
 ) -> *mut message {
     let mut addToText: bool = 0 as libc::c_int != 0;
     let mut dtype: *const libc::c_char = 0 as *const libc::c_char;
-    let mut aMessage: *mut message = *messages.offset(i as isize);
+    let aMessage: *mut message = *messages.offset(i as isize);
     let doPhishingScan: libc::c_int = ((*(*(*mctx).ctx).engine).dboptions
         & 0x8 as libc::c_int as libc::c_uint != 0
         && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
         as libc::c_int;
     let mut thisobj: *mut json_object = 0 as *mut json_object;
-    let mut saveobj: *mut json_object = (*mctx).wrkobj;
+    let saveobj: *mut json_object = (*mctx).wrkobj;
     if !((*mctx).wrkobj).is_null() {
-        let mut multiobj: *mut json_object = cli_jsonarray(
+        let multiobj: *mut json_object = cli_jsonarray(
             (*mctx).wrkobj,
             b"Multipart\0" as *const u8 as *const libc::c_char,
         );
@@ -7062,7 +7062,7 @@ unsafe extern "C" fn do_multipart(
             messageGetDispositionType(aMessage),
         );
         if messageHasFilename(aMessage) != 0 {
-            let mut filename: *mut libc::c_char = messageGetFilename(aMessage);
+            let filename: *mut libc::c_char = messageGetFilename(aMessage);
             cli_jsonstr(
                 thisobj,
                 b"Filename\0" as *const u8 as *const libc::c_char,
@@ -7261,7 +7261,7 @@ unsafe extern "C" fn do_multipart(
         }
     }
     if *rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint {
-        let mut fb: *mut fileblob = messageToFileblob(
+        let fb: *mut fileblob = messageToFileblob(
             aMessage,
             (*mctx).dir,
             1 as libc::c_int,
@@ -7346,8 +7346,8 @@ unsafe extern "C" fn count_quotes(mut buf: *const libc::c_char) -> libc::c_int {
     }
     return quotes;
 }
-unsafe extern "C" fn next_is_folded_header(mut t: *const text) -> bool {
-    let mut next: *const text = (*t).t_next;
+unsafe extern "C" fn next_is_folded_header(t: *const text) -> bool {
+    let next: *const text = (*t).t_next;
     let mut data: *const libc::c_char = 0 as *const libc::c_char;
     let mut ptr: *const libc::c_char = 0 as *const libc::c_char;
     if next.is_null() {
@@ -7381,7 +7381,7 @@ unsafe extern "C" fn next_is_folded_header(mut t: *const text) -> bool {
     }
     return 0 as libc::c_int != 0;
 }
-unsafe extern "C" fn newline_in_header(mut line: *const libc::c_char) -> bool {
+unsafe extern "C" fn newline_in_header(line: *const libc::c_char) -> bool {
     cli_dbgmsg(
         b"newline_in_header, check \"%s\"\n\0" as *const u8 as *const libc::c_char,
         line,
