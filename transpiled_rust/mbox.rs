@@ -1,5 +1,5 @@
-use ::libc;
 use ::c2rust_bitfields;
+use ::libc;
 extern "C" {
     pub type _IO_wide_data;
     pub type _IO_codecvt;
@@ -32,36 +32,17 @@ extern "C" {
         _: ...
     ) -> libc::c_int;
     fn putc(__c: libc::c_int, __stream: *mut FILE) -> libc::c_int;
-    fn fgets(
-        __s: *mut libc::c_char,
-        __n: libc::c_int,
-        __stream: *mut FILE,
-    ) -> *mut libc::c_char;
+    fn fgets(__s: *mut libc::c_char, __n: libc::c_int, __stream: *mut FILE) -> *mut libc::c_char;
     fn fputs(__s: *const libc::c_char, __stream: *mut FILE) -> libc::c_int;
-    fn strtol(
-        _: *const libc::c_char,
-        _: *mut *mut libc::c_char,
-        _: libc::c_int,
-    ) -> libc::c_long;
+    fn strtol(_: *const libc::c_char, _: *mut *mut libc::c_char, _: libc::c_int) -> libc::c_long;
     fn malloc(_: libc::c_ulong) -> *mut libc::c_void;
     fn free(_: *mut libc::c_void);
     fn __errno_location() -> *mut libc::c_int;
-    fn memcmp(
-        _: *const libc::c_void,
-        _: *const libc::c_void,
-        _: libc::c_ulong,
-    ) -> libc::c_int;
+    fn memcmp(_: *const libc::c_void, _: *const libc::c_void, _: libc::c_ulong) -> libc::c_int;
     fn strcpy(_: *mut libc::c_char, _: *const libc::c_char) -> *mut libc::c_char;
-    fn strncpy(
-        _: *mut libc::c_char,
-        _: *const libc::c_char,
-        _: libc::c_ulong,
-    ) -> *mut libc::c_char;
-    fn strncmp(
-        _: *const libc::c_char,
-        _: *const libc::c_char,
-        _: libc::c_ulong,
-    ) -> libc::c_int;
+    fn strncpy(_: *mut libc::c_char, _: *const libc::c_char, _: libc::c_ulong)
+        -> *mut libc::c_char;
+    fn strncmp(_: *const libc::c_char, _: *const libc::c_char, _: libc::c_ulong) -> libc::c_int;
     fn strdup(_: *const libc::c_char) -> *mut libc::c_char;
     fn strchr(_: *const libc::c_char, _: libc::c_int) -> *mut libc::c_char;
     fn strstr(_: *const libc::c_char, _: *const libc::c_char) -> *mut libc::c_char;
@@ -71,23 +52,12 @@ extern "C" {
         __save_ptr: *mut *mut libc::c_char,
     ) -> *mut libc::c_char;
     fn strlen(_: *const libc::c_char) -> libc::c_ulong;
-    fn memset(
-        _: *mut libc::c_void,
-        _: libc::c_int,
-        _: libc::c_ulong,
-    ) -> *mut libc::c_void;
+    fn memset(_: *mut libc::c_void, _: libc::c_int, _: libc::c_ulong) -> *mut libc::c_void;
     fn strcmp(_: *const libc::c_char, _: *const libc::c_char) -> libc::c_int;
     fn strcasecmp(_: *const libc::c_char, _: *const libc::c_char) -> libc::c_int;
-    fn strncasecmp(
-        _: *const libc::c_char,
-        _: *const libc::c_char,
-        _: libc::c_ulong,
-    ) -> libc::c_int;
-    fn memcpy(
-        _: *mut libc::c_void,
-        _: *const libc::c_void,
-        _: libc::c_ulong,
-    ) -> *mut libc::c_void;
+    fn strncasecmp(_: *const libc::c_char, _: *const libc::c_char, _: libc::c_ulong)
+        -> libc::c_int;
+    fn memcpy(_: *mut libc::c_void, _: *const libc::c_void, _: libc::c_ulong) -> *mut libc::c_void;
     fn __ctype_b_loc() -> *mut *const libc::c_ushort;
     fn __ctype_tolower_loc() -> *mut *const __int32_t;
     fn time(__timer: *mut time_t) -> time_t;
@@ -104,11 +74,7 @@ extern "C" {
         __filename: *const libc::c_char,
         __stat_buf: *mut stat,
     ) -> libc::c_int;
-    fn __fxstat(
-        __ver: libc::c_int,
-        __fildes: libc::c_int,
-        __stat_buf: *mut stat,
-    ) -> libc::c_int;
+    fn __fxstat(__ver: libc::c_int, __fildes: libc::c_int, __stat_buf: *mut stat) -> libc::c_int;
     fn mkdir(__path: *const libc::c_char, __mode: __mode_t) -> libc::c_int;
     fn cl_engine_get_str(
         engine: *const cl_engine,
@@ -133,10 +99,7 @@ extern "C" {
         value: *mut *mut json_object,
     ) -> json_bool;
     fn json_object_array_length(obj: *const json_object) -> size_t;
-    fn json_object_array_get_idx(
-        obj: *const json_object,
-        idx: size_t,
-    ) -> *mut json_object;
+    fn json_object_array_get_idx(obj: *const json_object, idx: size_t) -> *mut json_object;
     fn json_object_get_string(obj: *mut json_object) -> *const libc::c_char;
     fn cli_errmsg(str: *const libc::c_char, _: ...);
     fn __cli_strcasestr(
@@ -151,11 +114,7 @@ extern "C" {
         delim: *const libc::c_char,
         output: *mut libc::c_char,
     ) -> *mut libc::c_char;
-    fn cli_strlcat(
-        dst: *mut libc::c_char,
-        src: *const libc::c_char,
-        sz: size_t,
-    ) -> size_t;
+    fn cli_strlcat(dst: *mut libc::c_char, src: *const libc::c_char, sz: size_t) -> size_t;
     fn cli_append_virus(ctx: *mut cli_ctx, virname: *const libc::c_char) -> cl_error_t;
     fn cli_dbgmsg(str: *const libc::c_char, _: ...);
     fn cli_malloc(nmemb: size_t) -> *mut libc::c_void;
@@ -184,11 +143,7 @@ extern "C" {
     );
     fn fileblobGetFilename(fb: *const fileblob) -> *const libc::c_char;
     fn fileblobSetCTX(fb: *mut fileblob, ctx: *mut cli_ctx);
-    fn fileblobAddData(
-        fb: *mut fileblob,
-        data: *const libc::c_uchar,
-        len: size_t,
-    ) -> libc::c_int;
+    fn fileblobAddData(fb: *mut fileblob, data: *const libc::c_uchar, len: size_t) -> libc::c_int;
     fn fileblobInfected(fb: *const fileblob) -> libc::c_int;
     fn cli_json_addowner(
         owner: *mut json_object,
@@ -211,11 +166,7 @@ extern "C" {
     fn messageGetEncoding(m: *const message) -> encoding_type;
     fn messageAddLine(m: *mut message, line: *mut line_t) -> libc::c_int;
     fn messageAddStr(m: *mut message, data: *const libc::c_char) -> libc::c_int;
-    fn messageMoveText(
-        m: *mut message,
-        t: *mut text,
-        old_message: *mut message,
-    ) -> libc::c_int;
+    fn messageMoveText(m: *mut message, t: *mut text, old_message: *mut message) -> libc::c_int;
     fn messageGetBody(m: *mut message) -> *mut text;
     fn messageToFileblob(
         m: *mut message,
@@ -239,11 +190,7 @@ extern "C" {
     fn textDestroy(t_head: *mut text);
     fn textAddMessage(aText: *mut text, aMessage: *mut message) -> *mut text;
     fn textToBlob(t: *mut text, b: *mut blob, destroy: libc::c_int) -> *mut blob;
-    fn textToFileblob(
-        t: *mut text,
-        fb: *mut fileblob,
-        destroy: libc::c_int,
-    ) -> *mut fileblob;
+    fn textToFileblob(t: *mut text, fb: *mut fileblob, destroy: libc::c_int) -> *mut fileblob;
     fn uudecodeFile(
         m: *mut message,
         firstline: *const libc::c_char,
@@ -259,34 +206,21 @@ extern "C" {
         key: *const libc::c_char,
         value: libc::c_int,
     ) -> libc::c_int;
-    fn cli_jsonarray(
-        obj: *mut json_object,
-        key: *const libc::c_char,
-    ) -> *mut json_object;
+    fn cli_jsonarray(obj: *mut json_object, key: *const libc::c_char) -> *mut json_object;
     fn tableFind(table: *const table_t, key: *const libc::c_char) -> libc::c_int;
-    fn cli_jsonint(
-        obj: *mut json_object,
-        key: *const libc::c_char,
-        i: int32_t,
-    ) -> cl_error_t;
+    fn cli_jsonint(obj: *mut json_object, key: *const libc::c_char, i: int32_t) -> cl_error_t;
     fn messageGetFilename(m: *const message) -> *mut libc::c_char;
     fn cli_jsonstr(
         obj: *mut json_object,
         key: *const libc::c_char,
         s: *const libc::c_char,
     ) -> cl_error_t;
-    fn cli_json_parse_error(
-        root: *mut json_object,
-        errstr: *const libc::c_char,
-    ) -> cl_error_t;
+    fn cli_json_parse_error(root: *mut json_object, errstr: *const libc::c_char) -> cl_error_t;
     fn lineGetData(line: *const line_t) -> *const libc::c_char;
     fn lineUnlink(line: *mut line_t) -> *mut line_t;
     fn messageHasFilename(m: *const message) -> libc::c_int;
     fn sanitiseName(name: *mut libc::c_char);
-    fn messageFindArgument(
-        m: *const message,
-        variable: *const libc::c_char,
-    ) -> *mut libc::c_char;
+    fn messageFindArgument(m: *const message, variable: *const libc::c_char) -> *mut libc::c_char;
     fn xmlFreeDoc(cur: xmlDocPtr);
     fn xmlFreeTextReader(reader: xmlTextReaderPtr);
     fn xmlTextReaderClose(reader: xmlTextReaderPtr) -> libc::c_int;
@@ -620,22 +554,13 @@ pub struct cl_engine {
     pub pcre_max_filesize: uint64_t,
     pub yara_global: *mut _yara_global,
 }
-pub type clcb_stats_get_hostid = Option::<
-    unsafe extern "C" fn(*mut libc::c_void) -> *mut libc::c_char,
->;
-pub type clcb_stats_get_size = Option::<
-    unsafe extern "C" fn(*mut libc::c_void) -> size_t,
->;
-pub type clcb_stats_get_num = Option::<
-    unsafe extern "C" fn(*mut libc::c_void) -> size_t,
->;
-pub type clcb_stats_flush = Option::<
-    unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> (),
->;
-pub type clcb_stats_submit = Option::<
-    unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> (),
->;
-pub type clcb_stats_decrement_count = Option::<
+pub type clcb_stats_get_hostid =
+    Option<unsafe extern "C" fn(*mut libc::c_void) -> *mut libc::c_char>;
+pub type clcb_stats_get_size = Option<unsafe extern "C" fn(*mut libc::c_void) -> size_t>;
+pub type clcb_stats_get_num = Option<unsafe extern "C" fn(*mut libc::c_void) -> size_t>;
+pub type clcb_stats_flush = Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
+pub type clcb_stats_submit = Option<unsafe extern "C" fn(*mut cl_engine, *mut libc::c_void) -> ()>;
+pub type clcb_stats_decrement_count = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         *const libc::c_uchar,
@@ -643,7 +568,7 @@ pub type clcb_stats_decrement_count = Option::<
         *mut libc::c_void,
     ) -> (),
 >;
-pub type clcb_stats_remove_sample = Option::<
+pub type clcb_stats_remove_sample = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         *const libc::c_uchar,
@@ -651,7 +576,7 @@ pub type clcb_stats_remove_sample = Option::<
         *mut libc::c_void,
     ) -> (),
 >;
-pub type clcb_stats_add_sample = Option::<
+pub type clcb_stats_add_sample = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         *const libc::c_uchar,
@@ -773,17 +698,12 @@ pub struct bytecode_metadata {
     pub maxresource: libc::c_uint,
     pub targetExclude: libc::c_uint,
 }
-pub type clcb_progress = Option::<
-    unsafe extern "C" fn(size_t, size_t, *mut libc::c_void) -> cl_error_t,
+pub type clcb_progress =
+    Option<unsafe extern "C" fn(size_t, size_t, *mut libc::c_void) -> cl_error_t>;
+pub type clcb_file_props = Option<
+    unsafe extern "C" fn(*const libc::c_char, libc::c_int, *mut libc::c_void) -> libc::c_int,
 >;
-pub type clcb_file_props = Option::<
-    unsafe extern "C" fn(
-        *const libc::c_char,
-        libc::c_int,
-        *mut libc::c_void,
-    ) -> libc::c_int,
->;
-pub type clcb_meta = Option::<
+pub type clcb_meta = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         libc::c_ulong,
@@ -794,7 +714,7 @@ pub type clcb_meta = Option::<
         *mut libc::c_void,
     ) -> cl_error_t,
 >;
-pub type clcb_hash = Option::<
+pub type clcb_hash = Option<
     unsafe extern "C" fn(
         libc::c_int,
         libc::c_ulonglong,
@@ -803,7 +723,7 @@ pub type clcb_hash = Option::<
         *mut libc::c_void,
     ) -> (),
 >;
-pub type clcb_sigload = Option::<
+pub type clcb_sigload = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         *const libc::c_char,
@@ -811,10 +731,9 @@ pub type clcb_sigload = Option::<
         *mut libc::c_void,
     ) -> libc::c_int,
 >;
-pub type clcb_virus_found = Option::<
-    unsafe extern "C" fn(libc::c_int, *const libc::c_char, *mut libc::c_void) -> (),
->;
-pub type clcb_post_scan = Option::<
+pub type clcb_virus_found =
+    Option<unsafe extern "C" fn(libc::c_int, *const libc::c_char, *mut libc::c_void) -> ()>;
+pub type clcb_post_scan = Option<
     unsafe extern "C" fn(
         libc::c_int,
         libc::c_int,
@@ -822,20 +741,10 @@ pub type clcb_post_scan = Option::<
         *mut libc::c_void,
     ) -> cl_error_t,
 >;
-pub type clcb_pre_scan = Option::<
-    unsafe extern "C" fn(
-        libc::c_int,
-        *const libc::c_char,
-        *mut libc::c_void,
-    ) -> cl_error_t,
->;
-pub type clcb_pre_cache = Option::<
-    unsafe extern "C" fn(
-        libc::c_int,
-        *const libc::c_char,
-        *mut libc::c_void,
-    ) -> cl_error_t,
->;
+pub type clcb_pre_scan =
+    Option<unsafe extern "C" fn(libc::c_int, *const libc::c_char, *mut libc::c_void) -> cl_error_t>;
+pub type clcb_pre_cache =
+    Option<unsafe extern "C" fn(libc::c_int, *const libc::c_char, *mut libc::c_void) -> cl_error_t>;
 #[derive(Copy, Clone)]
 #[repr(C)]
 pub struct crtmgr {
@@ -1410,19 +1319,13 @@ pub struct cl_fmap {
     pub nested_offset: size_t,
     pub real_len: size_t,
     pub len: size_t,
-    pub unmap: Option::<unsafe extern "C" fn(*mut fmap_t) -> ()>,
-    pub need: Option::<
-        unsafe extern "C" fn(
-            *mut fmap_t,
-            size_t,
-            size_t,
-            libc::c_int,
-        ) -> *const libc::c_void,
+    pub unmap: Option<unsafe extern "C" fn(*mut fmap_t) -> ()>,
+    pub need: Option<
+        unsafe extern "C" fn(*mut fmap_t, size_t, size_t, libc::c_int) -> *const libc::c_void,
     >,
-    pub need_offstr: Option::<
-        unsafe extern "C" fn(*mut fmap_t, size_t, size_t) -> *const libc::c_void,
-    >,
-    pub gets: Option::<
+    pub need_offstr:
+        Option<unsafe extern "C" fn(*mut fmap_t, size_t, size_t) -> *const libc::c_void>,
+    pub gets: Option<
         unsafe extern "C" fn(
             *mut fmap_t,
             *mut libc::c_char,
@@ -1430,7 +1333,7 @@ pub struct cl_fmap {
             size_t,
         ) -> *const libc::c_void,
     >,
-    pub unneed_off: Option::<unsafe extern "C" fn(*mut fmap_t, size_t, size_t) -> ()>,
+    pub unneed_off: Option<unsafe extern "C" fn(*mut fmap_t, size_t, size_t) -> ()>,
     pub have_maphash: bool,
     pub maphash: [libc::c_uchar; 16],
     pub bitmap: *mut uint64_t,
@@ -1438,9 +1341,8 @@ pub struct cl_fmap {
 }
 pub type fmap_t = cl_fmap_t;
 pub type cl_fmap_t = cl_fmap;
-pub type clcb_pread = Option::<
-    unsafe extern "C" fn(*mut libc::c_void, *mut libc::c_void, size_t, off_t) -> off_t,
->;
+pub type clcb_pread =
+    Option<unsafe extern "C" fn(*mut libc::c_void, *mut libc::c_void, size_t, off_t) -> off_t>;
 pub type json_bool = libc::c_int;
 #[derive(Copy, Clone)]
 #[repr(C)]
@@ -1774,7 +1676,7 @@ pub struct msxml_ctx {
     pub comment_data: *mut libc::c_void,
     pub ictx: *mut msxml_ictx,
 }
-pub type msxml_comment_cb = Option::<
+pub type msxml_comment_cb = Option<
     unsafe extern "C" fn(
         *const libc::c_char,
         *mut cli_ctx,
@@ -1782,7 +1684,7 @@ pub type msxml_comment_cb = Option::<
         *mut libc::c_void,
     ) -> cl_error_t,
 >;
-pub type msxml_scan_cb = Option::<
+pub type msxml_scan_cb = Option<
     unsafe extern "C" fn(
         libc::c_int,
         *const libc::c_char,
@@ -1880,10 +1782,7 @@ pub unsafe extern "C" fn stat(
 #[no_mangle]
 #[inline]
 #[linkage = "external"]
-pub unsafe extern "C" fn fstat(
-    mut __fd: libc::c_int,
-    mut __statbuf: *mut stat,
-) -> libc::c_int {
+pub unsafe extern "C" fn fstat(mut __fd: libc::c_int, mut __statbuf: *mut stat) -> libc::c_int {
     return __fxstat(1 as libc::c_int, __fd, __statbuf);
 }
 #[inline]
@@ -2231,10 +2130,8 @@ static mut tables_mutex: pthread_mutex_t = pthread_mutex_t {
             __elision: 0 as libc::c_int as libc::c_short,
             __list: {
                 let init = __pthread_internal_list {
-                    __prev: 0 as *const __pthread_internal_list
-                        as *mut __pthread_internal_list,
-                    __next: 0 as *const __pthread_internal_list
-                        as *mut __pthread_internal_list,
+                    __prev: 0 as *const __pthread_internal_list as *mut __pthread_internal_list,
+                    __next: 0 as *const __pthread_internal_list as *mut __pthread_internal_list,
                 };
                 init
             },
@@ -2245,14 +2142,9 @@ static mut tables_mutex: pthread_mutex_t = pthread_mutex_t {
 static mut rfc821: *mut table_t = 0 as *const table_t as *mut table_t;
 static mut subtype: *mut table_t = 0 as *const table_t as *mut table_t;
 #[no_mangle]
-pub unsafe extern "C" fn cli_mbox(
-    dir: *const libc::c_char,
-    ctx: *mut cli_ctx,
-) -> libc::c_int {
+pub unsafe extern "C" fn cli_mbox(dir: *const libc::c_char, ctx: *mut cli_ctx) -> libc::c_int {
     if dir.is_null() {
-        cli_dbgmsg(
-            b"cli_mbox called with NULL dir\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_dbgmsg(b"cli_mbox called with NULL dir\n\0" as *const u8 as *const libc::c_char);
         return CL_ENULLARG as libc::c_int;
     }
     return cli_parse_mbox(dir, ctx);
@@ -2282,7 +2174,7 @@ unsafe extern "C" fn cli_parse_mbox(
         (::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong)
             .wrapping_sub(1 as libc::c_int as libc::c_ulong),
     ))
-        .is_null()
+    .is_null()
     {
         return CL_CLEAN as libc::c_int;
     }
@@ -2328,8 +2220,7 @@ unsafe extern "C" fn cli_parse_mbox(
                 let fresh0 = messagenumber;
                 messagenumber = messagenumber + 1;
                 cli_dbgmsg(
-                    b"Deal with message number %d\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"Deal with message number %d\n\0" as *const u8 as *const libc::c_char,
                     fresh0,
                 );
                 let mut heuristicFound: bool = 0 as libc::c_int != 0;
@@ -2358,9 +2249,7 @@ unsafe extern "C" fn cli_parse_mbox(
                             messageReset(m);
                             messageSetCTX(m, ctx);
                             current_block_43 = 6669252993407410313;
-                        } else if rc as libc::c_uint
-                            == VIRUS as libc::c_int as libc::c_uint
-                        {
+                        } else if rc as libc::c_uint == VIRUS as libc::c_int as libc::c_uint {
                             cli_dbgmsg(
                                 b"Message number %d is infected\n\0" as *const u8
                                     as *const libc::c_char,
@@ -2390,8 +2279,7 @@ unsafe extern "C" fn cli_parse_mbox(
                     }
                 }
             } else {
-                lastLineWasEmpty = buffer[0 as libc::c_int as usize] as libc::c_int
-                    == '\0' as i32;
+                lastLineWasEmpty = buffer[0 as libc::c_int as usize] as libc::c_int == '\0' as i32;
                 current_block_43 = 7018308795614528254;
             }
             match current_block_43 {
@@ -2417,15 +2305,14 @@ unsafe extern "C" fn cli_parse_mbox(
                 (::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong)
                     .wrapping_sub(1 as libc::c_int as libc::c_ulong),
             ))
-                .is_null()
+            .is_null()
             {
                 break;
             }
         }
         if retcode == CL_SUCCESS as libc::c_int {
             cli_dbgmsg(
-                b"Extract attachments from email %d\n\0" as *const u8
-                    as *const libc::c_char,
+                b"Extract attachments from email %d\n\0" as *const u8 as *const libc::c_char,
                 messagenumber,
             );
             let mut heuristicFound_0: bool = 0 as libc::c_int != 0;
@@ -2451,19 +2338,19 @@ unsafe extern "C" fn cli_parse_mbox(
                 (::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong)
                     .wrapping_sub(1 as libc::c_int as libc::c_ulong),
             ))
-                .is_null()
+            .is_null()
                 && (strchr(
                     b"\r\n\0" as *const u8 as *const libc::c_char,
                     buffer[0 as libc::c_int as usize] as libc::c_int,
                 ))
-                    .is_null()
+                .is_null()
             {}
         }
         while !(strchr(
             b"\r\n\0" as *const u8 as *const libc::c_char,
             buffer[0 as libc::c_int as usize] as libc::c_int,
         ))
-            .is_null()
+        .is_null()
             && !(getline_from_mbox(
                 buffer.as_mut_ptr(),
                 (::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong)
@@ -2471,11 +2358,11 @@ unsafe extern "C" fn cli_parse_mbox(
                 map,
                 &mut at,
             ))
-                .is_null()
+            .is_null()
         {}
         buffer[(::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong)
-            .wrapping_sub(1 as libc::c_int as libc::c_ulong)
-            as usize] = '\0' as i32 as libc::c_char;
+            .wrapping_sub(1 as libc::c_int as libc::c_ulong) as usize] =
+            '\0' as i32 as libc::c_char;
         let mut heuristicFound_1: bool = 0 as libc::c_int != 0;
         body = parseEmailFile(
             map,
@@ -2515,8 +2402,8 @@ unsafe extern "C" fn cli_parse_mbox(
                     retcode = CL_EMAXFILES as libc::c_int;
                     cli_append_virus_if_heur_exceedsmax(
                         ctx,
-                        b"Heuristics.Limits.Exceeded.MaxFiles\0" as *const u8
-                            as *const libc::c_char as *mut libc::c_char,
+                        b"Heuristics.Limits.Exceeded.MaxFiles\0" as *const u8 as *const libc::c_char
+                            as *mut libc::c_char,
                     );
                 }
                 3 => {
@@ -2525,14 +2412,13 @@ unsafe extern "C" fn cli_parse_mbox(
                 1 | 2 | _ => {}
             }
         }
-        if (*body).isTruncated() as libc::c_int != 0
-            && retcode == CL_SUCCESS as libc::c_int
-        {
+        if (*body).isTruncated() as libc::c_int != 0 && retcode == CL_SUCCESS as libc::c_int {
             retcode = CL_EMEM as libc::c_int;
         }
         messageDestroy(body);
     }
-    if retcode == CL_CLEAN as libc::c_int && (*ctx).found_possibly_unwanted != 0
+    if retcode == CL_CLEAN as libc::c_int
+        && (*ctx).found_possibly_unwanted != 0
         && ((*(*ctx).virname).is_null()
             || (*(*ctx).options).general & 0x1 as libc::c_int as libc::c_uint != 0)
     {
@@ -2554,9 +2440,7 @@ unsafe extern "C" fn appendReadStruct(
 ) -> *mut ReadStruct {
     let mut spaceLeft: size_t = 0;
     if rs.is_null() {
-        cli_dbgmsg(
-            b"appendReadStruct: Invalid argument\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_dbgmsg(b"appendReadStruct: Invalid argument\n\0" as *const u8 as *const libc::c_char);
     } else {
         spaceLeft = (1024 as libc::c_int as libc::c_ulong).wrapping_sub((*rs).bufferLen);
         if strlen(buffer) > spaceLeft {
@@ -2568,8 +2452,8 @@ unsafe extern "C" fn appendReadStruct(
                 part as libc::c_ulong,
             );
             let ref mut fresh1 = (*rs).bufferLen;
-            *fresh1 = (*fresh1 as libc::c_ulong).wrapping_add(part as libc::c_ulong)
-                as size_t as size_t;
+            *fresh1 =
+                (*fresh1 as libc::c_ulong).wrapping_add(part as libc::c_ulong) as size_t as size_t;
             next = cli_calloc(
                 1 as libc::c_int as size_t,
                 ::std::mem::size_of::<ReadStruct>() as libc::c_ulong,
@@ -2577,7 +2461,10 @@ unsafe extern "C" fn appendReadStruct(
             if !next.is_null() {
                 let ref mut fresh2 = (*rs).next;
                 *fresh2 = next;
-                strcpy(((*next).buffer).as_mut_ptr(), &*buffer.offset(part as isize));
+                strcpy(
+                    ((*next).buffer).as_mut_ptr(),
+                    &*buffer.offset(part as isize),
+                );
                 (*next).bufferLen = strlen(&*buffer.offset(part as isize));
                 rs = next;
             }
@@ -2587,22 +2474,19 @@ unsafe extern "C" fn appendReadStruct(
                 buffer,
             );
             let ref mut fresh3 = (*rs).bufferLen;
-            *fresh3 = (*fresh3 as libc::c_ulong).wrapping_add(strlen(buffer)) as size_t
-                as size_t;
+            *fresh3 = (*fresh3 as libc::c_ulong).wrapping_add(strlen(buffer)) as size_t as size_t;
         }
     }
     return rs;
 }
-unsafe extern "C" fn getMallocedBufferFromList(
-    head: *const ReadStruct,
-) -> *mut libc::c_char {
+unsafe extern "C" fn getMallocedBufferFromList(head: *const ReadStruct) -> *mut libc::c_char {
     let mut rs: *const ReadStruct = head;
     let mut bufferLen: libc::c_int = 1 as libc::c_int;
     let mut working: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut ret: *mut libc::c_char = 0 as *mut libc::c_char;
     while !rs.is_null() {
-        bufferLen = (bufferLen as libc::c_ulong).wrapping_add((*rs).bufferLen)
-            as libc::c_int as libc::c_int;
+        bufferLen = (bufferLen as libc::c_ulong).wrapping_add((*rs).bufferLen) as libc::c_int
+            as libc::c_int;
         rs = (*rs).next;
     }
     working = malloc(bufferLen as libc::c_ulong) as *mut libc::c_char;
@@ -2611,13 +2495,12 @@ unsafe extern "C" fn getMallocedBufferFromList(
         bufferLen = 0 as libc::c_int;
         while !rs.is_null() {
             memcpy(
-                &mut *working.offset(bufferLen as isize) as *mut libc::c_char
-                    as *mut libc::c_void,
+                &mut *working.offset(bufferLen as isize) as *mut libc::c_char as *mut libc::c_void,
                 ((*rs).buffer).as_ptr() as *const libc::c_void,
                 (*rs).bufferLen,
             );
-            bufferLen = (bufferLen as libc::c_ulong).wrapping_add((*rs).bufferLen)
-                as libc::c_int as libc::c_int;
+            bufferLen = (bufferLen as libc::c_ulong).wrapping_add((*rs).bufferLen) as libc::c_int
+                as libc::c_int;
             *working.offset(bufferLen as isize) = 0 as libc::c_int as libc::c_char;
             rs = (*rs).next;
         }
@@ -2649,9 +2532,10 @@ unsafe extern "C" fn doContinueMultipleEmptyOptions(
         let mut i: size_t = 0 as libc::c_int as size_t;
         let mut doCont: libc::c_int = 1 as libc::c_int;
         while i < strlen(line) {
-            if !(*(*__ctype_b_loc())
-                .offset(*line.offset(i as isize) as libc::c_int as isize) as libc::c_int
-                & _ISblank as libc::c_int as libc::c_ushort as libc::c_int != 0)
+            if !(*(*__ctype_b_loc()).offset(*line.offset(i as isize) as libc::c_int as isize)
+                as libc::c_int
+                & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
+                != 0)
             {
                 if !(';' as i32 == *line.offset(i as isize) as libc::c_int) {
                     doCont = 0 as libc::c_int;
@@ -2680,7 +2564,8 @@ unsafe extern "C" fn hitLineFoldCnt(
     if !line.is_null() {
         if *(*__ctype_b_loc())
             .offset(*line.offset(0 as libc::c_int as isize) as libc::c_int as isize)
-            as libc::c_int & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
+            as libc::c_int
+            & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
             != 0
         {
             *lineFoldCnt = (*lineFoldCnt).wrapping_add(1);
@@ -2728,8 +2613,7 @@ unsafe extern "C" fn haveTooManyEmailHeaders(
         if (*(*ctx).options).heuristic & 0x4 as libc::c_int as libc::c_uint != 0 {
             cli_append_virus(
                 ctx,
-                b"Heuristics.Limits.Exceeded.EmailHeaders\0" as *const u8
-                    as *const libc::c_char,
+                b"Heuristics.Limits.Exceeded.EmailHeaders\0" as *const u8 as *const libc::c_char,
             );
             *heuristicFound = 1 as libc::c_int != 0;
         }
@@ -2834,47 +2718,38 @@ unsafe extern "C" fn parseEmailFile(
                     lastWasBlank = 0 as libc::c_int != 0;
                     if boundaryStart(buffer.as_mut_ptr(), boundary) != 0 {
                         cli_dbgmsg(
-                            b"Found a header line with space that should be blank\n\0"
-                                as *const u8 as *const libc::c_char,
+                            b"Found a header line with space that should be blank\n\0" as *const u8
+                                as *const libc::c_char,
                         );
                         inHeader = 0 as libc::c_int != 0;
                     }
                 }
                 if inHeader {
                     cli_dbgmsg(
-                        b"parseEmailFile: check '%s'\n\0" as *const u8
-                            as *const libc::c_char,
+                        b"parseEmailFile: check '%s'\n\0" as *const u8 as *const libc::c_char,
                         buffer.as_mut_ptr(),
                     );
                     if !line.is_null()
-                        && *(*__ctype_b_loc())
-                            .offset(
-                                (*line.offset(0 as libc::c_int as isize) as libc::c_int
-                                    & 0xff as libc::c_int) as isize,
-                            ) as libc::c_int
+                        && *(*__ctype_b_loc()).offset(
+                            (*line.offset(0 as libc::c_int as isize) as libc::c_int
+                                & 0xff as libc::c_int) as isize,
+                        ) as libc::c_int
                             & _ISspace as libc::c_int as libc::c_ushort as libc::c_int
                             != 0
                     {
                         let mut copy: [libc::c_char; 1001] = [0; 1001];
                         strcpy(copy.as_mut_ptr(), buffer.as_mut_ptr());
                         strstrip(copy.as_mut_ptr());
-                        if copy[0 as libc::c_int as usize] as libc::c_int == '\0' as i32
-                        {
+                        if copy[0 as libc::c_int as usize] as libc::c_int == '\0' as i32 {
                             if (*head).bufferLen != 0 {
-                                let mut header: *mut libc::c_char = getMallocedBufferFromList(
-                                    head,
-                                );
+                                let mut header: *mut libc::c_char = getMallocedBufferFromList(head);
                                 let mut needContinue: libc::c_int = 0 as libc::c_int;
                                 if header.is_null() {
                                     current_block = 16850746923508545940;
                                     break;
                                 }
                                 totalHeaderCnt = totalHeaderCnt.wrapping_add(1);
-                                if haveTooManyEmailHeaders(
-                                    totalHeaderCnt,
-                                    ctx,
-                                    heuristicFound,
-                                ) {
+                                if haveTooManyEmailHeaders(totalHeaderCnt, ctx, heuristicFound) {
                                     if !header.is_null() {
                                         free(header as *mut libc::c_void);
                                         header = 0 as *mut libc::c_char;
@@ -2888,7 +2763,8 @@ unsafe extern "C" fn parseEmailFile(
                                         rfc821_0,
                                         ctx,
                                         heuristicFound,
-                                    ) < 0 as libc::c_int) as libc::c_int;
+                                    ) < 0 as libc::c_int)
+                                        as libc::c_int;
                                     if *heuristicFound {
                                         if !header.is_null() {
                                             free(header as *mut libc::c_void);
@@ -2921,15 +2797,13 @@ unsafe extern "C" fn parseEmailFile(
                             match current_block {
                                 18317007320854588510 => {}
                                 _ => {
-                                    if !boundary.is_null()
-                                        || {
-                                            boundary = messageFindArgument(
-                                                ret,
-                                                b"boundary\0" as *const u8 as *const libc::c_char,
-                                            );
-                                            !boundary.is_null()
-                                        }
-                                    {
+                                    if !boundary.is_null() || {
+                                        boundary = messageFindArgument(
+                                            ret,
+                                            b"boundary\0" as *const u8 as *const libc::c_char,
+                                        );
+                                        !boundary.is_null()
+                                    } {
                                         lastWasBlank = 1 as libc::c_int != 0;
                                         current_block = 18317007320854588510;
                                     } else {
@@ -2959,17 +2833,16 @@ unsafe extern "C" fn parseEmailFile(
                                 }
                             } else {
                                 let mut ptr: *mut libc::c_char = 0 as *mut libc::c_char;
-                                let mut lookahead: *const libc::c_char = 0
-                                    as *const libc::c_char;
+                                let mut lookahead: *const libc::c_char = 0 as *const libc::c_char;
                                 let mut lineAdded: bool = 1 as libc::c_int != 0;
                                 if 0 as libc::c_int as libc::c_ulong == (*head).bufferLen {
                                     let mut cmd: [libc::c_char; 1001] = [0; 1001];
                                     let mut out: [libc::c_char; 1001] = [0; 1001];
                                     if *(*__ctype_b_loc())
-                                        .offset(
-                                            *line.offset(0 as libc::c_int as isize) as libc::c_int
-                                                as isize,
-                                        ) as libc::c_int
+                                        .offset(*line.offset(0 as libc::c_int as isize)
+                                            as libc::c_int
+                                            as isize)
+                                        as libc::c_int
                                         & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
                                         != 0
                                     {
@@ -2981,7 +2854,7 @@ unsafe extern "C" fn parseEmailFile(
                                             b":\0" as *const u8 as *const libc::c_char,
                                             cmd.as_mut_ptr(),
                                         ))
-                                            .is_null()
+                                        .is_null()
                                     {
                                         if strncmp(
                                             line,
@@ -2996,7 +2869,11 @@ unsafe extern "C" fn parseEmailFile(
                                         ptr = rfc822comments(cmd.as_mut_ptr(), out.as_mut_ptr());
                                         commandNumber = tableFind(
                                             rfc821_0,
-                                            if !ptr.is_null() { ptr } else { cmd.as_mut_ptr() },
+                                            if !ptr.is_null() {
+                                                ptr
+                                            } else {
+                                                cmd.as_mut_ptr()
+                                            },
                                         );
                                         match commandNumber {
                                             2 | 3 | 1 => {
@@ -3004,7 +2881,9 @@ unsafe extern "C" fn parseEmailFile(
                                                 curr = appendReadStruct(curr, line);
                                                 if curr.is_null() {
                                                     if !ret.is_null() {
-                                                        (*ret).set_isTruncated(1 as libc::c_int as libc::c_uint);
+                                                        (*ret).set_isTruncated(
+                                                            1 as libc::c_int as libc::c_uint,
+                                                        );
                                                     }
                                                     current_block = 14557636130817708122;
                                                     break;
@@ -3036,7 +2915,9 @@ unsafe extern "C" fn parseEmailFile(
                                     _ => {
                                         if lineAdded {
                                             totalHeaderBytes = (totalHeaderBytes as libc::c_ulong)
-                                                .wrapping_add(strlen(line)) as size_t as size_t;
+                                                .wrapping_add(strlen(line))
+                                                as size_t
+                                                as size_t;
                                             if haveTooManyHeaderBytes(
                                                 totalHeaderBytes,
                                                 ctx,
@@ -3050,11 +2931,14 @@ unsafe extern "C" fn parseEmailFile(
                                             map,
                                             *at,
                                             1 as libc::c_int as size_t,
-                                        ) as *const libc::c_char;
+                                        )
+                                            as *const libc::c_char;
                                         if !lookahead.is_null() {
                                             if *(*__ctype_b_loc())
-                                                .offset(*lookahead as libc::c_int as isize) as libc::c_int
-                                                & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
+                                                .offset(*lookahead as libc::c_int as isize)
+                                                as libc::c_int
+                                                & _ISblank as libc::c_int as libc::c_ushort
+                                                    as libc::c_int
                                                 != 0
                                             {
                                                 current_block = 18317007320854588510;
@@ -3067,22 +2951,28 @@ unsafe extern "C" fn parseEmailFile(
                                         match current_block {
                                             18317007320854588510 => {}
                                             _ => {
-                                                let mut header_0: *mut libc::c_char = getMallocedBufferFromList(
-                                                    head,
-                                                );
-                                                let mut needContinue_0: libc::c_int = 0 as libc::c_int;
+                                                let mut header_0: *mut libc::c_char =
+                                                    getMallocedBufferFromList(head);
+                                                let mut needContinue_0: libc::c_int =
+                                                    0 as libc::c_int;
                                                 if header_0.is_null() {
                                                     current_block = 16850746923508545940;
                                                     break;
                                                 }
-                                                needContinue_0 = (*header_0
-                                                    .offset(
-                                                        (strlen(header_0))
-                                                            .wrapping_sub(1 as libc::c_int as libc::c_ulong) as isize,
-                                                    ) as libc::c_int == ';' as i32) as libc::c_int;
+                                                needContinue_0 = (*header_0.offset(
+                                                    (strlen(header_0)).wrapping_sub(
+                                                        1 as libc::c_int as libc::c_ulong,
+                                                    )
+                                                        as isize,
+                                                )
+                                                    as libc::c_int
+                                                    == ';' as i32)
+                                                    as libc::c_int;
                                                 if 0 as libc::c_int == needContinue_0 {
                                                     needContinue_0 = (!line.is_null()
-                                                        && count_quotes(header_0) & 1 as libc::c_int != 0)
+                                                        && count_quotes(header_0)
+                                                            & 1 as libc::c_int
+                                                            != 0)
                                                         as libc::c_int;
                                                 }
                                                 if 0 as libc::c_int == needContinue_0 {
@@ -3105,7 +2995,8 @@ unsafe extern "C" fn parseEmailFile(
                                                             rfc821_0,
                                                             ctx,
                                                             heuristicFound,
-                                                        ) < 0 as libc::c_int) as libc::c_int;
+                                                        ) < 0 as libc::c_int)
+                                                            as libc::c_int;
                                                         if *heuristicFound {
                                                             if !header_0.is_null() {
                                                                 free(header_0 as *mut libc::c_void);
@@ -3151,8 +3042,8 @@ unsafe extern "C" fn parseEmailFile(
                                 != TEXT as libc::c_int as libc::c_uint
                         {
                             cli_dbgmsg(
-                                b"Ignoring consecutive blank lines in the body\n\0"
-                                    as *const u8 as *const libc::c_char,
+                                b"Ignoring consecutive blank lines in the body\n\0" as *const u8
+                                    as *const libc::c_char,
                             );
                             current_block = 18317007320854588510;
                         } else {
@@ -3196,7 +3087,7 @@ unsafe extern "C" fn parseEmailFile(
                 map,
                 at,
             ))
-                .is_null()
+            .is_null()
             {
                 current_block = 14557636130817708122;
                 break;
@@ -3210,9 +3101,7 @@ unsafe extern "C" fn parseEmailFile(
         }
     }
     if err != 0 {
-        cli_errmsg(
-            b"parseEmailFile: ERROR parsing file\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_errmsg(b"parseEmailFile: ERROR parsing file\n\0" as *const u8 as *const libc::c_char);
         (*ret).set_isTruncated(1 as libc::c_int as libc::c_uint);
     }
     if !boundary.is_null() {
@@ -3223,16 +3112,14 @@ unsafe extern "C" fn parseEmailFile(
     if !anyHeadersFound {
         messageDestroy(ret);
         cli_dbgmsg(
-            b"parseEmailFile: no headers found, assuming it isn't an email\n\0"
-                as *const u8 as *const libc::c_char,
+            b"parseEmailFile: no headers found, assuming it isn't an email\n\0" as *const u8
+                as *const libc::c_char,
         );
         return 0 as *mut message;
     }
     if *heuristicFound {
         messageDestroy(ret);
-        cli_dbgmsg(
-            b"parseEmailFile: found heuristic\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_dbgmsg(b"parseEmailFile: found heuristic\n\0" as *const u8 as *const libc::c_char);
         return 0 as *mut message;
     }
     cli_dbgmsg(b"parseEmailFile: return\n\0" as *const u8 as *const libc::c_char);
@@ -3275,8 +3162,7 @@ unsafe extern "C" fn parseEmailHeaders(
             }
             if inHeader {
                 cli_dbgmsg(
-                    b"parseEmailHeaders: check '%s'\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"parseEmailHeaders: check '%s'\n\0" as *const u8 as *const libc::c_char,
                     if !line.is_null() {
                         line
                     } else {
@@ -3285,8 +3171,7 @@ unsafe extern "C" fn parseEmailHeaders(
                 );
                 if line.is_null() {
                     cli_dbgmsg(
-                        b"End of header information\n\0" as *const u8
-                            as *const libc::c_char,
+                        b"End of header information\n\0" as *const u8 as *const libc::c_char,
                     );
                     if !anyHeadersFound {
                         cli_dbgmsg(
@@ -3304,10 +3189,8 @@ unsafe extern "C" fn parseEmailHeaders(
                     if fullline.is_null() {
                         let mut cmd: [libc::c_char; 1001] = [0; 1001];
                         if *(*__ctype_b_loc())
-                            .offset(
-                                *line.offset(0 as libc::c_int as isize) as libc::c_int
-                                    as isize,
-                            ) as libc::c_int
+                            .offset(*line.offset(0 as libc::c_int as isize) as libc::c_int as isize)
+                            as libc::c_int
                             & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
                             != 0
                         {
@@ -3319,7 +3202,7 @@ unsafe extern "C" fn parseEmailHeaders(
                                 b":\0" as *const u8 as *const libc::c_char,
                                 cmd.as_mut_ptr(),
                             ))
-                                .is_null()
+                            .is_null()
                         {
                             if strncmp(
                                 line,
@@ -3331,13 +3214,14 @@ unsafe extern "C" fn parseEmailHeaders(
                             }
                             current_block_43 = 7746791466490516765;
                         } else {
-                            ptr = rfc822comments(
-                                cmd.as_mut_ptr(),
-                                0 as *mut libc::c_char,
-                            );
+                            ptr = rfc822comments(cmd.as_mut_ptr(), 0 as *mut libc::c_char);
                             commandNumber = tableFind(
                                 rfc821_0,
-                                if !ptr.is_null() { ptr } else { cmd.as_mut_ptr() },
+                                if !ptr.is_null() {
+                                    ptr
+                                } else {
+                                    cmd.as_mut_ptr()
+                                },
                             );
                             if !ptr.is_null() {
                                 free(ptr as *mut libc::c_void);
@@ -3352,21 +3236,17 @@ unsafe extern "C" fn parseEmailHeaders(
                                 }
                                 _ => {
                                     if !anyHeadersFound {
-                                        anyHeadersFound = usefulHeader(
-                                            commandNumber,
-                                            cmd.as_mut_ptr(),
-                                        );
+                                        anyHeadersFound =
+                                            usefulHeader(commandNumber, cmd.as_mut_ptr());
                                     }
                                     current_block_43 = 7746791466490516765;
                                 }
                             }
                         }
                     } else if !line.is_null() {
-                        fulllinelength = (fulllinelength as libc::c_ulong)
-                            .wrapping_add(
-                                (strlen(line))
-                                    .wrapping_add(1 as libc::c_int as libc::c_ulong),
-                            ) as size_t as size_t;
+                        fulllinelength = (fulllinelength as libc::c_ulong).wrapping_add(
+                            (strlen(line)).wrapping_add(1 as libc::c_int as libc::c_ulong),
+                        ) as size_t as size_t;
                         ptr = cli_realloc(fullline as *mut libc::c_void, fulllinelength)
                             as *mut libc::c_char;
                         if ptr.is_null() {
@@ -3477,8 +3357,8 @@ unsafe extern "C" fn parseEmailHeaders(
     if !anyHeadersFound {
         messageDestroy(ret);
         cli_dbgmsg(
-            b"parseEmailHeaders: no headers found, assuming it isn't an email\n\0"
-                as *const u8 as *const libc::c_char,
+            b"parseEmailHeaders: no headers found, assuming it isn't an email\n\0" as *const u8
+                as *const libc::c_char,
         );
         return 0 as *mut message;
     }
@@ -3507,7 +3387,10 @@ unsafe extern "C" fn parseEmailHeader(
     let mut cmd: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut copy: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut tokenseparator: [libc::c_char; 2] = [0; 2];
-    cli_dbgmsg(b"parseEmailHeader '%s'\n\0" as *const u8 as *const libc::c_char, line);
+    cli_dbgmsg(
+        b"parseEmailHeader '%s'\n\0" as *const u8 as *const libc::c_char,
+        line,
+    );
     separator = b":= \0" as *const u8 as *const libc::c_char;
     while *separator != 0 {
         if !(strchr(line, *separator as libc::c_int)).is_null() {
@@ -3574,8 +3457,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         let init = key_entry {
             key: b"meta\0" as *const u8 as *const libc::c_char,
             name: b"Meta\0" as *const u8 as *const libc::c_char,
-            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int)
-                as uint32_t,
+            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int) as uint32_t,
         };
         init
     },
@@ -3583,8 +3465,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         let init = key_entry {
             key: b"link\0" as *const u8 as *const libc::c_char,
             name: b"Link\0" as *const u8 as *const libc::c_char,
-            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int)
-                as uint32_t,
+            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x400 as libc::c_int) as uint32_t,
         };
         init
     },
@@ -3592,8 +3473,7 @@ static mut mhtml_keys: [key_entry; 5] = [
         let init = key_entry {
             key: b"script\0" as *const u8 as *const libc::c_char,
             name: b"Script\0" as *const u8 as *const libc::c_char,
-            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x200 as libc::c_int)
-                as uint32_t,
+            type_0: (0x20 as libc::c_int | 0x40 as libc::c_int | 0x200 as libc::c_int) as uint32_t,
         };
         init
     },
@@ -3765,15 +3645,14 @@ unsafe extern "C" fn parseMHTMLComment(
         xmlend = strstr(xmlsrt, b"</xml>\0" as *const u8 as *const libc::c_char);
         if xmlend.is_null() {
             cli_dbgmsg(
-                b"parseMHTMLComment: unbounded xml tag\n\0" as *const u8
-                    as *const libc::c_char,
+                b"parseMHTMLComment: unbounded xml tag\n\0" as *const u8 as *const libc::c_char,
             );
             break;
         } else {
             reader = xmlReaderForMemory(
                 xmlsrt,
-                (xmlend.offset_from(xmlsrt) as libc::c_long
-                    + 6 as libc::c_int as libc::c_long) as libc::c_int,
+                (xmlend.offset_from(xmlsrt) as libc::c_long + 6 as libc::c_int as libc::c_long)
+                    as libc::c_int,
                 b"comment.xml\0" as *const u8 as *const libc::c_char,
                 0 as *const libc::c_char,
                 XML_PARSE_NOERROR as libc::c_int | XML_PARSE_NONET as libc::c_int,
@@ -3786,8 +3665,7 @@ unsafe extern "C" fn parseMHTMLComment(
                 if !((*ctx).wrkproperty).is_null() {
                     ret = cli_json_parse_error(
                         (*ctx).wrkproperty,
-                        b"MHTML_ERROR_XML_READER_MEM\0" as *const u8
-                            as *const libc::c_char,
+                        b"MHTML_ERROR_XML_READER_MEM\0" as *const u8 as *const libc::c_char,
                     );
                 }
                 return ret;
@@ -3848,7 +3726,8 @@ unsafe extern "C" fn parseRootMHTML(
         (*input).len as libc::c_int,
         b"mhtml.html\0" as *const u8 as *const libc::c_char,
         0 as *const libc::c_char,
-        XML_PARSE_NOERROR as libc::c_int | XML_PARSE_NONET as libc::c_int
+        XML_PARSE_NOERROR as libc::c_int
+            | XML_PARSE_NONET as libc::c_int
             | HTML_PARSE_NOWARNING as libc::c_int,
     );
     if htmlDoc.is_null() {
@@ -3909,8 +3788,7 @@ unsafe extern "C" fn parseRootMHTML(
         0 as libc::c_int,
         ::std::mem::size_of::<msxml_ctx>() as libc::c_ulong,
     );
-    mxctx
-        .comment_cb = Some(
+    mxctx.comment_cb = Some(
         parseMHTMLComment
             as unsafe extern "C" fn(
                 *const libc::c_char,
@@ -3962,15 +3840,14 @@ unsafe extern "C" fn parseEmailBody(
     let mut fb: *mut fileblob = 0 as *mut fileblob;
     let mut infected: bool = 0 as libc::c_int != 0;
     let engine: *const cl_engine = (*(*mctx).ctx).engine;
-    let doPhishingScan: libc::c_int = ((*engine).dboptions
-        & 0x8 as libc::c_int as libc::c_uint != 0
+    let doPhishingScan: libc::c_int = ((*engine).dboptions & 0x8 as libc::c_int as libc::c_uint
+        != 0
         && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
         as libc::c_int;
     let saveobj: *mut json_object = (*mctx).wrkobj;
     let mut heuristicFound: bool = 0 as libc::c_int != 0;
     cli_dbgmsg(
-        b"in parseEmailBody, %u files saved so far\n\0" as *const u8
-            as *const libc::c_char,
+        b"in parseEmailBody, %u files saved so far\n\0" as *const u8 as *const libc::c_char,
         (*mctx).files,
     );
     if (*engine).max_recursion_level != 0 {
@@ -3985,8 +3862,7 @@ unsafe extern "C" fn parseEmailBody(
     }
     if (*engine).maxfiles != 0 && (*mctx).files >= (*engine).maxfiles {
         cli_dbgmsg(
-            b"parseEmailBody: number of files exceeded %u\n\0" as *const u8
-                as *const libc::c_char,
+            b"parseEmailBody: number of files exceeded %u\n\0" as *const u8 as *const libc::c_char,
             (*engine).maxfiles,
         );
         return MAXFILES;
@@ -4055,14 +3931,10 @@ unsafe extern "C" fn parseEmailBody(
             && subtype_0 == 1 as libc::c_int
         {
             cli_dbgmsg(
-                b"text/plain: Assume no attachments\n\0" as *const u8
-                    as *const libc::c_char,
+                b"text/plain: Assume no attachments\n\0" as *const u8 as *const libc::c_char,
             );
             mimeType = NOMIME;
-            messageSetMimeSubtype(
-                mainMessage,
-                b"\0" as *const u8 as *const libc::c_char,
-            );
+            messageSetMimeSubtype(mainMessage, b"\0" as *const u8 as *const libc::c_char);
         } else if mimeType as libc::c_uint == MESSAGE as libc::c_int as libc::c_uint
             && strcasecmp(
                 mimeSubtype,
@@ -4070,14 +3942,11 @@ unsafe extern "C" fn parseEmailBody(
             ) == 0 as libc::c_int
         {
             cli_dbgmsg(
-                b"Changing message/rfc822-headers to text/rfc822-headers\n\0"
-                    as *const u8 as *const libc::c_char,
+                b"Changing message/rfc822-headers to text/rfc822-headers\n\0" as *const u8
+                    as *const libc::c_char,
             );
             mimeType = NOMIME;
-            messageSetMimeSubtype(
-                mainMessage,
-                b"\0" as *const u8 as *const libc::c_char,
-            );
+            messageSetMimeSubtype(mainMessage, b"\0" as *const u8 as *const libc::c_char);
         } else {
             cli_dbgmsg(
                 b"mimeType = %d\n\0" as *const u8 as *const libc::c_char,
@@ -4087,9 +3956,7 @@ unsafe extern "C" fn parseEmailBody(
         let current_block_306: u64;
         match mimeType as libc::c_uint {
             0 => {
-                cli_dbgmsg(
-                    b"Not a mime encoded message\n\0" as *const u8 as *const libc::c_char,
-                );
+                cli_dbgmsg(b"Not a mime encoded message\n\0" as *const u8 as *const libc::c_char);
                 aText = textAddMessage(aText, mainMessage);
                 if doPhishingScan == 0 {
                     current_block_306 = 3011375068465243373;
@@ -4102,8 +3969,7 @@ unsafe extern "C" fn parseEmailBody(
             }
             5 => {
                 cli_dbgmsg(
-                    b"Content-type 'multipart' handler\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"Content-type 'multipart' handler\n\0" as *const u8 as *const libc::c_char,
                 );
                 boundary = messageFindArgument(
                     mainMessage,
@@ -4118,22 +3984,20 @@ unsafe extern "C" fn parseEmailBody(
                 }
                 if boundary.is_null() {
                     cli_dbgmsg(
-                        b"Multipart/%s MIME message contains no boundary header\n\0"
-                            as *const u8 as *const libc::c_char,
+                        b"Multipart/%s MIME message contains no boundary header\n\0" as *const u8
+                            as *const libc::c_char,
                         mimeSubtype,
                     );
                     mimeType = NOMIME;
                 } else {
                     cli_chomp(boundary);
-                    if *mimeSubtype.offset(0 as libc::c_int as isize) as libc::c_int
-                        == '\0' as i32
+                    if *mimeSubtype.offset(0 as libc::c_int as isize) as libc::c_int == '\0' as i32
                     {
                         cli_dbgmsg(
-                            b"Multipart has no subtype assuming alternative\n\0"
-                                as *const u8 as *const libc::c_char,
+                            b"Multipart has no subtype assuming alternative\n\0" as *const u8
+                                as *const libc::c_char,
                         );
-                        mimeSubtype = b"alternative\0" as *const u8
-                            as *const libc::c_char;
+                        mimeSubtype = b"alternative\0" as *const u8 as *const libc::c_char;
                         messageSetMimeSubtype(
                             mainMessage,
                             b"alternative\0" as *const u8 as *const libc::c_char,
@@ -4150,9 +4014,7 @@ unsafe extern "C" fn parseEmailBody(
                     } else {
                         loop {
                             if !((*t_line).t_line).is_null() {
-                                if boundaryStart(lineGetData((*t_line).t_line), boundary)
-                                    != 0
-                                {
+                                if boundaryStart(lineGetData((*t_line).t_line), boundary) != 0 {
                                     break;
                                 }
                                 if binhexBegin(mainMessage) == t_line as *mut text {
@@ -4184,7 +4046,8 @@ unsafe extern "C" fn parseEmailBody(
                         if t_line.is_null() {
                             cli_dbgmsg(
                                 b"Multipart MIME message contains no boundary lines (%s)\n\0"
-                                    as *const u8 as *const libc::c_char,
+                                    as *const u8
+                                    as *const libc::c_char,
                                 boundary,
                             );
                             free(boundary as *mut libc::c_void);
@@ -4202,7 +4065,7 @@ unsafe extern "C" fn parseEmailBody(
                                     messages as *mut libc::c_void,
                                     ((multiparts + 1 as libc::c_int) as libc::c_ulong)
                                         .wrapping_mul(
-                                            ::std::mem::size_of::<*mut message>() as libc::c_ulong,
+                                            ::std::mem::size_of::<*mut message>() as libc::c_ulong
                                         ),
                                 ) as *mut *mut message;
                                 if m.is_null() {
@@ -4247,9 +4110,8 @@ unsafe extern "C" fn parseEmailBody(
                                     } else {
                                         let mut current_block_124: u64;
                                         loop {
-                                            let mut line: *const libc::c_char = lineGetData(
-                                                (*t_line).t_line,
-                                            );
+                                            let mut line: *const libc::c_char =
+                                                lineGetData((*t_line).t_line);
                                             if inMimeHead != 0 {
                                                 if line.is_null() {
                                                     inMimeHead = 0 as libc::c_int;
@@ -4272,8 +4134,11 @@ unsafe extern "C" fn parseEmailBody(
                                                         break;
                                                     } else {
                                                         while *(*__ctype_b_loc())
-                                                            .offset(*line as libc::c_int as isize) as libc::c_int
-                                                            & _ISspace as libc::c_int as libc::c_ushort as libc::c_int
+                                                            .offset(*line as libc::c_int as isize)
+                                                            as libc::c_int
+                                                            & _ISspace as libc::c_int
+                                                                as libc::c_ushort
+                                                                as libc::c_int
                                                             != 0
                                                         {
                                                             line = line.offset(1);
@@ -4288,53 +4153,68 @@ unsafe extern "C" fn parseEmailBody(
                                                     }
                                                 }
                                             } else if inhead != 0 {
-                                                let mut fullline: *mut libc::c_char = 0
-                                                    as *mut libc::c_char;
-                                                let mut ptr: *mut libc::c_char = 0 as *mut libc::c_char;
+                                                let mut fullline: *mut libc::c_char =
+                                                    0 as *mut libc::c_char;
+                                                let mut ptr: *mut libc::c_char =
+                                                    0 as *mut libc::c_char;
                                                 if line.is_null() {
                                                     let next: *const text = (*t_line).t_next;
-                                                    if !next.is_null() && !((*next).t_line).is_null() {
-                                                        let data: *const libc::c_char = lineGetData(
-                                                            (*next).t_line,
-                                                        );
-                                                        if messageGetEncoding(aMessage) as libc::c_uint
-                                                            == NOENCODING as libc::c_int as libc::c_uint
-                                                            && messageGetMimeType(aMessage) as libc::c_uint
-                                                                == APPLICATION as libc::c_int as libc::c_uint
+                                                    if !next.is_null()
+                                                        && !((*next).t_line).is_null()
+                                                    {
+                                                        let data: *const libc::c_char =
+                                                            lineGetData((*next).t_line);
+                                                        if messageGetEncoding(aMessage)
+                                                            as libc::c_uint
+                                                            == NOENCODING as libc::c_int
+                                                                as libc::c_uint
+                                                            && messageGetMimeType(aMessage)
+                                                                as libc::c_uint
+                                                                == APPLICATION as libc::c_int
+                                                                    as libc::c_uint
                                                             && !data.is_null()
                                                             && !(strstr(
                                                                 data,
-                                                                b"base64\0" as *const u8 as *const libc::c_char,
+                                                                b"base64\0" as *const u8
+                                                                    as *const libc::c_char,
                                                             ))
-                                                                .is_null()
+                                                            .is_null()
                                                         {
                                                             messageSetEncoding(
                                                                 aMessage,
-                                                                b"base64\0" as *const u8 as *const libc::c_char,
-                                                            );
-                                                            cli_dbgmsg(
-                                                                b"Ignoring fake end of headers\n\0" as *const u8
+                                                                b"base64\0" as *const u8
                                                                     as *const libc::c_char,
                                                             );
-                                                            current_block_124 = 10109057886293123569;
+                                                            cli_dbgmsg(
+                                                                b"Ignoring fake end of headers\n\0"
+                                                                    as *const u8
+                                                                    as *const libc::c_char,
+                                                            );
+                                                            current_block_124 =
+                                                                10109057886293123569;
                                                         } else if strncmp(
                                                             data,
-                                                            b"Content\0" as *const u8 as *const libc::c_char,
+                                                            b"Content\0" as *const u8
+                                                                as *const libc::c_char,
                                                             7 as libc::c_int as libc::c_ulong,
                                                         ) == 0 as libc::c_int
                                                             || strncmp(
                                                                 data,
-                                                                b"filename=\0" as *const u8 as *const libc::c_char,
+                                                                b"filename=\0" as *const u8
+                                                                    as *const libc::c_char,
                                                                 9 as libc::c_int as libc::c_ulong,
                                                             ) == 0 as libc::c_int
                                                         {
                                                             cli_dbgmsg(
-                                                                b"Ignoring fake end of headers\n\0" as *const u8
+                                                                b"Ignoring fake end of headers\n\0"
+                                                                    as *const u8
                                                                     as *const libc::c_char,
                                                             );
-                                                            current_block_124 = 10109057886293123569;
+                                                            current_block_124 =
+                                                                10109057886293123569;
                                                         } else {
-                                                            current_block_124 = 16937825661756021828;
+                                                            current_block_124 =
+                                                                16937825661756021828;
                                                         }
                                                     } else {
                                                         current_block_124 = 16937825661756021828;
@@ -4351,8 +4231,10 @@ unsafe extern "C" fn parseEmailBody(
                                                         }
                                                     }
                                                 } else if *(*__ctype_b_loc())
-                                                    .offset(*line as libc::c_int as isize) as libc::c_int
-                                                    & _ISspace as libc::c_int as libc::c_ushort as libc::c_int
+                                                    .offset(*line as libc::c_int as isize)
+                                                    as libc::c_int
+                                                    & _ISspace as libc::c_int as libc::c_ushort
+                                                        as libc::c_int
                                                     != 0
                                                 {
                                                     cli_dbgmsg(
@@ -4366,30 +4248,40 @@ unsafe extern "C" fn parseEmailBody(
                                                     {
                                                         messageSetMimeType(
                                                             aMessage,
-                                                            b"application\0" as *const u8 as *const libc::c_char,
+                                                            b"application\0" as *const u8
+                                                                as *const libc::c_char,
                                                         );
                                                     }
                                                 } else {
                                                     inMimeHead = 0 as libc::c_int;
-                                                    if strlen(line) > 1000 as libc::c_int as libc::c_ulong {
+                                                    if strlen(line)
+                                                        > 1000 as libc::c_int as libc::c_ulong
+                                                    {
                                                         cli_dbgmsg(
                                                             b"parseEmailBody: line length exceds RFC2821 maximum length (1000)\n\0"
                                                                 as *const u8 as *const libc::c_char,
                                                         );
                                                     } else {
-                                                        fullline = rfc822comments(line, 0 as *mut libc::c_char);
+                                                        fullline = rfc822comments(
+                                                            line,
+                                                            0 as *mut libc::c_char,
+                                                        );
                                                         if fullline.is_null() {
                                                             fullline = cli_strdup(line);
                                                         }
                                                         while !t_line.is_null()
-                                                            && next_is_folded_header(t_line) as libc::c_int != 0
+                                                            && next_is_folded_header(t_line)
+                                                                as libc::c_int
+                                                                != 0
                                                         {
-                                                            let mut data_0: *const libc::c_char = 0
-                                                                as *const libc::c_char;
+                                                            let mut data_0: *const libc::c_char =
+                                                                0 as *const libc::c_char;
                                                             let mut datasz: size_t = 0;
                                                             t_line = (*t_line).t_next;
                                                             data_0 = lineGetData((*t_line).t_line);
-                                                            if *data_0.offset(1 as libc::c_int as isize) as libc::c_int
+                                                            if *data_0
+                                                                .offset(1 as libc::c_int as isize)
+                                                                as libc::c_int
                                                                 == '\0' as i32
                                                             {
                                                                 cli_dbgmsg(
@@ -4402,14 +4294,22 @@ unsafe extern "C" fn parseEmailBody(
                                                             } else {
                                                                 datasz = (strlen(fullline))
                                                                     .wrapping_add(strlen(data_0))
-                                                                    .wrapping_add(1 as libc::c_int as libc::c_ulong);
-                                                                ptr = cli_realloc(fullline as *mut libc::c_void, datasz)
+                                                                    .wrapping_add(
+                                                                        1 as libc::c_int
+                                                                            as libc::c_ulong,
+                                                                    );
+                                                                ptr = cli_realloc(
+                                                                    fullline as *mut libc::c_void,
+                                                                    datasz,
+                                                                )
                                                                     as *mut libc::c_char;
                                                                 if ptr.is_null() {
                                                                     break;
                                                                 }
                                                                 fullline = ptr;
-                                                                cli_strlcat(fullline, data_0, datasz);
+                                                                cli_strlcat(
+                                                                    fullline, data_0, datasz,
+                                                                );
                                                             }
                                                         }
                                                         cli_dbgmsg(
@@ -4473,15 +4373,21 @@ unsafe extern "C" fn parseEmailBody(
                                                     recursion_level,
                                                 );
                                                 if rc as libc::c_uint
-                                                    == OK_ATTACHMENTS_NOT_SAVED as libc::c_int as libc::c_uint
+                                                    == OK_ATTACHMENTS_NOT_SAVED as libc::c_int
+                                                        as libc::c_uint
                                                     && old_rc as libc::c_uint
                                                         == OK as libc::c_int as libc::c_uint
                                                 {
                                                     rc = OK;
                                                 }
-                                                if !(*messages.offset(multiparts as isize)).is_null() {
-                                                    messageDestroy(*messages.offset(multiparts as isize));
-                                                    let ref mut fresh9 = *messages.offset(multiparts as isize);
+                                                if !(*messages.offset(multiparts as isize))
+                                                    .is_null()
+                                                {
+                                                    messageDestroy(
+                                                        *messages.offset(multiparts as isize),
+                                                    );
+                                                    let ref mut fresh9 =
+                                                        *messages.offset(multiparts as isize);
                                                     *fresh9 = 0 as *mut message;
                                                 }
                                                 multiparts -= 1;
@@ -4493,9 +4399,14 @@ unsafe extern "C" fn parseEmailBody(
                                             }
                                             10 | 13 | 8 | 9 => {}
                                             _ => {
-                                                if !(*messages.offset(multiparts as isize)).is_null() {
-                                                    messageDestroy(*messages.offset(multiparts as isize));
-                                                    let ref mut fresh10 = *messages.offset(multiparts as isize);
+                                                if !(*messages.offset(multiparts as isize))
+                                                    .is_null()
+                                                {
+                                                    messageDestroy(
+                                                        *messages.offset(multiparts as isize),
+                                                    );
+                                                    let ref mut fresh10 =
+                                                        *messages.offset(multiparts as isize);
                                                     *fresh10 = 0 as *mut message;
                                                 }
                                                 multiparts -= 1;
@@ -4529,8 +4440,8 @@ unsafe extern "C" fn parseEmailBody(
                                             b"multipart/knowbot parsed as multipart/mixed for now\n\0"
                                                 as *const u8 as *const libc::c_char,
                                         );
-                                        mimeSubtype = b"mixed\0" as *const u8
-                                            as *const libc::c_char;
+                                        mimeSubtype =
+                                            b"mixed\0" as *const u8 as *const libc::c_char;
                                     }
                                     -1 => {
                                         cli_dbgmsg(
@@ -4538,8 +4449,8 @@ unsafe extern "C" fn parseEmailBody(
                                                 as *const u8 as *const libc::c_char,
                                             mimeSubtype,
                                         );
-                                        mimeSubtype = b"mixed\0" as *const u8
-                                            as *const libc::c_char;
+                                        mimeSubtype =
+                                            b"mixed\0" as *const u8 as *const libc::c_char;
                                     }
                                     _ => {}
                                 }
@@ -4597,7 +4508,7 @@ unsafe extern "C" fn parseEmailBody(
                                             if !(messageGetBody(
                                                 *messages.offset(htmltextPart as isize),
                                             ))
-                                                .is_null()
+                                            .is_null()
                                             {
                                                 aText = textAddMessage(
                                                     aText,
@@ -4608,7 +4519,8 @@ unsafe extern "C" fn parseEmailBody(
                                             i = 0 as libc::c_int;
                                             while i < multiparts {
                                                 if messageGetMimeType(*messages.offset(i as isize))
-                                                    as libc::c_uint == MULTIPART as libc::c_int as libc::c_uint
+                                                    as libc::c_uint
+                                                    == MULTIPART as libc::c_int as libc::c_uint
                                                 {
                                                     htmltextPart = i;
                                                     break;
@@ -4638,12 +4550,16 @@ unsafe extern "C" fn parseEmailBody(
                                                 recursion_level
                                                     .wrapping_add(1 as libc::c_int as libc::c_uint),
                                             );
-                                            if rc as libc::c_uint == OK as libc::c_int as libc::c_uint
-                                                && !(*messages.offset(htmltextPart as isize)).is_null()
+                                            if rc as libc::c_uint
+                                                == OK as libc::c_int as libc::c_uint
+                                                && !(*messages.offset(htmltextPart as isize))
+                                                    .is_null()
                                             {
-                                                messageDestroy(*messages.offset(htmltextPart as isize));
-                                                let ref mut fresh12 = *messages
-                                                    .offset(htmltextPart as isize);
+                                                messageDestroy(
+                                                    *messages.offset(htmltextPart as isize),
+                                                );
+                                                let ref mut fresh12 =
+                                                    *messages.offset(htmltextPart as isize);
                                                 *fresh12 = 0 as *mut message;
                                                 current_block_224 = 5015379258158208590;
                                             } else if rc as libc::c_uint
@@ -4753,7 +4669,8 @@ unsafe extern "C" fn parseEmailBody(
                                                     break;
                                                 }
                                                 if rc as libc::c_uint
-                                                    == OK_ATTACHMENTS_NOT_SAVED as libc::c_int as libc::c_uint
+                                                    == OK_ATTACHMENTS_NOT_SAVED as libc::c_int
+                                                        as libc::c_uint
                                                 {
                                                     rc = OK;
                                                 }
@@ -4767,12 +4684,10 @@ unsafe extern "C" fn parseEmailBody(
                                     messageDestroy(mainMessage);
                                 }
                                 if !aText.is_null() && textIn.is_null() {
-                                    if !infected
-                                        && {
-                                            fb = fileblobCreate();
-                                            !fb.is_null()
-                                        }
-                                    {
+                                    if !infected && {
+                                        fb = fileblobCreate();
+                                        !fb.is_null()
+                                    } {
                                         cli_dbgmsg(
                                             b"Save non mime and/or text/plain part\n\0" as *const u8
                                                 as *const libc::c_char,
@@ -4821,24 +4736,17 @@ unsafe extern "C" fn parseEmailBody(
                     }
                 }
                 rc = FAIL;
-                if strcasecmp(
-                    mimeSubtype,
-                    b"rfc822\0" as *const u8 as *const libc::c_char,
-                ) == 0 as libc::c_int
+                if strcasecmp(mimeSubtype, b"rfc822\0" as *const u8 as *const libc::c_char)
+                    == 0 as libc::c_int
                     || strcasecmp(
                         mimeSubtype,
                         b"delivery-status\0" as *const u8 as *const libc::c_char,
                     ) == 0 as libc::c_int
                 {
-                    let m_0: *mut message = parseEmailHeaders(
-                        mainMessage,
-                        (*mctx).rfc821Table,
-                        &mut heuristicFound,
-                    );
+                    let m_0: *mut message =
+                        parseEmailHeaders(mainMessage, (*mctx).rfc821Table, &mut heuristicFound);
                     if !m_0.is_null() {
-                        cli_dbgmsg(
-                            b"Decode rfc822\n\0" as *const u8 as *const libc::c_char,
-                        );
+                        cli_dbgmsg(b"Decode rfc822\n\0" as *const u8 as *const libc::c_char);
                         messageSetCTX(m_0, (*mctx).ctx);
                         if !mainMessage.is_null() && mainMessage != messageIn {
                             messageDestroy(mainMessage);
@@ -4851,8 +4759,7 @@ unsafe extern "C" fn parseEmailBody(
                                 m_0,
                                 0 as *mut text,
                                 mctx,
-                                recursion_level
-                                    .wrapping_add(1 as libc::c_int as libc::c_uint),
+                                recursion_level.wrapping_add(1 as libc::c_int as libc::c_uint),
                             );
                         }
                         messageDestroy(m_0);
@@ -4871,8 +4778,7 @@ unsafe extern "C" fn parseEmailBody(
                         b"partial\0" as *const u8 as *const libc::c_char,
                     ) == 0 as libc::c_int
                     {
-                        if (*(*(*mctx).ctx).options).mail
-                            & 0x1 as libc::c_int as libc::c_uint != 0
+                        if (*(*(*mctx).ctx).options).mail & 0x1 as libc::c_int as libc::c_uint != 0
                         {
                             if rfc1341(mctx, mainMessage) >= 0 as libc::c_int {
                                 rc = OK;
@@ -4987,8 +4893,7 @@ unsafe extern "C" fn parseEmailBody(
         let mut lookahead_definately_is_bounce: bool = 0 as libc::c_int != 0;
         let mut current_block_361: u64;
         t = aText;
-        while !t.is_null() && rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint
-        {
+        while !t.is_null() && rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint {
             let mut l: *const line_t = (*t).t_line;
             let mut lookahead: *const text = 0 as *const text;
             let mut topofbounce: *const text = 0 as *const text;
@@ -5029,14 +4934,14 @@ unsafe extern "C" fn parseEmailBody(
                                         s,
                                         b"text/plain\0" as *const u8 as *const libc::c_char,
                                     ))
-                                        .is_null()
+                                    .is_null()
                                     {
                                         if !(doPhishingScan == 0
                                             && !(__cli_strcasestr(
                                                 s,
                                                 b"text/html\0" as *const u8 as *const libc::c_char,
                                             ))
-                                                .is_null())
+                                            .is_null())
                                         {
                                             break;
                                         }
@@ -5064,17 +4969,18 @@ unsafe extern "C" fn parseEmailBody(
                                                 s,
                                                 b"multipart/\0" as *const u8 as *const libc::c_char,
                                             ))
-                                                .is_null()
+                                            .is_null()
                                             && (strstr(
                                                 s,
-                                                b"message/rfc822\0" as *const u8 as *const libc::c_char,
+                                                b"message/rfc822\0" as *const u8
+                                                    as *const libc::c_char,
                                             ))
-                                                .is_null()
+                                            .is_null()
                                             && (strstr(
                                                 s,
                                                 b"text/plain\0" as *const u8 as *const libc::c_char,
                                             ))
-                                                .is_null()
+                                            .is_null()
                                         {
                                             break;
                                         }
@@ -5104,7 +5010,8 @@ unsafe extern "C" fn parseEmailBody(
                                     fileblobAddData(
                                         fb,
                                         b"Received: by clamd (bounce)\n\0" as *const u8
-                                            as *const libc::c_char as *const libc::c_uchar,
+                                            as *const libc::c_char
+                                            as *const libc::c_uchar,
                                         28 as libc::c_int as size_t,
                                     );
                                     fileblobSetCTX(fb, (*mctx).ctx);
@@ -5119,7 +5026,11 @@ unsafe extern "C" fn parseEmailBody(
                                             }
                                         } else {
                                             s = lineGetData(l);
-                                            fileblobAddData(fb, s as *const libc::c_uchar, strlen(s));
+                                            fileblobAddData(
+                                                fb,
+                                                s as *const libc::c_uchar,
+                                                strlen(s),
+                                            );
                                         }
                                         fileblobAddData(
                                             fb,
@@ -5141,7 +5052,8 @@ unsafe extern "C" fn parseEmailBody(
                                                         as *const u8 as *const libc::c_char,
                                                     s,
                                                 );
-                                                lookahead_definately_is_bounce = 1 as libc::c_int != 0;
+                                                lookahead_definately_is_bounce =
+                                                    1 as libc::c_int != 0;
                                                 break;
                                             }
                                         }
@@ -5168,17 +5080,12 @@ unsafe extern "C" fn parseEmailBody(
         textDestroy(aText);
         aText = 0 as *mut text;
     }
-    if !mainMessage.is_null()
-        && rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint
-    {
+    if !mainMessage.is_null() && rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint {
         let mut t_line_0: *mut text = 0 as *mut text;
-        if !((*mainMessage).body_first).is_null()
-            && !(encodingLine(mainMessage)).is_null()
-            && {
-                t_line_0 = bounceBegin(mainMessage);
-                !t_line_0.is_null()
-            }
-        {
+        if !((*mainMessage).body_first).is_null() && !(encodingLine(mainMessage)).is_null() && {
+            t_line_0 = bounceBegin(mainMessage);
+            !t_line_0.is_null()
+        } {
             rc = (if exportBounceMessage(mctx, t_line_0) == CL_VIRUS as libc::c_int {
                 VIRUS as libc::c_int
             } else {
@@ -5190,12 +5097,10 @@ unsafe extern "C" fn parseEmailBody(
                 == MESSAGE as libc::c_int as libc::c_uint
             {
                 saveIt = !(encodingLine(mainMessage)).is_null();
-            } else if !((*mainMessage).body_last).is_null()
-                && {
-                    t_line_0 = encodingLine(mainMessage);
-                    !t_line_0.is_null()
-                }
-            {
+            } else if !((*mainMessage).body_last).is_null() && {
+                t_line_0 = encodingLine(mainMessage);
+                !t_line_0.is_null()
+            } {
                 fb = fileblobCreate();
                 if !fb.is_null() {
                     cli_dbgmsg(
@@ -5210,14 +5115,13 @@ unsafe extern "C" fn parseEmailBody(
                     );
                     fileblobAddData(
                         fb,
-                        b"Received: by clamd (bounce)\n\0" as *const u8
-                            as *const libc::c_char as *const libc::c_uchar,
+                        b"Received: by clamd (bounce)\n\0" as *const u8 as *const libc::c_char
+                            as *const libc::c_uchar,
                         28 as libc::c_int as size_t,
                     );
                     fileblobSetCTX(fb, (*mctx).ctx);
-                    if fileblobScanAndDestroy(
-                        textToFileblob(t_line_0, fb, 1 as libc::c_int),
-                    ) == CL_VIRUS as libc::c_int
+                    if fileblobScanAndDestroy(textToFileblob(t_line_0, fb, 1 as libc::c_int))
+                        == CL_VIRUS as libc::c_int
                     {
                         rc = VIRUS;
                     }
@@ -5230,13 +5134,10 @@ unsafe extern "C" fn parseEmailBody(
             }
             if saveIt {
                 cli_dbgmsg(
-                    b"Saving text part to scan, rc = %d\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"Saving text part to scan, rc = %d\n\0" as *const u8 as *const libc::c_char,
                     rc as libc::c_int,
                 );
-                if saveTextPart(mctx, mainMessage, 1 as libc::c_int)
-                    == CL_VIRUS as libc::c_int
-                {
+                if saveTextPart(mctx, mainMessage, 1 as libc::c_int) == CL_VIRUS as libc::c_int {
                     rc = VIRUS;
                 }
                 if mainMessage != messageIn {
@@ -5251,9 +5152,7 @@ unsafe extern "C" fn parseEmailBody(
     if !mainMessage.is_null() && mainMessage != messageIn {
         messageDestroy(mainMessage);
     }
-    if rc as libc::c_uint != FAIL as libc::c_int as libc::c_uint
-        && infected as libc::c_int != 0
-    {
+    if rc as libc::c_uint != FAIL as libc::c_int as libc::c_uint && infected as libc::c_int != 0 {
         rc = VIRUS;
     }
     let ref mut fresh19 = (*mctx).wrkobj;
@@ -5285,7 +5184,9 @@ unsafe extern "C" fn boundaryStart(
     }
     if newline != line as *mut libc::c_char && strlen(line) != 0 {
         let mut p: *mut libc::c_char = 0 as *mut libc::c_char;
-        p = newline.offset(strlen(line) as isize).offset(-(1 as libc::c_int as isize));
+        p = newline
+            .offset(strlen(line) as isize)
+            .offset(-(1 as libc::c_int as isize));
         while p >= newline && *p as libc::c_int == ' ' as i32 {
             let fresh20 = p;
             p = p.offset(-1);
@@ -5307,8 +5208,7 @@ unsafe extern "C" fn boundaryStart(
         }
         return 0 as libc::c_int;
     }
-    if strlen(newline) <= ::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong
-    {
+    if strlen(newline) <= ::std::mem::size_of::<[libc::c_char; 1001]>() as libc::c_ulong {
         out = 0 as *mut libc::c_char;
         ptr = rfc822comments(newline, buf.as_mut_ptr());
     } else {
@@ -5397,7 +5297,9 @@ unsafe extern "C" fn boundaryEnd(
         newline = line as *mut libc::c_char;
     }
     if newline != line as *mut libc::c_char && strlen(line) != 0 {
-        p2 = newline.offset(strlen(line) as isize).offset(-(1 as libc::c_int as isize));
+        p2 = newline
+            .offset(strlen(line) as isize)
+            .offset(-(1 as libc::c_int as isize));
         while p2 >= newline && *p2 as libc::c_int == ' ' as i32 {
             let fresh23 = p2;
             p2 = p2.offset(-1);
@@ -5465,9 +5367,7 @@ unsafe extern "C" fn initialiseTables(
         }
         tableinit = rfc821headers.as_ptr();
         while !((*tableinit).key).is_null() {
-            if tableInsert(*rfc821Table, (*tableinit).key, (*tableinit).value)
-                < 0 as libc::c_int
-            {
+            if tableInsert(*rfc821Table, (*tableinit).key, (*tableinit).value) < 0 as libc::c_int {
                 tableDestroy(*rfc821Table);
                 *rfc821Table = 0 as *mut table_t;
                 return -(1 as libc::c_int);
@@ -5484,9 +5384,7 @@ unsafe extern "C" fn initialiseTables(
         }
         tableinit = mimeSubtypes.as_ptr();
         while !((*tableinit).key).is_null() {
-            if tableInsert(*subtypeTable, (*tableinit).key, (*tableinit).value)
-                < 0 as libc::c_int
-            {
+            if tableInsert(*subtypeTable, (*tableinit).key, (*tableinit).value) < 0 as libc::c_int {
                 tableDestroy(*rfc821Table);
                 tableDestroy(*subtypeTable);
                 *rfc821Table = 0 as *mut table_t;
@@ -5498,10 +5396,7 @@ unsafe extern "C" fn initialiseTables(
     }
     return 0 as libc::c_int;
 }
-unsafe extern "C" fn getTextPart(
-    messages: *const *mut message,
-    size: size_t,
-) -> libc::c_int {
+unsafe extern "C" fn getTextPart(messages: *const *mut message, size: size_t) -> libc::c_int {
     let mut i: size_t = 0;
     let mut textpart: libc::c_int = -(1 as libc::c_int);
     i = 0 as libc::c_int as size_t;
@@ -5544,8 +5439,10 @@ unsafe extern "C" fn strip(buf: *mut libc::c_char, mut len: libc::c_int) -> size
             && {
                 ptr = ptr.offset(-1);
                 *(*__ctype_b_loc()).offset(*ptr as libc::c_int as isize) as libc::c_int
-                    & _ISgraph as libc::c_int as libc::c_ushort as libc::c_int == 0
-            } && *ptr as libc::c_int != '\n' as i32
+                    & _ISgraph as libc::c_int as libc::c_ushort as libc::c_int
+                    == 0
+            }
+            && *ptr as libc::c_int != '\n' as i32
             && *ptr as libc::c_int != '\r' as i32)
         {
             break;
@@ -5612,13 +5509,12 @@ unsafe extern "C" fn parseMimeHeader(
                 );
             } else {
                 let mut i: libc::c_int = 0;
-                buf = cli_malloc(
-                    (strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong),
-                ) as *mut libc::c_char;
+                buf = cli_malloc((strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong))
+                    as *mut libc::c_char;
                 if buf.is_null() {
                     cli_errmsg(
-                        b"parseMimeHeader: Unable to allocate memory for buf %llu\n\0"
-                            as *const u8 as *const libc::c_char,
+                        b"parseMimeHeader: Unable to allocate memory for buf %llu\n\0" as *const u8
+                            as *const libc::c_char,
                         (strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong)
                             as libc::c_ulonglong,
                     );
@@ -5632,30 +5528,20 @@ unsafe extern "C" fn parseMimeHeader(
                         b"Content-type '/' received, assuming application/octet-stream\n\0"
                             as *const u8 as *const libc::c_char,
                     );
-                    messageSetMimeType(
-                        m,
-                        b"application\0" as *const u8 as *const libc::c_char,
-                    );
-                    messageSetMimeSubtype(
-                        m,
-                        b"octet-stream\0" as *const u8 as *const libc::c_char,
-                    );
+                    messageSetMimeType(m, b"application\0" as *const u8 as *const libc::c_char);
+                    messageSetMimeSubtype(m, b"octet-stream\0" as *const u8 as *const libc::c_char);
                 } else {
-                    while *(*__ctype_b_loc())
-                        .offset(*ptr as libc::c_uchar as libc::c_int as isize)
+                    while *(*__ctype_b_loc()).offset(*ptr as libc::c_uchar as libc::c_int as isize)
                         as libc::c_int
-                        & _ISspace as libc::c_int as libc::c_ushort as libc::c_int != 0
+                        & _ISspace as libc::c_int as libc::c_ushort as libc::c_int
+                        != 0
                     {
                         ptr = ptr.offset(1);
                     }
-                    if *ptr.offset(0 as libc::c_int as isize) as libc::c_int
-                        == '"' as i32
-                    {
+                    if *ptr.offset(0 as libc::c_int as isize) as libc::c_int == '"' as i32 {
                         ptr = ptr.offset(1);
                     }
-                    if *ptr.offset(0 as libc::c_int as isize) as libc::c_int
-                        != '/' as i32
-                    {
+                    if *ptr.offset(0 as libc::c_int as isize) as libc::c_int != '/' as i32 {
                         let mut s: *mut libc::c_char = 0 as *mut libc::c_char;
                         let mut strptr: *mut libc::c_char = 0 as *mut libc::c_char;
                         s = cli_strtokbuf(
@@ -5745,7 +5631,7 @@ unsafe extern "C" fn parseMimeHeader(
                         b";\0" as *const u8 as *const libc::c_char,
                         buf,
                     ))
-                        .is_null()
+                    .is_null()
                     {
                         break;
                     }
@@ -5765,13 +5651,12 @@ unsafe extern "C" fn parseMimeHeader(
             messageSetEncoding(m, ptr);
         }
         3 => {
-            buf = cli_malloc(
-                (strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong),
-            ) as *mut libc::c_char;
+            buf = cli_malloc((strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong))
+                as *mut libc::c_char;
             if buf.is_null() {
                 cli_errmsg(
-                    b"parseMimeHeader: Unable to allocate memory for buf %llu\n\0"
-                        as *const u8 as *const libc::c_char,
+                    b"parseMimeHeader: Unable to allocate memory for buf %llu\n\0" as *const u8
+                        as *const libc::c_char,
                     (strlen(ptr)).wrapping_add(1 as libc::c_int as libc::c_ulong)
                         as libc::c_ulonglong,
                 );
@@ -5799,10 +5684,7 @@ unsafe extern "C" fn parseMimeHeader(
                 );
             }
             if messageHasFilename(m) == 0 {
-                messageAddArgument(
-                    m,
-                    b"filename=unknown\0" as *const u8 as *const libc::c_char,
-                );
+                messageAddArgument(m, b"filename=unknown\0" as *const u8 as *const libc::c_char);
             }
         }
         _ => {}
@@ -5821,7 +5703,10 @@ unsafe extern "C" fn saveTextPart(
     destroy_text: libc::c_int,
 ) -> libc::c_int {
     let mut fb: *mut fileblob = 0 as *mut fileblob;
-    messageAddArgument(m, b"filename=textportion\0" as *const u8 as *const libc::c_char);
+    messageAddArgument(
+        m,
+        b"filename=textportion\0" as *const u8 as *const libc::c_char,
+    );
     fb = messageToFileblob(m, (*mctx).dir, destroy_text);
     if !fb.is_null() {
         cli_dbgmsg(b"Saving main message\n\0" as *const u8 as *const libc::c_char);
@@ -5841,16 +5726,15 @@ unsafe extern "C" fn rfc822comments(
     let mut inquote: libc::c_int = 0;
     let mut commentlevel: libc::c_int = 0;
     if in_0.is_null() || out == in_0 as *mut libc::c_char {
-        cli_errmsg(
-            b"rfc822comments: Invalid parameters.n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_errmsg(b"rfc822comments: Invalid parameters.n\0" as *const u8 as *const libc::c_char);
         return 0 as *mut libc::c_char;
     }
     if (strchr(in_0, '(' as i32)).is_null() {
         return 0 as *mut libc::c_char;
     }
-    while *(*__ctype_b_loc()).offset(*in_0 as libc::c_uchar as libc::c_int as isize)
-        as libc::c_int & _ISspace as libc::c_int as libc::c_ushort as libc::c_int != 0
+    while *(*__ctype_b_loc()).offset(*in_0 as libc::c_uchar as libc::c_int as isize) as libc::c_int
+        & _ISspace as libc::c_int as libc::c_ushort as libc::c_int
+        != 0
     {
         in_0 = in_0.offset(1);
     }
@@ -5859,10 +5743,9 @@ unsafe extern "C" fn rfc822comments(
             as *mut libc::c_char;
         if out.is_null() {
             cli_errmsg(
-                b"rfc822comments: Unable to allocate memory for out %llu\n\0"
-                    as *const u8 as *const libc::c_char,
-                (strlen(in_0)).wrapping_add(1 as libc::c_int as libc::c_ulong)
-                    as libc::c_ulonglong,
+                b"rfc822comments: Unable to allocate memory for out %llu\n\0" as *const u8
+                    as *const libc::c_char,
+                (strlen(in_0)).wrapping_add(1 as libc::c_int as libc::c_ulong) as libc::c_ulonglong,
             );
             return 0 as *mut libc::c_char;
         }
@@ -5871,9 +5754,7 @@ unsafe extern "C" fn rfc822comments(
     commentlevel = inquote;
     backslash = commentlevel;
     optr = out;
-    cli_dbgmsg(
-        b"rfc822comments: contains a comment\n\0" as *const u8 as *const libc::c_char,
-    );
+    cli_dbgmsg(b"rfc822comments: contains a comment\n\0" as *const u8 as *const libc::c_char);
     iptr = in_0;
     while *iptr != 0 {
         if backslash != 0 {
@@ -5945,15 +5826,17 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
     {
         return cli_strdup(in_0);
     }
-    cli_dbgmsg(b"rfc2047 '%s'\n\0" as *const u8 as *const libc::c_char, in_0);
+    cli_dbgmsg(
+        b"rfc2047 '%s'\n\0" as *const u8 as *const libc::c_char,
+        in_0,
+    );
     out = cli_malloc((strlen(in_0)).wrapping_add(1 as libc::c_int as libc::c_ulong))
         as *mut libc::c_char;
     if out.is_null() {
         cli_errmsg(
             b"rfc2047: Unable to allocate memory for out %llu\n\0" as *const u8
                 as *const libc::c_char,
-            (strlen(in_0)).wrapping_add(1 as libc::c_int as libc::c_ulong)
-                as libc::c_ulonglong,
+            (strlen(in_0)).wrapping_add(1 as libc::c_int as libc::c_ulong) as libc::c_ulonglong,
         );
         return 0 as *mut libc::c_char;
     }
@@ -6002,13 +5885,11 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
                     __res = tolower(encoding as libc::c_int);
                 }
             } else {
-                __res = *(*__ctype_tolower_loc())
-                    .offset(encoding as libc::c_int as isize);
+                __res = *(*__ctype_tolower_loc()).offset(encoding as libc::c_int as isize);
             }
             __res
         }) as libc::c_char;
-        if encoding as libc::c_int != 'q' as i32 && encoding as libc::c_int != 'b' as i32
-        {
+        if encoding as libc::c_int != 'q' as i32 && encoding as libc::c_int != 'b' as i32 {
             cli_warnmsg(
                 b"Unsupported RFC2047 encoding type '%c' - if you believe this file contains a virus, submit it to www.clamav.net\n\0"
                     as *const u8 as *const libc::c_char,
@@ -6074,8 +5955,7 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
                             } else {
                                 len = blobGetDataSize(b);
                                 cli_dbgmsg(
-                                    b"Decoded as '%*.*s'\n\0" as *const u8
-                                        as *const libc::c_char,
+                                    b"Decoded as '%*.*s'\n\0" as *const u8 as *const libc::c_char,
                                     len as libc::c_int,
                                     len as libc::c_int,
                                     blobGetData(b) as *const libc::c_char,
@@ -6089,14 +5969,15 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
                                 messageDestroy(m);
                                 if len > 0 as libc::c_int as libc::c_ulong
                                     && *pout
-                                        .offset(
-                                            len.wrapping_sub(1 as libc::c_int as libc::c_ulong) as isize,
-                                        ) as libc::c_int == '\n' as i32
+                                        .offset(len.wrapping_sub(1 as libc::c_int as libc::c_ulong)
+                                            as isize)
+                                        as libc::c_int
+                                        == '\n' as i32
                                 {
-                                    pout = pout
-                                        .offset(
-                                            len.wrapping_sub(1 as libc::c_int as libc::c_ulong) as isize,
-                                        );
+                                    pout = pout.offset(
+                                        len.wrapping_sub(1 as libc::c_int as libc::c_ulong)
+                                            as isize,
+                                    );
                                 } else {
                                     pout = pout.offset(len as isize);
                                 }
@@ -6111,13 +5992,13 @@ unsafe extern "C" fn rfc2047(mut in_0: *const libc::c_char) -> *mut libc::c_char
         return 0 as *mut libc::c_char;
     }
     *pout = '\0' as i32 as libc::c_char;
-    cli_dbgmsg(b"rfc2047 returns '%s'\n\0" as *const u8 as *const libc::c_char, out);
+    cli_dbgmsg(
+        b"rfc2047 returns '%s'\n\0" as *const u8 as *const libc::c_char,
+        out,
+    );
     return out;
 }
-unsafe extern "C" fn rfc1341(
-    mctx: *mut mbox_ctx,
-    m: *mut message,
-) -> libc::c_int {
+unsafe extern "C" fn rfc1341(mctx: *mut mbox_ctx, m: *mut message) -> libc::c_int {
     let mut arg: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut id: *mut libc::c_char = 0 as *mut libc::c_char;
     let mut number: *mut libc::c_char = 0 as *mut libc::c_char;
@@ -6129,9 +6010,7 @@ unsafe extern "C" fn rfc1341(
     let mut md5_val: [libc::c_uchar; 16] = [0; 16];
     let mut md5_hex: *mut libc::c_char = 0 as *mut libc::c_char;
     if mctx.is_null() || m.is_null() {
-        cli_dbgmsg(
-            b"rfc1341: Invalid NULL arguments\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_dbgmsg(b"rfc1341: Invalid NULL arguments\n\0" as *const u8 as *const libc::c_char);
         return -(1 as libc::c_int);
     }
     id = messageFindArgument(m, b"id\0" as *const u8 as *const libc::c_char);
@@ -6158,7 +6037,8 @@ unsafe extern "C" fn rfc1341(
     if mkdir(
         pdir.as_mut_ptr(),
         (0o400 as libc::c_int | 0o200 as libc::c_int) as __mode_t,
-    ) < 0 as libc::c_int && *__errno_location() != 17 as libc::c_int
+    ) < 0 as libc::c_int
+        && *__errno_location() != 17 as libc::c_int
     {
         cli_errmsg(
             b"Can't create the directory '%s'\n\0" as *const u8 as *const libc::c_char,
@@ -6180,9 +6060,18 @@ unsafe extern "C" fn rfc1341(
                 st_size: 0,
                 st_blksize: 0,
                 st_blocks: 0,
-                st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
-                st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
-                st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+                st_atim: timespec {
+                    tv_sec: 0,
+                    tv_nsec: 0,
+                },
+                st_mtim: timespec {
+                    tv_sec: 0,
+                    tv_nsec: 0,
+                },
+                st_ctim: timespec {
+                    tv_sec: 0,
+                    tv_nsec: 0,
+                },
                 __glibc_reserved: [0; 3],
             };
             if stat(pdir.as_mut_ptr(), &mut statb) < 0 as libc::c_int {
@@ -6205,13 +6094,15 @@ unsafe extern "C" fn rfc1341(
                         as *const libc::c_char,
                     pdir.as_mut_ptr(),
                     (statb.st_mode
-                        & (0o400 as libc::c_int | 0o200 as libc::c_int
+                        & (0o400 as libc::c_int
+                            | 0o200 as libc::c_int
                             | 0o100 as libc::c_int
-                            | (0o400 as libc::c_int | 0o200 as libc::c_int
-                                | 0o100 as libc::c_int) >> 3 as libc::c_int
-                            | (0o400 as libc::c_int | 0o200 as libc::c_int
-                                | 0o100 as libc::c_int) >> 3 as libc::c_int
-                                >> 3 as libc::c_int) as libc::c_uint) as libc::c_int,
+                            | (0o400 as libc::c_int | 0o200 as libc::c_int | 0o100 as libc::c_int)
+                                >> 3 as libc::c_int
+                            | (0o400 as libc::c_int | 0o200 as libc::c_int | 0o100 as libc::c_int)
+                                >> 3 as libc::c_int
+                                >> 3 as libc::c_int) as libc::c_uint)
+                        as libc::c_int,
                 );
             }
         }
@@ -6228,7 +6119,12 @@ unsafe extern "C" fn rfc1341(
             .wrapping_add(strlen(number)),
     ) as *mut libc::c_char;
     if !arg.is_null() {
-        sprintf(arg, b"filename=%s%s\0" as *const u8 as *const libc::c_char, id, number);
+        sprintf(
+            arg,
+            b"filename=%s%s\0" as *const u8 as *const libc::c_char,
+            id,
+            number,
+        );
         messageAddArgument(m, arg);
         free(arg as *mut libc::c_void);
     }
@@ -6256,9 +6152,7 @@ unsafe extern "C" fn rfc1341(
         free(number as *mut libc::c_void);
         return CL_EMEM as libc::c_int;
     }
-    if messageSavePartial(m, pdir.as_mut_ptr(), md5_hex, n as libc::c_uint)
-        < 0 as libc::c_int
-    {
+    if messageSavePartial(m, pdir.as_mut_ptr(), md5_hex, n as libc::c_uint) < 0 as libc::c_int {
         free(md5_hex as *mut libc::c_void);
         free(id as *mut libc::c_void);
         free(number as *mut libc::c_void);
@@ -6279,12 +6173,10 @@ unsafe extern "C" fn rfc1341(
         let t: libc::c_int = atoi(total);
         let mut dd: *mut DIR = 0 as *mut DIR;
         free(total as *mut libc::c_void);
-        if n == t
-            && {
-                dd = opendir(pdir.as_mut_ptr());
-                !dd.is_null()
-            }
-        {
+        if n == t && {
+            dd = opendir(pdir.as_mut_ptr());
+            !dd.is_null()
+        } {
             let mut fout: *mut FILE = 0 as *mut FILE;
             let mut outname: [libc::c_char; 4097] = [0; 4097];
             let mut now: time_t = 0;
@@ -6349,13 +6241,21 @@ unsafe extern "C" fn rfc1341(
                         st_size: 0,
                         st_blksize: 0,
                         st_blocks: 0,
-                        st_atim: timespec { tv_sec: 0, tv_nsec: 0 },
-                        st_mtim: timespec { tv_sec: 0, tv_nsec: 0 },
-                        st_ctim: timespec { tv_sec: 0, tv_nsec: 0 },
+                        st_atim: timespec {
+                            tv_sec: 0,
+                            tv_nsec: 0,
+                        },
+                        st_mtim: timespec {
+                            tv_sec: 0,
+                            tv_nsec: 0,
+                        },
+                        st_ctim: timespec {
+                            tv_sec: 0,
+                            tv_nsec: 0,
+                        },
                         __glibc_reserved: [0; 3],
                     };
-                    let mut dentry_idpart: *const libc::c_char = 0
-                        as *const libc::c_char;
+                    let mut dentry_idpart: *const libc::c_char = 0 as *const libc::c_char;
                     let mut test_fd: libc::c_int = 0;
                     if (*dent).d_ino == 0 as libc::c_int as libc::c_ulong {
                         continue;
@@ -6381,16 +6281,12 @@ unsafe extern "C" fn rfc1341(
                     );
                     dentry_idpart = strchr(((*dent).d_name).as_mut_ptr(), '_' as i32);
                     if dentry_idpart.is_null()
-                        || strcmp(filename.as_mut_ptr(), dentry_idpart)
-                            != 0 as libc::c_int
+                        || strcmp(filename.as_mut_ptr(), dentry_idpart) != 0 as libc::c_int
                     {
                         if (*(*(*m).ctx).engine).keeptmp == 0 {
                             continue;
                         }
-                        test_fd = open(
-                            fullname.as_mut_ptr(),
-                            0 as libc::c_int | 0 as libc::c_int,
-                        );
+                        test_fd = open(fullname.as_mut_ptr(), 0 as libc::c_int | 0 as libc::c_int);
                         if test_fd < 0 as libc::c_int {
                             continue;
                         }
@@ -6398,8 +6294,8 @@ unsafe extern "C" fn rfc1341(
                             close(test_fd);
                         } else {
                             if now - statb_0.st_mtim.tv_sec
-                                > (7 as libc::c_int * 24 as libc::c_int
-                                    * 3600 as libc::c_int) as time_t
+                                > (7 as libc::c_int * 24 as libc::c_int * 3600 as libc::c_int)
+                                    as time_t
                             {
                                 if cli_unlink(fullname.as_mut_ptr()) != 0 {
                                     cli_unlink(outname.as_mut_ptr());
@@ -6436,17 +6332,14 @@ unsafe extern "C" fn rfc1341(
                         nblanks = 0 as libc::c_int;
                         while !(fgets(
                             buffer.as_mut_ptr(),
-                            (::std::mem::size_of::<[libc::c_char; 8192]>()
-                                as libc::c_ulong)
+                            (::std::mem::size_of::<[libc::c_char; 8192]>() as libc::c_ulong)
                                 .wrapping_sub(1 as libc::c_int as libc::c_ulong)
                                 as libc::c_int,
                             fin,
                         ))
-                            .is_null()
+                        .is_null()
                         {
-                            if buffer[0 as libc::c_int as usize] as libc::c_int
-                                == '\n' as i32
-                            {
+                            if buffer[0 as libc::c_int as usize] as libc::c_int == '\n' as i32 {
                                 nblanks += 1;
                             } else {
                                 if nblanks != 0 {
@@ -6513,19 +6406,18 @@ unsafe extern "C" fn extract_text_urls(
     let mut off: size_t = 0;
     off = 0 as libc::c_int as size_t;
     while off.wrapping_add(10 as libc::c_int as libc::c_ulong) < len {
-        let mut proto: int32_t = (*(mem.offset(off as isize) as *const unaligned_32))
-            .una_s32;
+        let mut proto: int32_t = (*(mem.offset(off as isize) as *const unaligned_32)).una_s32;
         proto |= 0x20202020 as libc::c_int;
         if proto == 0x70747468 as libc::c_int
             && (*mem.offset(off.wrapping_add(4 as libc::c_int as libc::c_ulong) as isize)
-                as libc::c_int == ':' as i32
-                || *mem
-                    .offset(off.wrapping_add(5 as libc::c_int as libc::c_ulong) as isize)
-                    as libc::c_int == 's' as i32
-                    && *mem
-                        .offset(
-                            off.wrapping_add(6 as libc::c_int as libc::c_ulong) as isize,
-                        ) as libc::c_int == ':' as i32)
+                as libc::c_int
+                == ':' as i32
+                || *mem.offset(off.wrapping_add(5 as libc::c_int as libc::c_ulong) as isize)
+                    as libc::c_int
+                    == 's' as i32
+                    && *mem.offset(off.wrapping_add(6 as libc::c_int as libc::c_ulong) as isize)
+                        as libc::c_int
+                        == ':' as i32)
             || proto == 0x3a707466 as libc::c_int
         {
             let mut url_len: size_t = 0;
@@ -6535,9 +6427,9 @@ unsafe extern "C" fn extract_text_urls(
                     < (::std::mem::size_of::<[libc::c_char; 1024]>() as libc::c_ulong)
                         .wrapping_sub(1 as libc::c_int as libc::c_ulong)
             {
-                let c: libc::c_uchar = *mem
-                    .offset(off.wrapping_add(url_len) as isize);
-                if c as libc::c_int == ' ' as i32 || c as libc::c_int == '\n' as i32
+                let c: libc::c_uchar = *mem.offset(off.wrapping_add(url_len) as isize);
+                if c as libc::c_int == ' ' as i32
+                    || c as libc::c_int == '\n' as i32
                     || c as libc::c_int == '\t' as i32
                 {
                     break;
@@ -6560,10 +6452,7 @@ unsafe extern "C" fn extract_text_urls(
         off = off.wrapping_add(1);
     }
 }
-unsafe extern "C" fn getHrefs(
-    m: *mut message,
-    mut hrefs: *mut tag_arguments_t,
-) -> *mut blob {
+unsafe extern "C" fn getHrefs(m: *mut message, mut hrefs: *mut tag_arguments_t) -> *mut blob {
     let mut mem: *mut libc::c_uchar = 0 as *mut libc::c_uchar;
     let b: *mut blob = messageToBlob(m, 0 as libc::c_int);
     let mut len: size_t = 0;
@@ -6590,9 +6479,7 @@ unsafe extern "C" fn getHrefs(
     *fresh39 = *fresh38;
     let ref mut fresh40 = (*hrefs).contents;
     *fresh40 = 0 as *mut *mut libc::c_uchar;
-    cli_dbgmsg(
-        b"getHrefs: calling html_normalise_mem\n\0" as *const u8 as *const libc::c_char,
-    );
+    cli_dbgmsg(b"getHrefs: calling html_normalise_mem\n\0" as *const u8 as *const libc::c_char);
     mem = blobGetData(b);
     if html_normalise_mem(
         mem,
@@ -6605,9 +6492,7 @@ unsafe extern "C" fn getHrefs(
         blobDestroy(b);
         return 0 as *mut blob;
     }
-    cli_dbgmsg(
-        b"getHrefs: html_normalise_mem returned\n\0" as *const u8 as *const libc::c_char,
-    );
+    cli_dbgmsg(b"getHrefs: html_normalise_mem returned\n\0" as *const u8 as *const libc::c_char);
     if (*hrefs).count == 0 && (*hrefs).scanContents != 0 {
         extract_text_urls(mem, len, hrefs);
     }
@@ -6630,9 +6515,8 @@ unsafe extern "C" fn checkURLs(
     if *rc as libc::c_uint == VIRUS as libc::c_int as libc::c_uint {
         return;
     }
-    hrefs
-        .scanContents = ((*(*(*mctx).ctx).engine).dboptions
-        & 0x8 as libc::c_int as libc::c_uint != 0
+    hrefs.scanContents = ((*(*(*mctx).ctx).engine).dboptions & 0x8 as libc::c_int as libc::c_uint
+        != 0
         && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
         as libc::c_int;
     if hrefs.scanContents == 0 {
@@ -6656,16 +6540,11 @@ unsafe extern "C" fn checkURLs(
     }
     hrefs_done(b, &mut hrefs);
 }
-unsafe extern "C" fn usefulHeader(
-    commandNumber: libc::c_int,
-    cmd: *const libc::c_char,
-) -> bool {
+unsafe extern "C" fn usefulHeader(commandNumber: libc::c_int, cmd: *const libc::c_char) -> bool {
     match commandNumber {
         2 | 3 | 1 => return 1 as libc::c_int != 0,
         _ => {
-            if strcasecmp(cmd, b"From\0" as *const u8 as *const libc::c_char)
-                == 0 as libc::c_int
-            {
+            if strcasecmp(cmd, b"From\0" as *const u8 as *const libc::c_char) == 0 as libc::c_int {
                 return 1 as libc::c_int != 0;
             }
             if strcasecmp(cmd, b"Received\0" as *const u8 as *const libc::c_char)
@@ -6673,9 +6552,7 @@ unsafe extern "C" fn usefulHeader(
             {
                 return 1 as libc::c_int != 0;
             }
-            if strcasecmp(cmd, b"De\0" as *const u8 as *const libc::c_char)
-                == 0 as libc::c_int
-            {
+            if strcasecmp(cmd, b"De\0" as *const u8 as *const libc::c_char) == 0 as libc::c_int {
                 return 1 as libc::c_int != 0;
             }
         }
@@ -6702,10 +6579,7 @@ unsafe extern "C" fn getline_from_mbox(
     cursrc = fmap_need_off_once(map, *at, input_len) as *const libc::c_char;
     src = cursrc;
     if src.is_null() {
-        cli_dbgmsg(
-            b"getline_from_mbox: fmap need failed\n\0" as *const u8
-                as *const libc::c_char,
-        );
+        cli_dbgmsg(b"getline_from_mbox: fmap need failed\n\0" as *const u8 as *const libc::c_char);
         return 0 as *mut libc::c_char;
     }
     if buffer_len == 0 as libc::c_int as libc::c_ulong || buffer.is_null() {
@@ -6767,10 +6641,7 @@ unsafe extern "C" fn getline_from_mbox(
     *curbuf = '\0' as i32 as libc::c_char;
     return buffer;
 }
-unsafe extern "C" fn isBounceStart(
-    mctx: *mut mbox_ctx,
-    mut line: *const libc::c_char,
-) -> bool {
+unsafe extern "C" fn isBounceStart(mctx: *mut mbox_ctx, mut line: *const libc::c_char) -> bool {
     let mut len: size_t = 0;
     if line.is_null() {
         return 0 as libc::c_int != 0;
@@ -6779,9 +6650,7 @@ unsafe extern "C" fn isBounceStart(
         return 0 as libc::c_int != 0;
     }
     len = strlen(line);
-    if len < 6 as libc::c_int as libc::c_ulong
-        || len >= 72 as libc::c_int as libc::c_ulong
-    {
+    if len < 6 as libc::c_int as libc::c_ulong || len >= 72 as libc::c_int as libc::c_ulong {
         return 0 as libc::c_int != 0;
     }
     if memcmp(
@@ -6803,7 +6672,8 @@ unsafe extern "C" fn isBounceStart(
                 numSpaces += 1;
             } else if *(*__ctype_b_loc())
                 .offset((*line as libc::c_int & 0xff as libc::c_int) as isize)
-                as libc::c_int & _ISdigit as libc::c_int as libc::c_ushort as libc::c_int
+                as libc::c_int
+                & _ISdigit as libc::c_int as libc::c_ushort as libc::c_int
                 != 0
             {
                 numDigits += 1;
@@ -6822,16 +6692,13 @@ unsafe extern "C" fn isBounceStart(
         return 1 as libc::c_int != 0;
     }
     return cli_compare_ftm_file(line as *const libc::c_uchar, len, (*(*mctx).ctx).engine)
-        as libc::c_uint == CL_TYPE_MAIL as libc::c_int as libc::c_uint;
+        as libc::c_uint
+        == CL_TYPE_MAIL as libc::c_int as libc::c_uint;
 }
-unsafe extern "C" fn exportBinhexMessage(
-    mctx: *mut mbox_ctx,
-    m: *mut message,
-) -> bool {
+unsafe extern "C" fn exportBinhexMessage(mctx: *mut mbox_ctx, m: *mut message) -> bool {
     let mut infected: bool = 0 as libc::c_int != 0;
     let mut fb: *mut fileblob = 0 as *mut fileblob;
-    if messageGetEncoding(m) as libc::c_uint == NOENCODING as libc::c_int as libc::c_uint
-    {
+    if messageGetEncoding(m) as libc::c_uint == NOENCODING as libc::c_int as libc::c_uint {
         messageSetEncoding(m, b"x-binhex\0" as *const u8 as *const libc::c_char);
     }
     fb = messageToFileblob(m, (*mctx).dir, 0 as libc::c_int);
@@ -6853,10 +6720,7 @@ unsafe extern "C" fn exportBinhexMessage(
     }
     return infected;
 }
-unsafe extern "C" fn exportBounceMessage(
-    mctx: *mut mbox_ctx,
-    mut start: *mut text,
-) -> libc::c_int {
+unsafe extern "C" fn exportBounceMessage(mctx: *mut mbox_ctx, mut start: *mut text) -> libc::c_int {
     let mut rc: libc::c_int = CL_CLEAN as libc::c_int;
     let mut t: *mut text = 0 as *mut text;
     let mut fb: *mut fileblob = 0 as *mut fileblob;
@@ -6871,16 +6735,12 @@ unsafe extern "C" fn exportBounceMessage(
                 b":\0" as *const u8 as *const libc::c_char,
                 cmd.as_mut_ptr(),
             ))
-                .is_null()
+            .is_null()
             {
                 match tableFind((*mctx).rfc821Table, cmd.as_mut_ptr()) {
                     2 => {
-                        if (strstr(txt, b"7bit\0" as *const u8 as *const libc::c_char))
-                            .is_null()
-                            && (strstr(
-                                txt,
-                                b"8bit\0" as *const u8 as *const libc::c_char,
-                            ))
+                        if (strstr(txt, b"7bit\0" as *const u8 as *const libc::c_char)).is_null()
+                            && (strstr(txt, b"8bit\0" as *const u8 as *const libc::c_char))
                                 .is_null()
                         {
                             break;
@@ -6890,10 +6750,7 @@ unsafe extern "C" fn exportBounceMessage(
                         break;
                     }
                     1 => {
-                        if !(strstr(
-                            txt,
-                            b"text/plain\0" as *const u8 as *const libc::c_char,
-                        ))
+                        if !(strstr(txt, b"text/plain\0" as *const u8 as *const libc::c_char))
                             .is_null()
                         {
                             t = 0 as *mut text;
@@ -6920,12 +6777,10 @@ unsafe extern "C" fn exportBounceMessage(
         }
         t = (*t).t_next;
     }
-    if !t.is_null()
-        && {
-            fb = fileblobCreate();
-            !fb.is_null()
-        }
-    {
+    if !t.is_null() && {
+        fb = fileblobCreate();
+        !fb.is_null()
+    } {
         cli_dbgmsg(b"Found a bounce message\n\0" as *const u8 as *const libc::c_char);
         fileblobSetFilename(
             fb,
@@ -6945,9 +6800,7 @@ unsafe extern "C" fn exportBounceMessage(
         let ref mut fresh47 = (*mctx).files;
         *fresh47 = (*fresh47).wrapping_add(1);
     } else {
-        cli_dbgmsg(
-            b"Not found a bounce message\n\0" as *const u8 as *const libc::c_char,
-        );
+        cli_dbgmsg(b"Not found a bounce message\n\0" as *const u8 as *const libc::c_char);
     }
     return rc;
 }
@@ -6984,10 +6837,10 @@ unsafe extern "C" fn do_multipart(
     let mut addToText: bool = 0 as libc::c_int != 0;
     let mut dtype: *const libc::c_char = 0 as *const libc::c_char;
     let aMessage: *mut message = *messages.offset(i as isize);
-    let doPhishingScan: libc::c_int = ((*(*(*mctx).ctx).engine).dboptions
-        & 0x8 as libc::c_int as libc::c_uint != 0
-        && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
-        as libc::c_int;
+    let doPhishingScan: libc::c_int =
+        ((*(*(*mctx).ctx).engine).dboptions & 0x8 as libc::c_int as libc::c_uint != 0
+            && (*(*(*mctx).ctx).dconf).phishing & 0x1 as libc::c_int as libc::c_uint != 0)
+            as libc::c_int;
     let mut thisobj: *mut json_object = 0 as *mut json_object;
     let saveobj: *mut json_object = (*mctx).wrkobj;
     if !((*mctx).wrkobj).is_null() {
@@ -6997,15 +6850,13 @@ unsafe extern "C" fn do_multipart(
         );
         if multiobj.is_null() {
             cli_errmsg(
-                b"Cannot get multipart preclass array\n\0" as *const u8
-                    as *const libc::c_char,
+                b"Cannot get multipart preclass array\n\0" as *const u8 as *const libc::c_char,
             );
         } else {
             thisobj = messageGetJObj(aMessage);
             if thisobj.is_null() {
                 cli_dbgmsg(
-                    b"Cannot get message preclass object\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"Cannot get message preclass object\n\0" as *const u8 as *const libc::c_char,
                 );
             } else if CL_SUCCESS as libc::c_int as libc::c_uint
                 != cli_json_addowner(
@@ -7088,8 +6939,8 @@ unsafe extern "C" fn do_multipart(
             if !mainMessage.is_null() {
                 if !(binhexBegin(aMessage)).is_null() {
                     cli_dbgmsg(
-                        b"Found binhex message in multipart/mixed mainMessage\n\0"
-                            as *const u8 as *const libc::c_char,
+                        b"Found binhex message in multipart/mixed mainMessage\n\0" as *const u8
+                            as *const libc::c_char,
                     );
                     if exportBinhexMessage(mctx, mainMessage) {
                         *rc = VIRUS;
@@ -7102,8 +6953,8 @@ unsafe extern "C" fn do_multipart(
             } else if !aMessage.is_null() {
                 if !(binhexBegin(aMessage)).is_null() {
                     cli_dbgmsg(
-                        b"Found binhex message in multipart/mixed non mime part\n\0"
-                            as *const u8 as *const libc::c_char,
+                        b"Found binhex message in multipart/mixed non mime part\n\0" as *const u8
+                            as *const libc::c_char,
                     );
                     if exportBinhexMessage(mctx, aMessage) {
                         *rc = VIRUS;
@@ -7113,9 +6964,7 @@ unsafe extern "C" fn do_multipart(
             }
             addToText = 1 as libc::c_int != 0;
             if (messageGetBody(aMessage)).is_null() {
-                cli_dbgmsg(
-                    b"No plain text alternative\n\0" as *const u8 as *const libc::c_char,
-                );
+                cli_dbgmsg(b"No plain text alternative\n\0" as *const u8 as *const libc::c_char);
             }
         }
         6 => {
@@ -7160,20 +7009,19 @@ unsafe extern "C" fn do_multipart(
                         }
                     } else {
                         let is_html: libc::c_int = (tableFind((*mctx).subtypeTable, cptr)
-                            == 3 as libc::c_int) as libc::c_int;
+                            == 3 as libc::c_int)
+                            as libc::c_int;
                         if doPhishingScan != 0 {
                             checkURLs(aMessage, mctx, rc, is_html);
                         }
                         messageAddArgument(
                             aMessage,
-                            b"filename=mixedtextportion\0" as *const u8
-                                as *const libc::c_char,
+                            b"filename=mixedtextportion\0" as *const u8 as *const libc::c_char,
                         );
                     }
                 } else {
                     cli_dbgmsg(
-                        b"Text type %s is not supported\n\0" as *const u8
-                            as *const libc::c_char,
+                        b"Text type %s is not supported\n\0" as *const u8 as *const libc::c_char,
                         dtype,
                     );
                     return mainMessage;
@@ -7190,8 +7038,8 @@ unsafe extern "C" fn do_multipart(
                 0 | 3 | 4 => {
                     if (encodingLine(aMessage)).is_null() {
                         cli_dbgmsg(
-                            b"Unencoded multipart/message will not be scanned\n\0"
-                                as *const u8 as *const libc::c_char,
+                            b"Unencoded multipart/message will not be scanned\n\0" as *const u8
+                                as *const libc::c_char,
                         );
                         messageDestroy(*messages.offset(i as isize));
                         let ref mut fresh48 = *messages.offset(i as isize);
@@ -7205,8 +7053,7 @@ unsafe extern "C" fn do_multipart(
                 b"Encoded multipart/message will be scanned\n\0" as *const u8
                     as *const libc::c_char,
             );
-            if saveTextPart(mctx, aMessage, 1 as libc::c_int) == CL_VIRUS as libc::c_int
-            {
+            if saveTextPart(mctx, aMessage, 1 as libc::c_int) == CL_VIRUS as libc::c_int {
                 *rc = VIRUS;
             }
             messageDestroy(*messages.offset(i as isize));
@@ -7215,10 +7062,7 @@ unsafe extern "C" fn do_multipart(
             return mainMessage;
         }
         5 => {
-            cli_dbgmsg(
-                b"Found multipart inside multipart\n\0" as *const u8
-                    as *const libc::c_char,
-            );
+            cli_dbgmsg(b"Found multipart inside multipart\n\0" as *const u8 as *const libc::c_char);
             let ref mut fresh50 = (*mctx).wrkobj;
             *fresh50 = thisobj;
             if !aMessage.is_null() {
@@ -7229,8 +7073,7 @@ unsafe extern "C" fn do_multipart(
                     recursion_level.wrapping_add(1 as libc::c_int as libc::c_uint),
                 );
                 cli_dbgmsg(
-                    b"Finished recursion, rc = %d\n\0" as *const u8
-                        as *const libc::c_char,
+                    b"Finished recursion, rc = %d\n\0" as *const u8 as *const libc::c_char,
                     *rc as libc::c_int,
                 );
                 messageDestroy(*messages.offset(i as isize));
@@ -7261,11 +7104,7 @@ unsafe extern "C" fn do_multipart(
         }
     }
     if *rc as libc::c_uint != VIRUS as libc::c_int as libc::c_uint {
-        let fb: *mut fileblob = messageToFileblob(
-            aMessage,
-            (*mctx).dir,
-            1 as libc::c_int,
-        );
+        let fb: *mut fileblob = messageToFileblob(aMessage, (*mctx).dir, 1 as libc::c_int);
         let mut arrobj: *mut json_object = 0 as *mut json_object;
         let mut arrlen: size_t = 0 as libc::c_int as size_t;
         if !thisobj.is_null() {
@@ -7357,9 +7196,10 @@ unsafe extern "C" fn next_is_folded_header(t: *const text) -> bool {
         return 0 as libc::c_int != 0;
     }
     data = lineGetData((*next).t_line);
-    if *(*__ctype_b_loc())
-        .offset(*data.offset(0 as libc::c_int as isize) as libc::c_int as isize)
-        as libc::c_int & _ISblank as libc::c_int as libc::c_ushort as libc::c_int != 0
+    if *(*__ctype_b_loc()).offset(*data.offset(0 as libc::c_int as isize) as libc::c_int as isize)
+        as libc::c_int
+        & _ISblank as libc::c_int as libc::c_ushort as libc::c_int
+        != 0
     {
         return 1 as libc::c_int != 0;
     }
