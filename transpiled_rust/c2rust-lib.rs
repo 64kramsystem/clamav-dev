@@ -4,6 +4,7 @@
 #![allow(unused_assignments)]
 #![feature(extern_types)]
 #![feature(linkage)]
+#![allow(clashing_extern_declarations)]
 
 #[macro_use]
 extern crate c2rust_bitfields;
