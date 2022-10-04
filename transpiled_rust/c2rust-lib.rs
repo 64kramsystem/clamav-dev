@@ -5,6 +5,7 @@
 #![feature(extern_types)]
 #![feature(linkage)]
 #![allow(clashing_extern_declarations)]
+#![allow(clippy::all)]
 
 #[macro_use]
 extern crate c2rust_bitfields;
