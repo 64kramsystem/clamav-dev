@@ -16,6 +16,8 @@ image = "0.24"
 rustdct = "0.7"
 transpose = "0.2"
 num-traits = "0.2"
+# Transpiled modules
+c2rust-bitfields = "0.3"
 
 [lib]
 crate-type = ["staticlib"]

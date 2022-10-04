@@ -445,8 +445,8 @@ set(LIBCLAMAV_SOURCES
     iana_cctld.h
     iana_tld.h
     line.c              line.h
-    mbox.c              mbox.h
-    message.c           message.h
+                        mbox.h
+                        message.h
     phish_domaincheck_db.c phish_domaincheck_db.h
     phish_allow_list.c  phish_allow_list.h
     phishcheck.c        phishcheck.h
