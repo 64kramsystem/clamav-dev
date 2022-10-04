@@ -1,3 +1,5 @@
+#![allow(clippy::all)]
+
 /*
  *  libclamav features written in Rust
  *
