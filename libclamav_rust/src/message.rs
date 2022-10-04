@@ -1,5 +1,7 @@
 use ::c2rust_bitfields;
 use ::libc;
+
+use crate::mbox::tolower;
 extern "C" {
     pub type _IO_wide_data;
     pub type _IO_codecvt;
@@ -1264,16 +1266,16 @@ pub struct encoding_map {
     pub string: *const libc::c_char,
     pub type_0: encoding_type,
 }
-#[no_mangle]
-#[inline]
-#[linkage = "external"]
-pub unsafe extern "C" fn tolower(mut __c: libc::c_int) -> libc::c_int {
-    return if __c >= -(128 as libc::c_int) && __c < 256 as libc::c_int {
-        *(*__ctype_tolower_loc()).offset(__c as isize)
-    } else {
-        __c
-    };
-}
+// #[no_mangle]
+// #[inline]
+// #[linkage = "external"]
+// pub unsafe extern "C" fn tolower(mut __c: libc::c_int) -> libc::c_int {
+//     return if __c >= -(128 as libc::c_int) && __c < 256 as libc::c_int {
+//         *(*__ctype_tolower_loc()).offset(__c as isize)
+//     } else {
+//         __c
+//     };
+// }
 static mut encoding_map: [encoding_map; 13] = [
     {
         let init = encoding_map {
